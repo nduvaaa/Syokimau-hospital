@@ -1,0 +1,1725 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Information - Syokimau Hospital</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ... keep existing code (basic styling, header styles, navigation, dropdown, etc) */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        
+        body {
+            width: 100vw;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .content-section {
+    padding: 3rem 0; /* Remove left/right padding, keep top/bottom */
+    width: 100vw; /* Ensure full width */
+    margin-left: 0; /* No offset */
+}
+
+        /* Sticky Header Container */
+        .header-container {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            z-index: 1000;
+        }
+
+        .topnavbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 3rem;
+            background-color: #ffffff;
+            height: 60px;
+        }
+
+        .left-section {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            height: 40px;
+            margin-right: 1rem;
+        }
+
+        .primary-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .right-section {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            cursor: pointer;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link:hover {
+            color: #007bff;
+        }
+
+        .nav-link.active {
+            color: #007bff;
+            border-bottom: 2px solid #007bff;
+        }
+
+        .phone-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #28a745;
+            font-weight: bold;
+            border-bottom: none;
+        }
+
+        .phone-link:hover {
+            color: #218838;
+        }
+
+        .phone-link.active {
+            border-bottom: none;
+            color: #28a745;
+        }
+
+        .translate-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .translate-btn:hover {
+            background-color: #e9ecef;
+        }
+
+        .translate-btn img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .goog-te-gadget {
+            font-family: inherit !important;
+            color: transparent !important;
+            line-height: normal !important;
+        }
+
+        .goog-te-gadget .goog-te-combo {
+            margin: 0 !important;
+            padding: 2px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+            vertical-align: middle;
+        }
+
+        .goog-te-gadget span {
+            display: none !important;
+        }
+
+        .goog-te-gadget>div {
+            display: inline-block !important;
+            background: none !important;
+        }
+
+        .goog-te-gadget-simple {
+            background-color: transparent !important;
+            border: none !important;
+            padding: 0 !important;
+            font-size: inherit !important;
+            display: inline-block !important;
+        }
+
+        /* Bottom Navbar */
+        .bottomnavbar {
+            background-color: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+            padding: 0 3rem;
+            height: 105px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-menu-desktop {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        /* Search Icon */
+        .search-icon {
+            cursor: pointer;
+            color: #333;
+            transition: color 0.3s ease;
+            padding: 0.5rem;
+        }
+
+        .search-icon:hover {
+            color: #007bff;
+        }
+
+
+
+                /* Mobile Menu */
+                .mobile-controls {
+            display: none;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 0.5rem;
+            color: #333;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: #f8f9fa;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+            max-height: calc(100vh - 60px);
+            overflow-y: auto;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu .nav-link {
+            display: block;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #e9ecef;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .mobile-menu .nav-link:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-menu .nav-link:hover {
+            background-color: #e9ecef;
+            color: #0056b3;
+        }
+
+        .mobile-menu .section-heading {
+            background-color: #e9ecef;
+            padding: 0.8rem 1.5rem;
+            font-weight: bold;
+            color: #555;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .mobile-menu .submenu {
+            padding-left: 1.5rem;
+            background-color: #ffffff;
+            display: none;
+        }
+
+        .mobile-menu .submenu .nav-link {
+            padding-left: 2.5rem;
+            font-weight: 400;
+            border-color: #f1f1f1;
+        }
+
+        .mobile-menu .submenu.active {
+            display: block;
+        }
+
+        .mobile-menu .dropdown-toggle {
+            position: relative;
+        }
+
+        .mobile-menu .dropdown-toggle::after {
+            content: "+";
+            position: absolute;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.4rem;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+            color: #888;
+        }
+
+        .mobile-menu .dropdown-toggle.expanded::after {
+            content: "−";
+            color: #555;
+        }
+
+        /* Desktop Dropdown Styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #ffffff;
+            min-width: 220px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.15);
+            z-index: 1001;
+            border-radius: 4px;
+            margin-top: 0.5rem;
+            border: 1px solid #e9ecef;
+            overflow: hidden;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.2s ease, color 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #007bff;
+            color: #ffffff;
+        }
+
+        .dropdown.active .dropdown-content {
+            display: block;
+        }
+
+        /* Dropdown Arrow Style */
+        .dropdown-arrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding-bottom: 0.5rem;
+        }
+
+        .dropdown-arrow::after {
+            content: "";
+            display: inline-block;
+            width: 0.4rem;
+            height: 0.4rem;
+            margin-left: 0.3rem;
+            margin-top: -0.1rem;
+            border-right: 2px solid currentColor;
+            border-bottom: 2px solid currentColor;
+            transform: rotate(45deg);
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown.active .dropdown-arrow::after {
+            transform: rotate(-135deg);
+            margin-top: 0.1rem;
+        }
+
+        /* Google Translate Fixes */
+        html {
+            scroll-padding-top: 165px;
+        }
+
+        body.translated-ltr {
+            top: 0 !important;
+        }
+
+        body.translated-rtl {
+            top: 0 !important;
+        }
+
+        .skiptranslate {
+            display: none !important;
+            visibility: hidden !important;
+        }
+
+        iframe.goog-te-banner-frame {
+            display: none !important;
+            visibility: hidden !important;
+        }
+
+        body>.skiptranslate {
+            display: none !important;
+            visibility: hidden !important;
+        }
+
+        /* Insurance Info Hero Section */
+        .insurance-hero {
+            margin-top: 165px;
+            padding: 60px 5%;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            text-align: center;
+        }
+
+        .insurance-hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: #007bff;
+            position: relative;
+            display: inline-block;
+        }
+
+        .insurance-hero h1::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #007bff;
+            border-radius: 2px;
+        }
+
+        .insurance-subtitle {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            color: #555;
+        }
+
+        /* Carousel Styles */
+        .carousel-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+        }
+
+        .carousel-slide {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 400px;
+        }
+
+        .carousel-item {
+            min-width: 100%;
+            display: flex;
+            padding: 0;
+            background: #fff;
+        }
+
+        .carousel-item-content {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .carousel-item-img {
+            flex: 1;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .carousel-item h2 {
+            font-size: 2rem;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .carousel-item p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        .carousel-btn {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            align-self: flex-start;
+        }
+
+        .carousel-btn:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+        }
+
+        /* Carousel Navigation */
+        .carousel-controls {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(0, 123, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background-color: #007bff;
+            transform: scale(1.2);
+        }
+
+        /* Insurance Cards Section */
+        .insurance-cards {
+            padding: 80px 5% 60px;
+            background-color: #fff;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+            color: #333;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: #007bff;
+            border-radius: 2px;
+        }
+
+        .cards-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .info-card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #eaeaea;
+        }
+
+        .info-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-card-header {
+            padding: 20px;
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+        }
+
+        .info-card-header h3 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        .info-card-body {
+            padding: 25px;
+        }
+
+        .info-card-body ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .info-card-body li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        .info-card-body li:last-child {
+            border-bottom: none;
+        }
+
+        .info-card-body li i {
+            color: #007bff;
+            margin-right: 10px;
+        }
+
+        .info-card-footer {
+            padding: 15px 25px;
+            background-color: #f8f9fa;
+            text-align: center;
+        }
+
+        .info-link {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .info-link:hover {
+            color: #0056b3;
+        }
+
+        /* Insurance Process Steps */
+        .process-section {
+            padding: 80px 5%;
+            background-color: #f9f9f9;
+        }
+
+        .process-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .process-steps {
+            margin-top: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .process-step {
+            flex: 1 1 200px;
+            max-width: 300px;
+            text-align: center;
+            padding: 30px 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .step-icon {
+            font-size: 2.5rem;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .process-step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .process-step p {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 5%;
+            background-color: #fff;
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-list {
+            margin-top: 40px;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            background-color: #f8f9fa;
+            color: #333;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: #e9ecef;
+        }
+
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-answer {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-answer-content {
+            padding: 0 20px;
+        }
+
+        .faq-item.active .faq-question {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 1000px;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 5%;
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-text {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn-primary {
+            background-color: white;
+            color: #007bff;
+        }
+
+        .cta-btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-btn-primary:hover {
+            background-color: #f8f9fa;
+        }
+
+        .cta-btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 60px 5% 30px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #007BFF;
+        }
+
+        .address {
+            margin-bottom: 20px;
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        .social-footer {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-footer a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-footer a:hover {
+            background-color: #007BFF;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ccc;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 1024px) {
+            .topnavbar,
+            .bottomnavbar {
+                padding: 0 2rem;
+            }
+            
+            .bottomnavbar {
+                height: 55px;
+            }
+            
+            html {
+                scroll-padding-top: 115px;
+            }
+
+            .insurance-hero {
+                margin-top: 115px;
+            }
+            
+            .carousel-item {
+                flex-direction: column;
+            }
+            
+            .carousel-item-img {
+                min-height: 200px;
+            }
+            
+            .carousel-slide {
+                height: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            html {
+                scroll-padding-top: 60px;
+            }
+
+            .topnavbar {
+                justify-content: space-between;
+                padding: 0 1rem;
+                height: 60px;
+            }
+
+            /* Hide desktop elements */
+            .left-section .primary-links,
+            .right-section,
+            .bottomnavbar {
+                display: none;
+            }
+
+            /* Show mobile controls */
+            .mobile-controls,
+            .menu-toggle {
+                display: flex;
+            }
+
+            .mobile-controls {
+                margin-left: auto;
+            }
+
+            .insurance-hero {
+                margin-top: 60px;
+                padding: 40px 20px;
+            }
+            
+            .insurance-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .carousel-item-content {
+                padding: 30px 20px;
+            }
+            
+            .carousel-item h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .process-steps {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .process-step {
+                max-width: 100%;
+            }
+            
+            .cta-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .logo {
+                height: 35px;
+                margin-right: 0.5rem;
+            }
+
+            .mobile-menu .nav-link {
+                font-size: 1rem;
+                padding: 0.9rem 1rem;
+            }
+
+            .mobile-menu .section-heading {
+                padding: 0.7rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .mobile-menu .submenu .nav-link {
+                padding-left: 1.5rem;
+            }
+
+
+            .insurance-hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .carousel-item h2 {
+                font-size: 1.5rem;
+            }
+            
+            .carousel-item p {
+                font-size: 1rem;
+            }
+            
+            .carousel-btn {
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header-container">
+        <nav class="topnavbar">
+            <div class="left-section">
+                <div class="logo-container">
+                    <a href="../../home/home.html">
+                        <img src="../../home/logo.png" alt="Hospital Logo" class="logo">
+                    </a>
+                </div>
+                <div class="primary-links">
+                    <a class="nav-link section-toggle active" data-section="patients">For Patients</a>
+                    <a class="nav-link " href="providers.html">For Providers</a>
+                </div>
+            </div>
+
+            <div class="right-section">
+                <a href="tel:+2547113566500" class="nav-link phone-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                    </svg>
+                    +254 113 566 500
+                </a>
+                <div class="translate-btn">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Google_Translate_logo.svg"
+                        alt="Translate">
+                    <div id="google_translate_element"></div>
+                </div>
+            </div>
+
+            <div class="mobile-controls">
+                <div class="search-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                        class="bi bi-search" viewBox="0 0 16 16">
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                    </svg>
+                </div>
+                <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+            </div>
+        </nav>
+
+        <nav class="bottomnavbar">
+            <div class="nav-menu-desktop">
+                <div class="dropdown" >
+                <a href="#Care" class="nav-link dropdown-arrow">Get Care</a>
+                <div class="dropdown-content">
+                    <a href="../../get-care/virtual.html">Virtual Care</a>
+                    <a href="../../get-care/urgent.html">Urgent Care</a>
+                    <a href="../../services/departments/all-services.html">Primary Care</a>
+                    <a href="maternal.html">Maternal</a>
+                    <a href="../../get-care/care.html">Browse All</a>
+                </div>
+            </div>
+                    <a href="../../finddoc/finddoc.html" class="nav-link">Find a Doctor</a>
+
+                <div class="dropdown">
+                    <a href="#Services" class="nav-link dropdown-arrow">Our Services</a>
+                    <div class="dropdown-content">
+                        <a href="../../services/departments/emergency.html">Emergency Care</a>
+                        <a href="../../services/departments/cardiology.html">Cardiology</a>
+                        <a href="orthopedics.html">Orthopedics</a>
+                        <a href="pediatrics.html">Pediatrics</a>
+                        <a href="../../services/departments/all-services.html">All Services</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#More" class="nav-link dropdown-arrow">Learn More</a>
+                    <div class="dropdown-content">
+                        <a href="../about/about.html">About Us</a>
+                        <a href="insurance.html">Insurance Information</a>
+                        <a href="../location/location.html">Our Locations</a>
+                        <a href="../events/events.html">Events & Classes</a>
+                        <a href="../faq/faq.html">FAQs</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#Records" class="nav-link dropdown-arrow">Records & Billing</a>
+                    <div class="dropdown-content">
+                        <a href="../../billing/medical-records.html">Medical Records</a>
+                        <a href="../../billing/billing-info.html">Billing Information</a>
+                        <a href="../../billing/insurance-verification.html">Insurance Verification</a>
+                        <a href="../../get-care/message.html">Financial Assistance</a>
+                    </div>
+                </div>
+
+                <div class="search-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                        class="bi bi-search" viewBox="0 0 16 16">
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                    </svg>
+                </div>
+            </div>
+        </nav>
+
+        <div class="mobile-menu">
+            <a class="nav-link section-toggle active" data-section="patients">For Patients</a>
+            <a class="nav-link section-toggle" data-section="providers">For Providers</a>
+            <hr style="border: none; border-top: 1px solid #dee2e6; margin: 0;">
+
+            <div class="section-heading">Patient Menu</div>
+            <a class="nav-link dropdown-toggle" data-submenu="care-menu-mobile">Get Care</a>
+            <div id="care-menu-mobile" class="submenu">
+                <a href="../../get-care/virtual.html" class="nav-link">Virtual Care</a>
+                <a href="../../get-care/urgent.html" class="nav-link">Urgent Care</a>
+                <a href="../../services/departments/all-services.html" class="nav-link">Primary Care</a>
+                <a href="Maternal.html" class="nav-link">Maternal</a>
+            </div>
+                <a href="../../finddoc/finddoc.html" class="nav-link">Find a Doctor</a>
+
+            <a class="nav-link dropdown-toggle" data-submenu="services-menu-mobile">Our Services</a>
+            <div id="services-menu-mobile" class="submenu">
+                <a href="../../services/departments/emergency.html" class="nav-link">Emergency Care</a>
+                <a href="../../services/departments/cardiology.html" class="nav-link">Cardiology</a>
+                <a href="Orthopedics.html" class="nav-link">Orthopedics</a>
+                <a href="Pediatrics.html" class="nav-link">Pediatrics</a>
+                <a href="../../services/departments/all-services.html" class="nav-link">All Services</a>
+            </div>
+
+            <a class="nav-link dropdown-toggle" data-submenu="learn-menu-mobile">Learn More</a>
+            <div id="learn-menu-mobile" class="submenu">
+                <a href="../about/about.html" class="nav-link">About Us</a>
+                <a href="insurance.html" class="nav-link">Insurance Information</a>
+                <a href="../location/location.html" class="nav-link">Our Locations</a>
+                <a href="../events/events.html" class="nav-link">Events & Classes</a>
+                <a href="../faq/faq.html" class="nav-link">FAQs</a>
+            </div>
+
+            <a class="nav-link dropdown-toggle" data-submenu="records-menu-mobile">Records & Billing</a>
+            <div id="records-menu-mobile" class="submenu">
+                <a href="../../billing/medical-records.html" class="nav-link">Medical Records</a>
+                <a href="../../billing/billing-info.html" class="nav-link">Billing Information</a>
+                <a href="../../billing/insurance-verification.html" class="nav-link">Insurance Verification</a>
+                <a href="../../get-care/message.html" class="nav-link">Financial Assistance</a>
+            </div>
+
+            <div class="section-heading">Contact</div>
+            <a href="tel:+2547113566500" class="nav-link phone-link"
+                style="padding-left: 1.5rem; border-bottom: 1px solid #e9ecef;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                </svg>
+                +254 113 566 500
+            </a>
+
+            <div style="padding: 1rem 1.5rem;">
+                <div class="translate-btn">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Google_Translate_logo.svg"
+                        alt="Translate">
+                    <div id="google_translate_element_mobile"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Insurance Hero Section -->
+    <section class="insurance-hero">
+        <h1>Insurance Information</h1>
+        <p class="insurance-subtitle">Syokimau Hospital works with a wide range of insurance providers to ensure you receive the care you need. Learn more about our insurance policies, coverage options, and payment plans.</p>
+        
+        <!-- Carousel Container -->
+        <div class="carousel-container">
+            <div class="carousel-slide" id="carouselSlide">
+                <!-- Carousel Item 1 -->
+                <div class="carousel-item">
+                    <div class="carousel-item-content">
+                        <h2>Understanding Your Coverage</h2>
+                        <p>Navigating health insurance can be complex. Our team is here to help you understand your policy, benefits, and coverage details to make informed healthcare decisions.</p>
+                        <a href="#coverage-details" class="carousel-btn">Learn More</a>
+                    </div>
+                    <div class="carousel-item-img" style="background-image: url('https://images.unsplash.com/photo-1579154204601-01588f351e67?q=80&w=1470&auto=format&fit=crop')"></div>
+                </div>
+                
+                <!-- Carousel Item 2 -->
+                <div class="carousel-item">
+                    <div class="carousel-item-content">
+                        <h2>Accepted Insurance Providers</h2>
+                        <p>We accept a wide range of insurance plans including national providers and local options. Check our comprehensive list to see if your insurance is accepted.</p>
+                        <a href="#providers-list" class="carousel-btn">View Providers</a>
+                    </div>
+                    <div class="carousel-item-img" style="background-image: url('https://images.unsplash.com/photo-1556742049-0a2e25ee3cac?q=80&w=1470&auto=format&fit=crop')"></div>
+                </div>
+                
+                <!-- Carousel Item 3 -->
+                <div class="carousel-item">
+                    <div class="carousel-item-content">
+                        <h2>Billing & Claims Process</h2>
+                        <p>Our billing department works diligently to process claims accurately and efficiently. Learn about our billing procedures and how we can assist with your insurance claims.</p>
+                        <a href="#billing-process" class="carousel-btn">Billing Info</a>
+                    </div>
+                    <div class="carousel-item-img" style="background-image: url('https://images.unsplash.com/photo-1589429011019-44991751e948?q=80&w=1471&auto=format&fit=crop')"></div>
+                </div>
+                
+                <!-- Carousel Item 4 -->
+                <div class="carousel-item">
+                    <div class="carousel-item-content">
+                        <h2>Financial Assistance</h2>
+                        <p>We believe everyone deserves quality healthcare. If you're uninsured or need help with medical costs, our financial assistance programs may help.</p>
+                        <a href="#financial-help" class="carousel-btn">Get Help</a>
+                    </div>
+                    <div class="carousel-item-img" style="background-image: url('https://images.unsplash.com/photo-1593538312308-d4c29d8dc7f1?q=80&w=1470&auto=format&fit=crop')"></div>
+                </div>
+            </div>
+            
+            <!-- Carousel Controls -->
+            <div class="carousel-controls" id="carouselControls">
+                <div class="carousel-dot active" data-slide="0"></div>
+                <div class="carousel-dot" data-slide="1"></div>
+                <div class="carousel-dot" data-slide="2"></div>
+                <div class="carousel-dot" data-slide="3"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Insurance Cards Section -->
+    <section class="insurance-cards" id="providers-list">
+        <h2 class="section-title">Our Partner Providers</h2>
+        <div class="cards-container">
+            <!-- Card 1 -->
+            <div class="info-card">
+                <div class="info-card-header">
+                    <h3>National Plans</h3>
+                </div>
+                <div class="info-card-body">
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> National Hospital Insurance Fund (NHIF)</li>
+                        <li><i class="fas fa-check-circle"></i> AAR Insurance Kenya</li>
+                        <li><i class="fas fa-check-circle"></i> Jubilee Health Insurance</li>
+                        <li><i class="fas fa-check-circle"></i> CIC General Insurance</li>
+                        <li><i class="fas fa-check-circle"></i> Resolution Insurance</li>
+                    </ul>
+                </div>
+                <div class="info-card-footer">
+                    <a href="insurance-providers.html" class="info-link">
+                        <span>View Details</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Card 2 -->
+            <div class="info-card">
+                <div class="info-card-header">
+                    <h3>International Plans</h3>
+                </div>
+                <div class="info-card-body">
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Bupa International</li>
+                        <li><i class="fas fa-check-circle"></i> Cigna Global</li>
+                        <li><i class="fas fa-check-circle"></i> Allianz Worldwide Care</li>
+                        <li><i class="fas fa-check-circle"></i> GeoBlue Expatriate Insurance</li>
+                        <li><i class="fas fa-check-circle"></i> AXA PPP Healthcare</li>
+                    </ul>
+                </div>
+                <div class="info-card-footer">
+                    <a href="insurance-providers.html" class="info-link">
+                        <span>View Details</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Card 3 -->
+            <div class="info-card">
+                <div class="info-card-header">
+                    <h3>Corporate Plans</h3>
+                </div>
+                <div class="info-card-body">
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Corporate Group Schemes</li>
+                        <li><i class="fas fa-check-circle"></i> Employer-Sponsored Plans</li>
+                        <li><i class="fas fa-check-circle"></i> Customized Health Packages</li>
+                        <li><i class="fas fa-check-circle"></i> Employee Benefits Programs</li>
+                        <li><i class="fas fa-check-circle"></i> Wellness Initiatives</li>
+                    </ul>
+                </div>
+                <div class="info-card-footer">
+                    <a href="insurance-providers.html" class="info-link">
+                        <span>View Details</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Insurance Process Steps -->
+    <section class="process-section" id="billing-process">
+        <div class="process-container">
+            <h2 class="section-title">Our Insurance Process</h2>
+            <div class="process-steps">
+                <!-- Step 1 -->
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-id-card"></i>
+                    </div>
+                    <h3>Verification</h3>
+                    <p>Present your insurance card at registration. Our staff will verify your coverage and benefits before your appointment.</p>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-stethoscope"></i>
+                    </div>
+                    <h3>Service</h3>
+                    <p>Receive the healthcare services you need from our qualified medical professionals.</p>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-file-invoice"></i>
+                    </div>
+                    <h3>Billing</h3>
+                    <p>We submit claims to your insurance provider and handle all necessary documentation.</p>
+                </div>
+                
+                <!-- Step 4 -->
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3>Follow-Up</h3>
+                    <p>Our billing department will follow up on claims and notify you of any remaining balances.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="coverage-details">
+        <div class="faq-container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do I know if my insurance is accepted?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>You can check our list of accepted insurance providers on this page or contact our billing department directly at +254 113 566 500. We are constantly expanding our network, so it's best to verify even if you don't see your provider listed.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What should I bring to my appointment?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Please bring your insurance card, a valid photo ID, any necessary referral forms, and payment for any known co-pays or deductibles. If you have any questions about your specific requirements, please call ahead.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How does the billing process work?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>After your visit, we'll submit a claim to your insurance provider. Once processed, they will send an Explanation of Benefits (EOB) detailing what was covered. We will then bill you for any remaining balance. If you have questions about your bill, our billing department is available to assist you.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 4 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What if I don't have insurance?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>We offer various payment options and financial assistance programs for uninsured patients. Our financial counselors can work with you to find the best solution for your situation, including payment plans and potential discounts.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 5 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you offer payment plans?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Yes, we offer flexible payment plans to help make your medical expenses more manageable. Our financial counselors will work with you to set up a plan that fits your budget. Contact our billing office to discuss your options.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="financial-help">
+        <div class="cta-container">
+            <h2 class="cta-title">Need Assistance?</h2>
+            <p class="cta-text">Our dedicated team is here to help you navigate insurance matters and financial concerns. Don't hesitate to reach out with any questions about coverage, billing, or payment options.</p>
+            <div class="cta-buttons">
+                <a href="tel:+2547113566500" class="cta-btn cta-btn-primary">Call Us Now</a>
+                <a href="#" class="cta-btn cta-btn-secondary">Schedule Consultation</a>
+            </div>
+        </div>
+    </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>Syokimau Hospital</h3>
+                    <p class="address">
+                        123 Syokimau Road<br>
+                        Machakos County, Kenya<br><br>
+                        <strong>Phone:</strong> +254 113 566 500<br>
+                        <strong>Email:</strong> info@syokimauhospital.com
+                    </p>
+                    <div class="social-footer">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="../../services/departments/emergency.html">Emergency Care</a></li>
+                        <li><a href="../../services/departments/cardiology.html">Cardiology</a></li>
+                        <li><a href="#">Pediatrics</a></li>
+                        <li><a href="#">Orthopedics</a></li>
+                        <li><a href="../../services/departments/all-services.html">All Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="../../home/home.html">Home</a></li>
+                        <li><a href="../about/about.html">About Us</a></li>
+                        <li><a href="../../finddoc/finddoc.html">Find a Doctor</a></li>
+                        <li><a href="../../get-care/message.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Opening Hours</h3>
+                    <ul class="footer-links">
+                        <li>Monday - Friday: 24 hours</li>
+                        <li>Saturday: 24 hours</li>
+                        <li>Sunday: 24 hours</li>
+                        <li>Emergency: Always Open</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Syokimau Hospital. All rights reserved.</p>
+            </div>
+        </footer>
+    
+    <script type="text/javascript">
+        // Google Translate Initialization
+        function googleTranslateElementInit() {
+            // Desktop Translator
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'ar,en,es,fr,sw,zh-CN',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
+    
+            // Mobile Translator
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'ar,en,es,fr,sw,zh-CN',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element_mobile');
+        }
+    
+        // Trigger language change for Google Translate
+        function triggerLanguageChange(langCode) {
+            const iframe = document.querySelector('.goog-te-banner-frame');
+            if (iframe) {
+                const innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+                const langSelect = innerDoc.querySelector('.goog-te-combo');
+                if (langSelect) {
+                    langSelect.value = langCode;
+                    langSelect.dispatchEvent(new Event('change'));
+                }
+            } else {
+                const desktopSelect = document.querySelector('#google_translate_element select');
+                const mobileSelect = document.querySelector('#google_translate_element_mobile select');
+                if (desktopSelect) {
+                    desktopSelect.value = langCode;
+                    desktopSelect.dispatchEvent(new Event('change'));
+                } else if (mobileSelect) {
+                    mobileSelect.value = langCode;
+                    mobileSelect.dispatchEvent(new Event('change'));
+                }
+            }
+        }
+    
+        // Main DOM Content Loaded Event Listener
+        document.addEventListener('DOMContentLoaded', function () {
+            // === Mobile Menu and Dropdowns ===
+            const menuToggle = document.querySelector('.menu-toggle');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const headerContainer = document.querySelector('.header-container');
+            const dropdownToggles = mobileMenu.querySelectorAll('.dropdown-toggle');
+            const sectionToggles = document.querySelectorAll('.section-toggle');
+            const contentSections = document.querySelectorAll('.content-section');
+            const desktopDropdowns = document.querySelectorAll('.nav-menu-desktop .dropdown');
+    
+            // Mobile menu toggle
+            menuToggle?.addEventListener('click', function () {
+                mobileMenu.classList.toggle('active');
+                menuToggle.setAttribute('aria-expanded', mobileMenu.classList.contains('active'));
+            });
+    
+            // Mobile menu dropdown toggles
+            dropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const submenuId = this.getAttribute('data-submenu');
+                    const submenu = document.getElementById(submenuId);
+    
+                    dropdownToggles.forEach(otherToggle => {
+                        if (otherToggle !== this) {
+                            const otherSubmenuId = otherToggle.getAttribute('data-submenu');
+                            const otherSubmenu = document.getElementById(otherSubmenuId);
+                            if (otherSubmenu?.classList.contains('active')) {
+                                otherSubmenu.classList.remove('active');
+                                otherToggle.classList.remove('expanded');
+                            }
+                        }
+                    });
+    
+                    this.classList.toggle('expanded');
+                    submenu?.classList.toggle('active');
+                });
+            });
+    
+            // Section toggles
+            function setActiveSection(sectionName) {
+                contentSections.forEach(section => section.classList.remove('active'));
+                sectionToggles.forEach(t => t.classList.remove('active'));
+    
+                const targetSection = document.getElementById(sectionName);
+                targetSection?.classList.add('active');
+    
+                document.querySelectorAll(`.section-toggle[data-section="${sectionName}"]`).forEach(el => {
+                    el.classList.add('active');
+                });
+            }
+    
+            sectionToggles.forEach(toggle => {
+                toggle.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const sectionName = this.getAttribute('data-section');
+                    setActiveSection(sectionName);
+    
+                    if (mobileMenu.classList.contains('active')) {
+                        mobileMenu.classList.remove('active');
+                        menuToggle.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            });
+    
+            // Set default active section
+            setActiveSection('patients');
+    
+            // Desktop dropdowns
+            desktopDropdowns.forEach(dropdown => {
+                const trigger = dropdown.querySelector('.dropdown-arrow');
+                trigger?.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    desktopDropdowns.forEach(otherDropdown => {
+                        if (otherDropdown !== dropdown) {
+                            otherDropdown.classList.remove('active');
+                        }
+                    });
+                    dropdown.classList.toggle('active');
+                });
+    
+                const links = dropdown.querySelectorAll('.dropdown-content a');
+                links.forEach(link => {
+                    link.addEventListener('click', () => {
+                        dropdown.classList.remove('active');
+                    });
+                });
+            });
+    
+            // Close desktop dropdowns and mobile menu when clicking outside
+            document.addEventListener('click', function (e) {
+                desktopDropdowns.forEach(dropdown => {
+                    if (!dropdown.contains(e.target)) {
+                        dropdown.classList.remove('active');
+                    }
+                });
+    
+                if (!headerContainer.contains(e.target) && !mobileMenu.contains(e.target) && mobileMenu.classList.contains('active')) {
+                    mobileMenu.classList.remove('active');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+    
+            // === Search Functionality ===
+            const searchIcons = document.querySelectorAll('.search-icon');
+            searchIcons.forEach(icon => {
+                icon.addEventListener('click', function () {
+                    alert('Search functionality to be implemented!');
+                });
+            });
+    
+            const heroSearchButton = document.querySelector('.hero-section .search-button');
+            heroSearchButton?.addEventListener('click', function () {
+                const query = document.querySelector('.hero-section .search-input').value;
+                alert(`Searching for: "${query}" (Implementation needed)`);
+            });
+    
+            // === Carousel Functionality ===
+            const carousel = document.getElementById('carouselSlide');
+            const dots = document.querySelectorAll('.carousel-dot');
+            let currentSlide = 0;
+            const slideCount = document.querySelectorAll('.carousel-item').length;
+    
+            function goToSlide(slideIndex) {
+                if (slideIndex >= slideCount) slideIndex = 0;
+                if (slideIndex < 0) slideIndex = slideCount - 1;
+    
+                carousel.style.transform = `translateX(-${slideIndex * 100}%)`;
+                currentSlide = slideIndex;
+    
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === slideIndex);
+                });
+            }
+    
+            let slideInterval = setInterval(() => {
+                goToSlide(currentSlide + 1);
+            }, 5000);
+    
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    clearInterval(slideInterval);
+                    goToSlide(index);
+                    slideInterval = setInterval(() => {
+                        goToSlide(currentSlide + 1);
+                    }, 5000);
+                });
+            });
+    
+            // === FAQ Toggle Functionality ===
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question?.addEventListener('click', () => {
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    item.classList.toggle('active');
+                });
+            });
+    
+            // === Load Google Translate Script ===
+            const translateScript = document.createElement('script');
+            translateScript.type = 'text/javascript';
+            translateScript.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+            translateScript.onerror = () => console.error("Google Translate script failed to load.");
+            document.body.appendChild(translateScript);
+        });
+    </script>
+</body>
+</html>

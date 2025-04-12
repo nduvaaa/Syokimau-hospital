@@ -1,0 +1,162 @@
+
+/* All Services Page Specific Styles */
+
+/* Services Filter */
+.services-filter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: var(--spacing-xl);
+    gap: var(--spacing-sm);
+}
+
+.filter-btn {
+    padding: 0.75rem 1.25rem;
+    background-color: var(--white);
+    border: 1px solid var(--medium-gray);
+    color: var(--text-medium);
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.filter-btn:hover {
+    background-color: var(--light-gray);
+    color: var(--text-dark);
+}
+
+.filter-btn.active {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--white);
+}
+
+/* Services Grid */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: var(--spacing-xl);
+}
+
+.service-item {
+    background-color: var(--white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    display: flex;
+    flex-direction: column;
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.service-item:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.service-image {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.service-content {
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.service-icon {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(0, 102, 204, 0.1);
+    color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: var(--spacing-md);
+}
+
+.service-content h3 {
+    margin-bottom: var(--spacing-sm);
+}
+
+.service-content p {
+    color: var(--text-medium);
+    margin-bottom: var(--spacing-lg);
+    flex-grow: 1;
+}
+
+.service-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.service-actions .btn {
+    flex: 1;
+    text-align: center;
+    padding: 0.75rem 0;
+}
+
+/* No Results Message */
+.no-results {
+    text-align: center;
+    padding: var(--spacing-2xl) 0;
+}
+
+.no-results i {
+    font-size: 3rem;
+    color: var(--text-light);
+    margin-bottom: var(--spacing-md);
+}
+
+.no-results h3 {
+    margin-bottom: var(--spacing-sm);
+}
+
+.no-results p {
+    color: var(--text-medium);
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .services-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+    
+    .filter-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .services-filter {
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding-bottom: var(--spacing-sm);
+        margin-bottom: var(--spacing-lg);
+        -webkit-overflow-scrolling: touch;
+        white-space: nowrap;
+        display: block;
+    }
+    
+    .filter-btn {
+        display: inline-block;
+        margin-right: var(--spacing-sm);
+        margin-bottom: var(--spacing-sm);
+    }
+}

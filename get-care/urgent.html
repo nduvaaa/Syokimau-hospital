@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>In-Person Urgent Care | Book Your Visit</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f0f0;
+            color: #333;
+        }
+        header {
+            background: linear-gradient(135deg, #0088cc, #005580);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        .feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.2rem;
+        }
+        .feature-icon {
+            background-color: #e6f7ff;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        .book-btn {
+            background-color: #0088cc;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .book-btn:hover {
+            background-color: #006699;
+        }
+        .hours {
+            background-color: #f0f9ff;
+            border-left: 4px solid #0088cc;
+            padding: 1rem;
+            margin: 1.5rem 0;
+        }
+        .conditions {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .condition-item {
+            background: #f0f9ff;
+            padding: 0.8rem;
+            border-radius: 6px;
+            text-align: center;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        .registration-form {
+            display: none;
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        .time-slots {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        .time-slot {
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .time-slot.selected {
+            background-color: #e6f7ff;
+            border-color: #0088cc;
+        }
+        .success-message {
+            display: none;
+            background-color: #dff0d8;
+            color: #3c763d;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+        }
+                /* Footer */
+                .footer {
+            background-color: #333;
+            color: white;
+            padding: 60px 5% 30px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #007BFF;
+        }
+
+        .address {
+            margin-bottom: 20px;
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        .social-footer {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-footer a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-footer a:hover {
+            background-color: #007BFF;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>In-Person Urgent Care</h1>
+        <p>Fast, convenient care when you need it most</p>
+    </header>
+    
+    <div class="container">
+        <div class="card" id="info-section">
+            <h2>Skip the Wait - Book Your Visit</h2>
+            
+            <div class="feature">
+                <div class="feature-icon">✓</div>
+                <div>
+                    <strong>Medical concerns that are better seen in person</strong>
+                </div>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">✓</div>
+                <div>
+                    <strong>Available to new and current patients</strong>
+                </div>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">✓</div>
+                <div>
+                    <strong>Convenient hours to fit your schedule</strong>
+                </div>
+            </div>
+            
+            <div class="hours">
+                <h3>Hours of Operation:</h3>
+                <p>Monday-Friday: 12pm-9pm<br>
+                Weekends: 9am-6pm<br>
+                Holiday hours may vary.</p>
+            </div>
+            
+            <button id="show-form-btn" class="book-btn">Save My Spot</button>
+        </div>
+        
+        <div class="registration-form" id="registration-form">
+            <h2>Book Your Urgent Care Visit</h2>
+            <form id="booking-form">
+                <div class="form-group">
+                    <label for="full-name">Full Name</label>
+                    <input type="text" id="full-name" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" id="dob" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="reason">Reason for Visit</label>
+                    <textarea id="reason" class="form-control" rows="3" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="insurance">Insurance Provider (optional)</label>
+                    <input type="text" id="insurance" class="form-control">
+                </div>
+                
+                <div class="form-group">
+                    <label>Preferred Time</label>
+                    <div class="time-slots">
+                        <div class="time-slot" data-time="12:00 PM">12:00 PM</div>
+                        <div class="time-slot" data-time="1:00 PM">1:00 PM</div>
+                        <div class="time-slot" data-time="2:00 PM">2:00 PM</div>
+                        <div class="time-slot" data-time="3:00 PM">3:00 PM</div>
+                        <div class="time-slot" data-time="4:00 PM">4:00 PM</div>
+                        <div class="time-slot" data-time="5:00 PM">5:00 PM</div>
+                        <div class="time-slot" data-time="6:00 PM">6:00 PM</div>
+                        <div class="time-slot" data-time="7:00 PM">7:00 PM</div>
+                    </div>
+                    <input type="hidden" id="selected-time" name="selected-time" required>
+                </div>
+                
+                <button type="submit" class="book-btn">Confirm Booking</button>
+            </form>
+            
+            <div class="success-message" id="success-message">
+                <h3>Your spot has been reserved!</h3>
+                <p>We've sent a confirmation to your email with all the details.</p>
+                <p>Please arrive 15 minutes before your scheduled time.</p>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>Common Conditions We Treat</h2>
+            <div class="conditions">
+                <div class="condition-item">Sprains & Strains</div>
+                <div class="condition-item">Minor Burns</div>
+                <div class="condition-item">Cold & Flu</div>
+                <div class="condition-item">Cuts & Lacerations</div>
+                <div class="condition-item">Infections</div>
+                <div class="condition-item">Allergies</div>
+                <div class="condition-item">Minor Fractures</div>
+                <div class="condition-item">Sports Injuries</div>
+            </div>
+            
+            <h3>What to Bring</h3>
+            <ul>
+                <li>Photo ID</li>
+                <li>Insurance card (if applicable)</li>
+                <li>List of current medications</li>
+                <li>Method of payment</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Syokimau Hospital</h3>
+                <p class="address">
+                    123 Syokimau Road<br>
+                    Machakos County, Kenya<br><br>
+                    <strong>Phone:</strong> +254 113 566 500<br>
+                    <strong>Email:</strong> info@syokimauhospital.com
+                </p>
+                <div class="social-footer">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Our Services</h3>
+                <ul class="footer-links">
+                    <li><a href="../services/departments/emergency.html">Emergency Care</a></li>
+                    <li><a href="../services/departments/cardiology.html">Cardiology</a></li>
+                    <li><a href="#">Pediatrics</a></li>
+                    <li><a href="#">Orthopedics</a></li>
+                    <li><a href="../services/departments/all-services.html">All Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="../home/home.html">Home</a></li>
+                    <li><a href="../learn-more/about/about.html">About Us</a></li>
+                    <li><a href="../finddoc/finddoc.html">Find a Doctor</a></li>
+                    <li><a href="../get-care/message.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Opening Hours</h3>
+                <ul class="footer-links">
+                    <li>Monday - Friday: 24 hours</li>
+                    <li>Saturday: 24 hours</li>
+                    <li>Sunday: 24 hours</li>
+                    <li>Emergency: Always Open</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Syokimau Hospital. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Show/hide registration form
+        document.getElementById('show-form-btn').addEventListener('click', function() {
+            document.getElementById('registration-form').style.display = 'block';
+            // Scroll to the form
+            document.getElementById('registration-form').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+        
+        // Handle time slot selection
+        const timeSlots = document.querySelectorAll('.time-slot');
+        timeSlots.forEach(slot => {
+            slot.addEventListener('click', function() {
+                // Remove selected class from all slots
+                timeSlots.forEach(s => s.classList.remove('selected'));
+                // Add selected class to clicked slot
+                this.classList.add('selected');
+                // Update hidden input
+                document.getElementById('selected-time').value = this.getAttribute('data-time');
+            });
+        });
+        
+        // Handle form submission
+        document.getElementById('booking-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // In a real implementation, you would send the form data to your server here
+            // For demo purposes, we'll just show the success message
+            
+            // Show success message
+            document.getElementById('success-message').style.display = 'block';
+            // Hide the form
+            document.getElementById('booking-form').style.display = 'none';
+            
+            // In a real implementation, you would do something like:
+            /*
+            const formData = new FormData(this);
+            fetch('your-booking-endpoint', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Show success message
+                document.getElementById('success-message').style.display = 'block';
+                // Hide the form
+                document.getElementById('booking-form').style.display = 'none';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('There was an error processing your booking. Please try again.');
+            });
+            */
+        });
+    </script>
+</body>
+</html>

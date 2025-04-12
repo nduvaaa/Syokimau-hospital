@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register for Event - Syokimau Hospital</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+                        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        
+        body {
+            width: 100vw;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .content-section {
+    padding: 3rem 0; /* Remove left/right padding, keep top/bottom */
+    width: 100vw; /* Ensure full width */
+    margin-left: 0; /* No offset */
+}
+
+        /* Sticky Header Container */
+        .header-container {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            z-index: 1000;
+        }
+
+        .topnavbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 3rem;
+            background-color: #ffffff;
+            height: 60px;
+        }
+
+        .left-section {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            height: 40px;
+            margin-right: 1rem;
+        }
+
+        .primary-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .right-section {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            cursor: pointer;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link:hover {
+            color: #007bff;
+        }
+
+        .nav-link.active {
+            color: #007bff;
+            border-bottom: 2px solid #007bff;
+        }
+
+        .phone-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #28a745;
+            font-weight: bold;
+            border-bottom: none;
+        }
+
+        .phone-link:hover {
+            color: #218838;
+        }
+
+        .phone-link.active {
+            border-bottom: none;
+            color: #28a745;
+        }
+
+        .translate-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .translate-btn:hover {
+            background-color: #e9ecef;
+        }
+
+        .translate-btn img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .goog-te-gadget {
+            font-family: inherit !important;
+            color: transparent !important;
+            line-height: normal !important;
+        }
+
+        .goog-te-gadget .goog-te-combo {
+            margin: 0 !important;
+            padding: 2px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+            vertical-align: middle;
+        }
+
+        .goog-te-gadget span {
+            display: none !important;
+        }
+
+        .goog-te-gadget>div {
+            display: inline-block !important;
+            background: none !important;
+        }
+
+        .goog-te-gadget-simple {
+            background-color: transparent !important;
+            border: none !important;
+            padding: 0 !important;
+            font-size: inherit !important;
+            display: inline-block !important;
+        }
+
+        /* Bottom Navbar */
+        .bottomnavbar {
+            background-color: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+            padding: 0 3rem;
+            height: 105px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-menu-desktop {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        /* Search Icon */
+        .search-icon {
+            cursor: pointer;
+            color: #333;
+            transition: color 0.3s ease;
+            padding: 0.5rem;
+        }
+
+        .search-icon:hover {
+            color: #007bff;
+        }
+
+
+
+                /* Mobile Menu */
+                .mobile-controls {
+            display: none;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 0.5rem;
+            color: #333;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: #f8f9fa;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+            max-height: calc(100vh - 60px);
+            overflow-y: auto;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu .nav-link {
+            display: block;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #e9ecef;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .mobile-menu .nav-link:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-menu .nav-link:hover {
+            background-color: #e9ecef;
+            color: #0056b3;
+        }
+
+        .mobile-menu .section-heading {
+            background-color: #e9ecef;
+            padding: 0.8rem 1.5rem;
+            font-weight: bold;
+            color: #555;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .mobile-menu .submenu {
+            padding-left: 1.5rem;
+            background-color: #ffffff;
+            display: none;
+        }
+
+        .mobile-menu .submenu .nav-link {
+            padding-left: 2.5rem;
+            font-weight: 400;
+            border-color: #f1f1f1;
+        }
+
+        .mobile-menu .submenu.active {
+            display: block;
+        }
+
+        .mobile-menu .dropdown-toggle {
+            position: relative;
+        }
+
+        .mobile-menu .dropdown-toggle::after {
+            content: "+";
+            position: absolute;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.4rem;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+            color: #888;
+        }
+
+        .mobile-menu .dropdown-toggle.expanded::after {
+            content: "−";
+            color: #555;
+        }
+
+        /* Desktop Dropdown Styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #ffffff;
+            min-width: 220px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.15);
+            z-index: 1001;
+            border-radius: 4px;
+            margin-top: 0.5rem;
+            border: 1px solid #e9ecef;
+            overflow: hidden;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.2s ease, color 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #007bff;
+            color: #ffffff;
+        }
+
+        .dropdown.active .dropdown-content {
+            display: block;
+        }
+
+        /* Dropdown Arrow Style */
+        .dropdown-arrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding-bottom: 0.5rem;
+        }
+
+        .dropdown-arrow::after {
+            content: "";
+            display: inline-block;
+            width: 0.4rem;
+            height: 0.4rem;
+            margin-left: 0.3rem;
+            margin-top: -0.1rem;
+            border-right: 2px solid currentColor;
+            border-bottom: 2px solid currentColor;
+            transform: rotate(45deg);
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown.active .dropdown-arrow::after {
+            transform: rotate(-135deg);
+            margin-top: 0.1rem;
+        }
+
+        /* Google Translate Fixes */
+        html {
+            scroll-padding-top: 165px;
+        }
+
+        body.translated-ltr {
+            top: 0 !important;
+        }
+
+        body.translated-rtl {
+            top: 0 !important;
+        }
+
+        .skiptranslate {
+            display: none !important;
+            visibility: hidden !important;
+        }
+
+        iframe.goog-te-banner-frame {
+            display: none !important;
+            visibility: hidden !important;
+        }
+
+        body>.skiptranslate {
+            display: none !important;
+            visibility: hidden !important;
+        }
+
+        .form-group:focus-within label {
+            color: #2563eb;
+        }
+        .form-input:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        .event-badge {
+            transform: rotate(-2deg);
+        }
+        .content-section {
+            margin-top: 100px;
+
+        }
+
+        @media (max-width: 1024px) {
+
+.topnavbar,
+.bottomnavbar {
+    padding: 0 2rem;
+}
+
+.bottomnavbar {
+    height: 55px;
+}
+
+html {
+    scroll-padding-top: 115px;
+}
+}
+
+@media (max-width: 768px) {
+            html {
+                scroll-padding-top: 60px;
+            }
+
+            .topnavbar {
+                justify-content: space-between;
+                padding: 0 1rem;
+                height: 60px;
+            }
+
+            /* Hide desktop elements */
+            .left-section .primary-links,
+            .right-section,
+            .bottomnavbar {
+                display: none;
+            }
+
+            /* Show mobile controls */
+            .mobile-controls,
+            .menu-toggle {
+                display: flex;
+            }
+
+            .mobile-controls {
+                margin-left: auto;
+            }
+        }
+        @media (max-width: 480px) {
+            .logo {
+                height: 35px;
+                margin-right: 0.5rem;
+            }
+
+            .mobile-menu .nav-link {
+                font-size: 1rem;
+                padding: 0.9rem 1rem;
+            }
+
+            .mobile-menu .section-heading {
+                padding: 0.7rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .mobile-menu .submenu .nav-link {
+                padding-left: 1.5rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <nav class="topnavbar">
+            <div class="left-section">
+                <div class="logo-container">
+                    <a href="home.html">
+                        <img src="logo.png" alt="Hospital Logo" class="logo">
+                    </a>
+                </div>
+                <div class="primary-links">
+                    <a class="nav-link section-toggle active" data-section="patients">For Patients</a>
+                    <a class="nav-link " href="providers.html">For Providers</a>
+                </div>
+            </div>
+
+            <div class="right-section">
+                <a href="tel:+2547113566500" class="nav-link phone-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                    </svg>
+                    +254 113 566 500
+                </a>
+                <div class="translate-btn">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Google_Translate_logo.svg"
+                        alt="Translate">
+                    <div id="google_translate_element"></div>
+                </div>
+            </div>
+
+            <div class="mobile-controls">
+                <div class="search-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                        class="bi bi-search" viewBox="0 0 16 16">
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                    </svg>
+                </div>
+                <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+            </div>
+        </nav>
+
+        <nav class="bottomnavbar">
+            <div class="nav-menu-desktop">
+                <div class="dropdown" >
+                <a href="#Care" class="nav-link dropdown-arrow">Get Care</a>
+                <div class="dropdown-content">
+                    <a href="virtual.html">Virtual Care</a>
+                    <a href="urgent.html">Urgent Care</a>
+                    <a href="primarycare.html">Primary Care</a>
+                    <a href="maternal.html">Maternal</a>
+                    <a href="Care.html">Browse All</a>
+                </div>
+            </div>
+                    <a href="finddoc.html" class="nav-link">Find a Doctor</a>
+
+                <div class="dropdown">
+                    <a href="#Services" class="nav-link dropdown-arrow">Our Services</a>
+                    <div class="dropdown-content">
+                        <a href="emergency.html">Emergency Care</a>
+                        <a href="cardiology.html">Cardiology</a>
+                        <a href="orthopedics.html">Orthopedics</a>
+                        <a href="pediatrics.html">Pediatrics</a>
+                        <a href="allservices.html">All Services</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#More" class="nav-link dropdown-arrow">Learn More</a>
+                    <div class="dropdown-content">
+                        <a href="About.html">About Us</a>
+                        <a href="InsuranceInfo.html">Insurance Information</a>
+                        <a href="Locations.html">Our Locations</a>
+                        <a href="Events.html">Events & Classes</a>
+                        <a href="FAQ.html">FAQs</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#Records" class="nav-link dropdown-arrow">Records & Billing</a>
+                    <div class="dropdown-content">
+                        <a href="MedicalRecords.html">Medical Records</a>
+                        <a href="BillingInfo.html">Billing Information</a>
+                        <a href="InsuranceVerify.html">Insurance Verification</a>
+                        <a href="PayBill.html">Pay Your Bill</a>
+                        <a href="FinancialAssistance.html">Financial Assistance</a>
+                    </div>
+                </div>
+
+                <div class="search-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                        class="bi bi-search" viewBox="0 0 16 16">
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                    </svg>
+                </div>
+            </div>
+        </nav>
+
+        <div class="mobile-menu">
+            <a class="nav-link section-toggle active" data-section="patients">For Patients</a>
+            <a class="nav-link section-toggle" data-section="providers">For Providers</a>
+            <hr style="border: none; border-top: 1px solid #dee2e6; margin: 0;">
+
+            <div class="section-heading">Patient Menu</div>
+            <a class="nav-link dropdown-toggle" data-submenu="care-menu-mobile">Get Care</a>
+            <div id="care-menu-mobile" class="submenu">
+                <a href="VirtualCare.html" class="nav-link">Virtual Care</a>
+                <a href="UrgentCare.html" class="nav-link">Urgent Care</a>
+                <a href="PrimaryCare.html" class="nav-link">Primary Care</a>
+                <a href="Maternal.html" class="nav-link">Maternal</a>
+            </div>
+                <a href="Doctor.html" class="nav-link">Find a Doctor</a>
+
+            <a class="nav-link dropdown-toggle" data-submenu="services-menu-mobile">Our Services</a>
+            <div id="services-menu-mobile" class="submenu">
+                <a href="Emergency.html" class="nav-link">Emergency Care</a>
+                <a href="Cardiology.html" class="nav-link">Cardiology</a>
+                <a href="Orthopedics.html" class="nav-link">Orthopedics</a>
+                <a href="Pediatrics.html" class="nav-link">Pediatrics</a>
+                <a href="AllServices.html" class="nav-link">All Services</a>
+            </div>
+
+            <a class="nav-link dropdown-toggle" data-submenu="learn-menu-mobile">Learn More</a>
+            <div id="learn-menu-mobile" class="submenu">
+                <a href="About.html" class="nav-link">About Us</a>
+                <a href="InsuranceInfo.html" class="nav-link">Insurance Information</a>
+                <a href="Locations.html" class="nav-link">Our Locations</a>
+                <a href="Events.html" class="nav-link">Events & Classes</a>
+                <a href="FAQ.html" class="nav-link">FAQs</a>
+            </div>
+
+            <a class="nav-link dropdown-toggle" data-submenu="records-menu-mobile">Records & Billing</a>
+            <div id="records-menu-mobile" class="submenu">
+                <a href="MedicalRecords.html" class="nav-link">Medical Records</a>
+                <a href="BillingInfo.html" class="nav-link">Billing Information</a>
+                <a href="InsuranceVerify.html" class="nav-link">Insurance Verification</a>
+                <a href="PayBill.html" class="nav-link">Pay Your Bill</a>
+                <a href="FinancialAssistance.html" class="nav-link">Financial Assistance</a>
+            </div>
+
+            <div class="section-heading">Contact</div>
+            <a href="tel:+2547113566500" class="nav-link phone-link"
+                style="padding-left: 1.5rem; border-bottom: 1px solid #e9ecef;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                </svg>
+                +254 113 566 500
+            </a>
+
+            <div style="padding: 1rem 1.5rem;">
+                <div class="translate-btn">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Google_Translate_logo.svg"
+                        alt="Translate">
+                    <div id="google_translate_element_mobile"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <section class="content-section">
+    <div class="container mx-auto max-w-5xl px-4 py-12">
+        <div class="flex flex-col md:flex-row gap-8">
+            <!-- Form Section -->
+            <div class="w-full md:w-2/3">
+                <div class="bg-white rounded-lg shadow-md p-8">
+                    <h1 class="text-3xl font-bold text-gray-900 mb-1">Event Registration</h1>
+                    <p class="text-gray-600 mb-6">Please complete the form below to register for the event.</p>
+                    
+                    <form id="registration-form" class="space-y-6">
+                        <input type="hidden" id="event-id" name="eventId">
+                        
+                        <!-- Personal Information Section -->
+                        <div class="bg-blue-50 p-4 rounded-lg mb-6">
+                            <h3 class="text-lg font-semibold text-blue-800 mb-4">Personal Information</h3>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="form-group">
+                                    <label for="first-name" class="block text-sm font-medium text-gray-700 mb-1">First Name *</label>
+                                    <input type="text" id="first-name" name="firstName" required 
+                                        class="form-input w-full rounded-md border-gray-300 shadow-sm p-3 text-gray-800">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="last-name" class="block text-sm font-medium text-gray-700 mb-1">Last Name *</label>
+                                    <input type="text" id="last-name" name="lastName" required 
+                                        class="form-input w-full rounded-md border-gray-300 shadow-sm p-3 text-gray-800">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address *</label>
+                                    <input type="email" id="email" name="email" required 
+                                        class="form-input w-full rounded-md border-gray-300 shadow-sm p-3 text-gray-800">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number *</label>
+                                    <input type="tel" id="phone" name="phone" required 
+                                        class="form-input w-full rounded-md border-gray-300 shadow-sm p-3 text-gray-800">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Additional Information Section -->
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h3 class="text-lg font-semibold text-blue-800 mb-4">Additional Information</h3>
+                            
+                            <div class="space-y-4">
+                                <div class="form-group">
+                                    <label for="address" class="block text-sm font-medium text-gray-700 mb-1">Address</label>
+                                    <input type="text" id="address" name="address" 
+                                        class="form-input w-full rounded-md border-gray-300 shadow-sm p-3 text-gray-800">
+                                </div>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                    <div class="form-group">
+                                        <label for="city" class="block text-sm font-medium text-gray-700 mb-1">City</label>
+                                        <input type="text" id="city" name="city" 
+                                            class="form-input w-full rounded-md border-gray-300 shadow-sm p-3 text-gray-800">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="state" class="block text-sm font-medium text-gray-700 mb-1">County</label>
+                                        <select id="state" name="state" 
+                                            class="form-input w-full rounded-md border-gray-300 shadow-sm p-3 text-gray-800">
+                                            <option value="">Select County</option>
+                                            <option value="Nairobi">Nairobi</option>
+                                            <option value="Mombasa">Mombasa</option>
+                                            <option value="Kisumu">Kisumu</option>
+                                            <option value="Nakuru">Nakuru</option>
+                                            <option value="Machakos">Machakos</option>
+                                            <option value="Kiambu">Kiambu</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="postal-code" class="block text-sm font-medium text-gray-700 mb-1">Postal Code</label>
+                                        <input type="text" id="postal-code" name="postalCode" 
+                                            class="form-input w-full rounded-md border-gray-300 shadow-sm p-3 text-gray-800">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="special-requests" class="block text-sm font-medium text-gray-700 mb-1">Special Requests or Accommodations</label>
+                                    <textarea id="special-requests" name="specialRequests" rows="3" 
+                                        class="form-input w-full rounded-md border-gray-300 shadow-sm p-3 text-gray-800"></textarea>
+                                </div>
+                                
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="patient-status" name="patientStatus" class="h-5 w-5 text-blue-600">
+                                    <label for="patient-status" class="ml-2 text-sm text-gray-700">I am currently a patient at Syokimau Hospital</label>
+                                </div>
+                                
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="terms" name="terms" required class="h-5 w-5 text-blue-600">
+                                    <label for="terms" class="ml-2 text-sm text-gray-700">
+                                        I agree to the <a href="#" class="text-blue-600 hover:underline">terms and conditions</a> *
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-between items-center pt-4">
+                            <a href="events.html" class="flex items-center text-blue-600 hover:text-blue-800">
+                                <i class="fas fa-arrow-left mr-2"></i> Back to Events
+                            </a>
+                            <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-md shadow-sm transition-colors">
+                                Complete Registration
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Event Information Sidebar -->
+            <div class="w-full md:w-1/3">
+                <div class="bg-white rounded-lg shadow-md sticky top-8">
+                    <div class="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-4 rounded-t-lg">
+                        <h2 class="text-xl font-bold" id="event-title">Event Details</h2>
+                    </div>
+                    
+                    <div class="p-6" id="event-details">
+                        <div class="mb-6 text-center">
+                            <span class="inline-block bg-yellow-400 text-yellow-800 text-xs font-semibold px-3 py-1 rounded-full event-badge">
+                                Selected Event
+                            </span>
+                        </div>
+                        
+                        <p class="font-semibold mb-4" id="event-description">Please select an event from the events page.</p>
+                        
+                        <div class="space-y-3 text-sm">
+                            <div class="flex items-start space-x-3">
+                                <i class="far fa-calendar-alt text-blue-600 mt-1"></i>
+                                <div>
+                                    <p class="text-gray-600">Date</p>
+                                    <p class="font-medium" id="event-date">--</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-3">
+                                <i class="far fa-clock text-blue-600 mt-1"></i>
+                                <div>
+                                    <p class="text-gray-600">Time</p>
+                                    <p class="font-medium" id="event-time">--</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-map-marker-alt text-blue-600 mt-1"></i>
+                                <div>
+                                    <p class="text-gray-600">Location</p>
+                                    <p class="font-medium" id="event-location">--</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-3">
+                                <i class="far fa-user text-blue-600 mt-1"></i>
+                                <div>
+                                    <p class="text-gray-600">Presenter</p>
+                                    <p class="font-medium" id="event-instructor">--</p>
+                                </div>
+                            </div>
+                            
+                            <div class="border-t pt-4 mt-4">
+                                <div class="flex justify-between">
+                                    <span class="text-gray-600">Registration Fee</span>
+                                    <span class="font-semibold">Free</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-blue-50 p-4 rounded-b-lg border-t border-blue-100">
+                        <h3 class="font-semibold mb-2 text-blue-800">Need Assistance?</h3>
+                        <p class="text-sm text-gray-600 mb-2">If you have questions about registration, please contact us:</p>
+                        <div class="flex items-center text-blue-600">
+                            <i class="fas fa-phone-alt mr-2"></i>
+                            <a href="tel:+254700123456">(254) 700-123-456</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Syokimau Hospital</h3>
+                    <p class="text-gray-300">Providing quality healthcare services to our community with compassion and excellence.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-white">Home</a></li>
+                        <li><a href="locations.html" class="text-gray-300 hover:text-white">Locations</a></li>
+                        <li><a href="events.html" class="text-gray-300 hover:text-white">Events & Classes</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Book an Appointment</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Us</h4>
+                    <address class="not-italic text-gray-300">
+                        <p>Main Hospital: 123 Syokimau Road</p>
+                        <p>Phone: (254) 700-123-456</p>
+                        <p>Email: info@syokimauhospital.com</p>
+                    </address>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Connect With Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white text-xl"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white text-xl"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white text-xl"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white text-xl"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Syokimau Hospital. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            // Desktop Translator
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'ar,en,es,fr,sw,zh-CN',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
+    
+            // Mobile Translator
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'ar,en,es,fr,sw,zh-CN',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element_mobile');
+    
+            function triggerLanguageChange(langCode) {
+                const iframe = document.querySelector('.goog-te-banner-frame');
+                if (iframe) {
+                    const innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+                    const langSelect = innerDoc.querySelector('.goog-te-combo');
+                    if (langSelect) {
+                        langSelect.value = langCode;
+                        langSelect.dispatchEvent(new Event('change'));
+                    }
+                } else {
+                    const desktopSelect = document.querySelector('#google_translate_element select');
+                    const mobileSelect = document.querySelector('#google_translate_element_mobile select');
+                    if (desktopSelect) {
+                        desktopSelect.value = langCode;
+                        desktopSelect.dispatchEvent(new Event('change'));
+                    } else if (mobileSelect) {
+                        mobileSelect.value = langCode;
+                        mobileSelect.dispatchEvent(new Event('change'));
+                    }
+                }
+            }
+        }
+    
+        document.addEventListener('DOMContentLoaded', function () {
+            // =========================
+            // TRANSLATE + MENU LOGIC
+            // =========================
+            const menuToggle = document.querySelector('.menu-toggle');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const headerContainer = document.querySelector('.header-container');
+            const dropdownToggles = mobileMenu.querySelectorAll('.dropdown-toggle');
+            const sectionToggles = document.querySelectorAll('.section-toggle');
+            const contentSections = document.querySelectorAll('.content-section');
+            const desktopDropdowns = document.querySelectorAll('.nav-menu-desktop .dropdown');
+    
+            // Mobile menu toggle
+            menuToggle.addEventListener('click', function () {
+                mobileMenu.classList.toggle('active');
+                menuToggle.setAttribute('aria-expanded', mobileMenu.classList.contains('active'));
+            });
+    
+            // Mobile menu dropdown toggles
+            dropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const submenuId = this.getAttribute('data-submenu');
+                    const submenu = document.getElementById(submenuId);
+                    dropdownToggles.forEach(otherToggle => {
+                        if (otherToggle !== this) {
+                            const otherSubmenuId = otherToggle.getAttribute('data-submenu');
+                            const otherSubmenu = document.getElementById(otherSubmenuId);
+                            if (otherSubmenu && otherSubmenu.classList.contains('active')) {
+                                otherSubmenu.classList.remove('active');
+                                otherToggle.classList.remove('expanded');
+                            }
+                        }
+                    });
+                    this.classList.toggle('expanded');
+                    if (submenu) submenu.classList.toggle('active');
+                });
+            });
+    
+            // Section toggles
+            function setActiveSection(sectionName) {
+                contentSections.forEach(section => section.classList.remove('active'));
+                sectionToggles.forEach(t => t.classList.remove('active'));
+                const targetSection = document.getElementById(sectionName);
+                if (targetSection) targetSection.classList.add('active');
+                document.querySelectorAll(`.section-toggle[data-section="${sectionName}"]`).forEach(el => el.classList.add('active'));
+            }
+    
+            sectionToggles.forEach(toggle => {
+                toggle.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const sectionName = this.getAttribute('data-section');
+                    setActiveSection(sectionName);
+                    if (mobileMenu.classList.contains('active')) {
+                        mobileMenu.classList.remove('active');
+                        menuToggle.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            });
+    
+            setActiveSection('patients');
+    
+            // Desktop dropdowns
+            desktopDropdowns.forEach(dropdown => {
+                const trigger = dropdown.querySelector('.dropdown-arrow');
+                trigger.addEventListener('click', function (e) {
+                    if (e.target === trigger || trigger.contains(e.target)) {
+                        e.preventDefault();
+                        desktopDropdowns.forEach(otherDropdown => {
+                            if (otherDropdown !== dropdown) {
+                                otherDropdown.classList.remove('active');
+                            }
+                        });
+                        dropdown.classList.toggle('active');
+                    }
+                });
+                const links = dropdown.querySelectorAll('.dropdown-content a');
+                links.forEach(link => {
+                    link.addEventListener('click', () => {
+                        dropdown.classList.remove('active');
+                    });
+                });
+            });
+    
+            // Close desktop dropdowns when clicking outside
+            document.addEventListener('click', function (e) {
+                desktopDropdowns.forEach(dropdown => {
+                    if (!dropdown.contains(e.target)) {
+                        dropdown.classList.remove('active');
+                    }
+                });
+                if (!headerContainer.contains(e.target) && !mobileMenu.contains(e.target) && mobileMenu.classList.contains('active')) {
+                    mobileMenu.classList.remove('active');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+    
+            // Search icon functionality
+            const searchIcons = document.querySelectorAll('.search-icon');
+            searchIcons.forEach(icon => {
+                icon.addEventListener('click', function () {
+                    alert('Search functionality to be implemented!');
+                });
+            });
+    
+            const heroSearchButton = document.querySelector('.hero-section .search-button');
+            if (heroSearchButton) {
+                heroSearchButton.addEventListener('click', function () {
+                    const query = document.querySelector('.hero-section .search-input').value;
+                    alert(`Searching for: "${query}" (Implementation needed)`);
+                });
+            }
+    
+            // Dynamically load Google Translate script
+            const translateScript = document.createElement('script');
+            translateScript.type = 'text/javascript';
+            translateScript.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+            translateScript.onerror = () => console.error("Google Translate script failed to load.");
+            document.body.appendChild(translateScript);
+    
+            // =========================
+            // EVENTS LOGIC
+            // =========================
+            const events = [
+                {
+                    id: 1,
+                    title: "Prenatal Care Basics",
+                    description: "Learn essential information about caring for yourself and your baby during pregnancy.",
+                    date: "April 15, 2025",
+                    time: "10:00 AM - 12:00 PM",
+                    location: "Maternity Wing, 3rd Floor",
+                    type: "in-person",
+                    category: "Maternity",
+                    instructor: "Dr. Sarah Kimani",
+                    spots: 15,
+                    isFeatured: true
+                },
+                {
+                    id: 2,
+                    title: "Diabetes Management",
+                    description: "A comprehensive class on managing diabetes, nutrition, and exercise for better health.",
+                    date: "April 18, 2025",
+                    time: "2:00 PM - 4:00 PM",
+                    location: "Education Center, Room 201",
+                    type: "in-person",
+                    category: "Chronic Disease",
+                    instructor: "Dr. James Mwangi",
+                    spots: 20,
+                    isFeatured: true
+                },
+                {
+                    id: 3,
+                    title: "Virtual CPR Certification",
+                    description: "Get certified in CPR through our online interactive class with live instructor feedback.",
+                    date: "April 20, 2025",
+                    time: "9:00 AM - 1:00 PM",
+                    location: "Online - Zoom",
+                    type: "virtual",
+                    category: "First Aid",
+                    instructor: "Nurse Robert Ochieng",
+                    spots: 30,
+                    isFeatured: false
+                },
+                {
+                    id: 4,
+                    title: "Mental Health Awareness",
+                    description: "Join our discussion about mental health, coping strategies, and available resources.",
+                    date: "April 22, 2025",
+                    time: "6:00 PM - 7:30 PM",
+                    location: "Community Center",
+                    type: "in-person",
+                    category: "Mental Health",
+                    instructor: "Dr. Lucy Wanjiku",
+                    spots: 25,
+                    isFeatured: false
+                },
+                {
+                    id: 5,
+                    title: "Breastfeeding Basics",
+                    description: "Learn techniques and tips for successful breastfeeding for new and expecting mothers.",
+                    date: "April 25, 2025",
+                    time: "11:00 AM - 1:00 PM",
+                    location: "Maternity Wing, 3rd Floor",
+                    type: "in-person",
+                    category: "Maternity",
+                    instructor: "Nurse Grace Muthoni",
+                    spots: 12,
+                    isFeatured: false
+                },
+                {
+                    id: 6,
+                    title: "Cardiac Health Seminar",
+                    description: "Join our cardiologists for a virtual seminar on heart health, prevention, and treatment options.",
+                    date: "April 28, 2025",
+                    time: "5:00 PM - 6:30 PM",
+                    location: "Online - Zoom",
+                    type: "virtual",
+                    category: "Cardiology",
+                    instructor: "Dr. Peter Kamau",
+                    spots: 50,
+                    isFeatured: false
+                }
+            ];
+    
+            const urlParams = new URLSearchParams(window.location.search);
+            const eventId = urlParams.get('event');
+    
+            if (eventId) {
+                const selectedEvent = events.find(event => event.id.toString() === eventId);
+                if (selectedEvent) {
+                    loadEventDetails(selectedEvent);
+                }
+            }
+    
+            function loadEventDetails(event) {
+                document.getElementById('event-id').value = event.id;
+                document.getElementById('event-title').textContent = event.title;
+                document.getElementById('event-description').textContent = event.description;
+                document.getElementById('event-date').textContent = event.date;
+                document.getElementById('event-time').textContent = event.time;
+                document.getElementById('event-location').textContent = event.location;
+                document.getElementById('event-instructor').textContent = event.instructor;
+            }
+    
+            const form = document.getElementById('registration-form');
+    
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                if (form.checkValidity()) {
+                    const formData = new FormData(form);
+                    const eventId = formData.get('eventId');
+                    const firstName = formData.get('firstName');
+                    const lastName = formData.get('lastName');
+                    const email = formData.get('email');
+    
+                    const successModal = document.createElement('div');
+                    successModal.className = 'fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50';
+                    successModal.innerHTML = `
+                        <div class="bg-white p-8 rounded-lg shadow-xl max-w-md w-full">
+                            <div class="text-center">
+                                <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 mb-6">
+                                    <i class="fas fa-check text-3xl text-green-600"></i>
+                                </div>
+                                <h2 class="text-2xl font-bold text-gray-900 mb-2">Registration Complete!</h2>
+                                <p class="text-gray-600 mb-6">
+                                    Thank you ${firstName} ${lastName} for registering for 
+                                    ${eventId ? events.find(e => e.id.toString() === eventId).title : 'this event'}.
+                                </p>
+                                <p class="text-gray-600 mb-4">
+                                    We've sent a confirmation email to ${email} with all the details.
+                                </p>
+                                <div class="mt-8 flex justify-center">
+                                    <a href="events.html" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-md shadow-sm transition-colors">
+                                        Return to Events
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    document.body.appendChild(successModal);
+                    successModal.addEventListener('click', function (e) {
+                        if (e.target === successModal) {
+                            document.body.removeChild(successModal);
+                        }
+                    });
+                    form.reset();
+                } else {
+                    const firstInvalidField = form.querySelector(':invalid');
+                    if (firstInvalidField) {
+                        firstInvalidField.focus();
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

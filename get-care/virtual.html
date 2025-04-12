@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syokimau Connect</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f8fa;
+        }
+        
+        .header {
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .logo-text {
+            margin-left: 10px;
+            color: #555;
+            font-weight: 500;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .page-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .page-title span {
+            font-style: italic;
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 40px;
+        }
+        
+        .card-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            padding: 30px;
+            width: 100%;
+            max-width: 600px;
+        }
+        
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 20px;
+        }
+        
+        .card-title {
+            font-size: 1.7rem;
+            margin-bottom: 15px;
+        }
+        
+        .card-text {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 30px;
+        }
+        
+        form {
+            text-align: left;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        button {
+            background-color: #e62d35;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 15px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 15px;
+        }
+        
+        button:hover {
+            background-color: #d12730;
+        }
+        
+        
+        .questions {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .phone-display {
+            max-width: 350px;
+            margin: 40px auto;
+        }
+        
+        .phone-display img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+                /* Footer */
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 60px 5% 30px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #007BFF;
+        }
+
+        .address {
+            margin-bottom: 20px;
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        .social-footer {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-footer a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-footer a:hover {
+            background-color: #007BFF;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ccc;
+        }
+        
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            .card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="20" r="20" fill="#e62d35"/>
+                <path d="M10 20C10 14.5 14.5 10 20 10C25.5 10 30 14.5 30 20C30 25.5 25.5 30 20 30" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                <path d="M15 20C15 17.5 17.5 15 20 15" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                <path d="M20 25L15 30" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                <path d="M20 25L25 30" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <div class="logo-text">Syokimau Connect</div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h1 class="page-title">Care that works <span>with</span> your schedule</h1>
+        <p class="subtitle">Connect with healthcare professionals virtually - anytime, anywhere.</p>
+        
+        <div class="phone-display">
+            <img src="doctor-phone.jpeg" alt="Virtual consultation on phone">
+        </div>
+        
+        <div class="card-container">
+            <div class="card">
+                <svg class="card-icon" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M30 10C18.95 10 10 18.95 10 30C10 41.05 18.95 50 30 50C41.05 50 50 41.05 50 30C50 18.95 41.05 10 30 10Z" stroke="#333" stroke-width="3"/>
+                    <path d="M30 20V30L37 37" stroke="#e62d35" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+                <h2 class="card-title">Start Your Virtual Consultation</h2>
+                <p class="card-text">Complete the form below to schedule your appointment with a healthcare professional. Our team will be ready to assist you within minutes.</p>
+                
+                <form>
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" placeholder="Enter your full name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mobile">Mobile Number</label>
+                        <input type="tel" id="mobile" placeholder="Enter your mobile number" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="Enter your email address" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service">Service Needed</label>
+                        <select id="service" required>
+                            <option value="" disabled selected>Select a service</option>
+                            <option value="general">General Consultation</option>
+                            <option value="specialist">Specialist Referral</option>
+                            <option value="followup">Follow-up Appointment</option>
+                            <option value="prescription">Prescription Renewal</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="payment">Mode of Payment</label>
+                        <select id="payment" required>
+                            <option value="" disabled selected>Select payment method</option>
+                            <option value="mpesa">M-Pesa</option>
+                            <option value="card">Credit/Debit Card</option>
+                            <option value="insurance">Insurance</option>
+                            <option value="cash">Cash on Arrival</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="date">Preferred Date</label>
+                        <input type="date" id="date" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="time">Preferred Time</label>
+                        <input type="time" id="time" required>
+                    </div>
+                    
+                    <button type="submit">Book Consultation Now</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <div class="questions">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="10" cy="10" r="9" stroke="white" stroke-width="2"/>
+                <path d="M10 15V16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                <path d="M10 5C8.34315 5 7 6.34315 7 8C7 9.30623 7.83481 10.4175 9 10.8293V13" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <p>Have questions? Call us: +254 700 123 456</p>
+        </div>
+    </div>
+
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>Syokimau Hospital</h3>
+                    <p class="address">
+                        123 Syokimau Road<br>
+                        Machakos County, Kenya<br><br>
+                        <strong>Phone:</strong> +254 113 566 500<br>
+                        <strong>Email:</strong> info@syokimauhospital.com
+                    </p>
+                    <div class="social-footer">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="../services/departments/emergency.html">Emergency Care</a></li>
+                        <li><a href="../services/departments/cardiology.html">Cardiology</a></li>
+                        <li><a href="#">Pediatrics</a></li>
+                        <li><a href="#">Orthopedics</a></li>
+                        <li><a href="../services/departments/all-services.html">All Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="../home/home.html">Home</a></li>
+                        <li><a href="../learn-more/about/about.html">About Us</a></li>
+                        <li><a href="../finddoc/finddoc.html">Find a Doctor</a></li>
+                        <li><a href="../get-care/message.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Opening Hours</h3>
+                    <ul class="footer-links">
+                        <li>Monday - Friday: 24 hours</li>
+                        <li>Saturday: 24 hours</li>
+                        <li>Sunday: 24 hours</li>
+                        <li>Emergency: Always Open</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Syokimau Hospital. All rights reserved.</p>
+            </div>
+        </footer>
+    
+</body>
+</html>

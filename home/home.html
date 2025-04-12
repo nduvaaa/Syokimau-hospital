@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syokimau Hospital</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+
+<body>
+    <div class="header-container">
+        <nav class="topnavbar">
+            <div class="left-section">
+                <div class="logo-container">
+                  <a href="../home/home.html">
+                    <img src="logo.png" alt="Hospital Logo" class="logo">
+                </a>
+                </div>
+                <div class="primary-links">
+                    <a class="nav-link section-toggle active" data-section="patients">For Patients</a>
+                    <a class="nav-link " href="providers.html">For Providers</a>
+                </div>
+            </div>
+
+            <div class="right-section">
+                <a href="tel:+2547113566500" class="nav-link phone-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                    </svg>
+                    +254 113 566 500
+                </a>
+                <div class="translate-btn">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Google_Translate_logo.svg"
+                        alt="Translate">
+                    <div id="google_translate_element"></div>
+                </div>
+            </div>
+
+            <div class="mobile-controls">
+                <div class="search-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                        class="bi bi-search" viewBox="0 0 16 16">
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                    </svg>
+                </div>
+                <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+            </div>
+        </nav>
+
+        <nav class="bottomnavbar">
+            <div class="nav-menu-desktop">
+                <div class="dropdown" >
+                <a href="#Care" class="nav-link dropdown-arrow">Get Care</a>
+                <div class="dropdown-content">
+                    <a href="../get-care/virtual.html">Virtual Care</a>
+                    <a href="../get-care/urgent.html">Urgent Care</a>
+                    <a href="../services/departments/all-services.html">Primary Care</a>
+                    <a href="maternal.html">Maternal</a>
+                    <a href="../get-care/care.html">Browse All</a>
+                </div>
+            </div>
+                    <a href="../finddoc/finddoc.html" class="nav-link">Find a Doctor</a>
+
+                <div class="dropdown">
+                    <a href="#Services" class="nav-link dropdown-arrow">Our Services</a>
+                    <div class="dropdown-content">
+                        <a href="../services/departments/emergency.html">Emergency Care</a>
+                        <a href="../services/departments/cardiology.html">Cardiology</a>
+                        <a href="orthopedics.html">Orthopedics</a>
+                        <a href="pediatrics.html">Pediatrics</a>
+                        <a href="../services/departments/all-services.html">All Services</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#More" class="nav-link dropdown-arrow">Learn More</a>
+                    <div class="dropdown-content">
+                        <a href="../learn-more/about/about.html">About Us</a>
+                        <a href="../learn-more/insurance/insurance.html">Insurance Information</a>
+                        <a href="../learn-more/location/location.html">Our Locations</a>
+                        <a href="../learn-more/events/events.html">Events & Classes</a>
+                        <a href="../learn-more/faq/faq.html">FAQs</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#Records" class="nav-link dropdown-arrow">Records & Billing</a>
+                    <div class="dropdown-content">
+                        <a href="../billing/medical-records.html">Medical Records</a>
+                        <a href="../billing/billing-info.html">Billing Information</a>
+                        <a href="../billing/insurance-verification.html">Insurance Verification</a>
+                        <a href="../get-care/message.html">Financial Assistance</a>
+                    </div>
+                </div>
+
+                <div class="search-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                        class="bi bi-search" viewBox="0 0 16 16">
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                    </svg>
+                </div>
+            </div>
+        </nav>
+
+        <div class="mobile-menu">
+            <a class="nav-link section-toggle active" data-section="patients">For Patients</a>
+            <a class="nav-link section-toggle" data-section="providers">For Providers</a>
+            <hr style="border: none; border-top: 1px solid #dee2e6; margin: 0;">
+
+            <div class="section-heading">Patient Menu</div>
+            <a class="nav-link dropdown-toggle" data-submenu="care-menu-mobile">Get Care</a>
+            <div id="care-menu-mobile" class="submenu">
+                <a href="../get-care/virtual.html" class="nav-link">Virtual Care</a>
+                <a href="../get-care/urgent.html" class="nav-link">Urgent Care</a>
+                <a href="../services/departments/all-services.html" class="nav-link">Primary Care</a>
+                <a href="Maternal.html" class="nav-link">Maternal</a>
+                <a href="../get-care/care.html" class="nav-link">Browse All</a>
+            </div>
+                <a href="../finddoc/finddoc.html" class="nav-link">Find a Doctor</a>
+
+            <a class="nav-link dropdown-toggle" data-submenu="services-menu-mobile">Our Services</a>
+            <div id="services-menu-mobile" class="submenu">
+                <a href="../services/departments/emergency.html" class="nav-link">Emergency Care</a>
+                <a href="../services/departments/cardiology.html" class="nav-link">Cardiology</a>
+                <a href="Orthopedics.html" class="nav-link">Orthopedics</a>
+                <a href="Pediatrics.html" class="nav-link">Pediatrics</a>
+                <a href="../services/departments/all-services.html" class="nav-link">All Services</a>
+            </div>
+
+            <a class="nav-link dropdown-toggle" data-submenu="learn-menu-mobile">Learn More</a>
+            <div id="learn-menu-mobile" class="submenu">
+                <a href="../learn-more/about/about.html" class="nav-link">About Us</a>
+                <a href="../learn-more/insurance/insurance.html" class="nav-link">Insurance Information</a>
+                <a href="../learn-more/location/location.html" class="nav-link">Our Locations</a>
+                <a href="../learn-more/events/events.html" class="nav-link">Events & Classes</a>
+                <a href="../learn-more/faq/faq.html" class="nav-link">FAQs</a>
+            </div>
+
+            <a class="nav-link dropdown-toggle" data-submenu="records-menu-mobile">Records & Billing</a>
+            <div id="records-menu-mobile" class="submenu">
+                <a href="../billing/medical-records.html" class="nav-link">Medical Records</a>
+                <a href="../billing/billing-info.html" class="nav-link">Billing Information</a>
+                <a href="../billing/insurance-verification.html" class="nav-link">Insurance Verification</a>
+                <a href="../get-care/message.html" class="nav-link">Financial Assistance</a>
+            </div>
+
+            <div class="section-heading">Contact</div>
+            <a href="tel:+2547113566500" class="nav-link phone-link"
+                style="padding-left: 1.5rem; border-bottom: 1px solid #e9ecef;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                </svg>
+                +254 113 566 500
+            </a>
+
+            <div style="padding: 1rem 1.5rem;">
+                <div class="translate-btn">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Google_Translate_logo.svg"
+                        alt="Translate">
+                    <div id="google_translate_element_mobile"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="patients" class="content-section active">
+
+        <div class="hero-section">
+            <div class="hero-image"></div>
+            <div class="hero-content-column">
+                <!-- Text area above search card -->
+                <div class="text-area text-area-top">
+                    Hiqh quality care <br>
+                    from the best staff
+                </div>
+
+                <div class="search-card">
+                    <h2>I want to search:</h2>
+                    <p style="margin-bottom: 1.5rem; color: #555;">Search for a doctor, specialist, service, or
+                        condition.</p>
+                    <div class="search-container">
+                        <input type="text" class="search-input" placeholder="Search by keyword">
+                        <button class="search-button">Search</button>
+                    </div>
+                </div>
+
+                <!-- Text area below search card -->
+                <div class="rank-card text-area-bottom">
+                    <div class="rank-text">Ranked top 100 in the country</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="doctor-message-section">
+            <div class="doctor-message-container">
+                <div class="message-content">
+                    <h3>Message from the Head Doctor</h3>
+                    <p>At Syokimau Hospital, we are committed to providing exceptional healthcare services with
+                        compassion and expertise.
+                        Our dedicated team of medical professionals strives to ensure that every patient receives
+                        personalized care and treatment of the highest standard.</p>
+                    <p>We believe in a patient-centered approach where your health and well-being are our top
+                        priorities. Our state-of-the-art facilities combined with our experienced staff make us the
+                        preferred healthcare provider in the region.</p>
+                </div>
+                <div class="divider"></div>
+                <div class="doctor-info">
+                    <h4>Dr. John Kamau</h4>
+                    <p class="position">Chief Medical Officer</p>
+                    <p class="credentials">MD, FACS, PhD</p>
+                </div>
+            </div>
+        </div>
+
+
+
+
+<!-- Healthcare Cards Section HTML -->
+<section class="healthcare-options">
+    <div class="healthcare-container">
+      <h1 class="healthcare-heading">Find the care you're looking for</h1>
+      
+      <div class="healthcare-cards">
+        <!-- 24/7 Virtual Care Card -->
+        <div class="healthcare-card">
+          <div class="card-subtitle">Get Care with Syokimau Connect</div>
+          <h2 class="card-title">24/7 Virtual Care</h2>
+          
+          <ul class="feature-list">
+            <li class="feature-item">
+              <span class="feature-icon"></span>
+              <span class="feature-text">Connect with doctors for illnesses like flus or chronic conditions</span>
+            </li>
+            <li class="feature-item">
+              <span class="feature-icon"></span>
+              <span class="feature-text">Get care in minutes or schedule an appointment on your schedule</span>
+            </li>
+            <li class="feature-item">
+              <span class="feature-icon"></span>
+              <span class="feature-text">Available 24/7, including weekends and holidays</span>
+            </li>
+          </ul>
+          
+          <a href="../get-care/virtual.html">
+          <button class="btn-arrow">
+            <span class="arrow"></span>
+          </button>
+          </a>
+        </div>
+        
+        <!-- Primary Care Card -->
+        <div class="healthcare-card">
+          <div class="card-subtitle">Find the right doctor for you</div>
+          <h2 class="card-title">Primary Care</h2>
+          
+          <ul class="feature-list">
+            <li class="feature-item">
+              <span class="feature-icon"></span>
+              <span class="feature-text">At our state of the art hospital</span>
+            </li>
+            <li class="feature-item">
+              <span class="feature-icon"></span>
+              <span class="feature-text">Online scheduling available</span>
+            </li>
+          </ul>
+          <a href="../services/departments/all-services.html">
+          <button class="btn-arrow">
+            <span class="arrow"></span>
+          </button>
+          </a>
+        </div>
+        
+        <!-- Urgent Care Card -->
+        <div class="healthcare-card">
+          <div class="card-subtitle">Get help now</div>
+          <h2 class="card-title">Urgent Care</h2>
+          
+          <ul class="feature-list">
+            <li class="feature-item">
+              <span class="feature-icon"></span>
+              <span class="feature-text">Open 7 days a week</span>
+            </li>
+            <li class="feature-item">
+              <span class="feature-icon"></span>
+              <span class="feature-text">Accepts most insurances</span>
+            </li>
+          </ul>
+          
+          <a href="../get-care/urgent.html">
+          <button class="btn-arrow">
+            <span class="arrow"></span>
+          </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="specialty-care-container">
+    <h1 class="specialty-title">State of the Art specialty care within your reach</h1>
+    
+    <div class="specialties-layout">
+      <div class="specialties-list">
+        <div class="specialty-item">
+          <div class="specialty-text">
+            <h2>Heart</h2>
+            <p>Quality Cardiology Care</p>
+          </div>
+          <a href="../services/departments/cardiology.html">
+          <div class="arrow-icon">&#10230;</div>
+          </a>
+        </div>
+        <hr class="specialty-divider"/>
+        
+        <div class="specialty-item">
+          <div class="specialty-text">
+            <h2>Maternal</h2>
+            <p>Quality Maternal Care</p>
+          </div>
+          <div class="arrow-icon">&#10230;</div>
+        </div>
+        <hr class="specialty-divider"/>
+        
+        <div class="specialty-item">
+          <div class="specialty-text">
+            <h2>Pediatrics</h2>
+            <p>Expert Care Made for Kids</p>
+          </div>
+          <div class="arrow-icon">&#10230;</div>
+        </div>
+        <hr class="specialty-divider"/>
+        
+        
+        
+        <div class="specialty-item">
+          <div class="specialty-text">
+            <h2>Obstetrics & Gynecology</h2>
+            <p>Ultimate Care.</p>
+          </div>
+          <div class="arrow-icon">&#10230;</div>
+        </div>
+        <hr class="specialty-divider"/>
+        
+        <div class="view-all-btn-container">
+          <a href="../services/departments/all-services.html">
+          <button class="view-all-btn">View All Programs</button>
+          </a>
+        </div>
+      </div>
+      
+      <div class="images-container">
+        <div class="image main-image">
+          <!-- Main image - woman in light clothing -->
+          <img src="maternity.jpg" alt="Patient">
+        </div>
+        <div class="small-images">
+          <div class="image scanner-image">
+            <!-- Scanner image - patient getting scan -->
+            <img src="children.jpg" alt="Patient getting medical scan">
+          </div>
+          <div class="image patient-image">
+            <!-- Patient image - man in hospital gown -->
+            <img src="maternity.jpg" alt="Patient in hospital">
+          </div>
+          <div class="image brain-scan-image">
+            <!-- Brain scan image -->
+            <img src="children.jpg" alt="Brain scans">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <section class="blog-section">
+    <h2 class="section-title">Our Latest Blogs</h2>
+    <div class="blog-container">
+      <div class="blog-cards" id="blogCards">
+        <div class="blog-card">
+          <div class="card-image">
+            <img src="/api/placeholder/800/600" alt="Blog post image">
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Cancer Treatment</h3>
+            <a href="#" class="read-more">
+              Read More <span class="arrow-icon">→</span>
+            </a>
+          </div>
+        </div>
+        <div class="blog-card">
+          <div class="card-image">
+            <img src="/api/placeholder/800/600" alt="Blog post image">
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">The Future of Medicine in 2025</h3>
+            <a href="#" class="read-more">
+              Read More <span class="arrow-icon">→</span>
+            </a>
+          </div>
+        </div>
+        <div class="blog-card">
+          <div class="card-image">
+            <img src="/api/placeholder/800/600" alt="Blog post image">
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">How to Treat a Flu</h3>
+            <a href="#" class="read-more">
+              Read More <span class="arrow-icon">→</span>
+            </a>
+          </div>
+        </div>
+        <div class="blog-card">
+          <div class="card-image">
+            <img src="/api/placeholder/800/600" alt="Blog post image">
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">The Benefits of Vitamins</h3>
+            <a href="#" class="read-more">
+              Read More <span class="arrow-icon">→</span>
+            </a>
+          </div>
+        </div>
+        <div class="blog-card">
+          <div class="card-image">
+            <img src="/api/placeholder/800/600" alt="Blog post image">
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Best Practices for Modern Health</h3>
+            <a href="#" class="read-more">
+              Read More <span class="arrow-icon">→</span>
+            </a>
+          </div>
+        </div>
+        <div class="blog-card">
+          <div class="card-image">
+            <img src="/api/placeholder/800/600" alt="Blog post image">
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Building Networks in the medicine sector</h3>
+            <a href="#" class="read-more">
+              Read More <span class="arrow-icon">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="navigation-buttons">
+        <button class="nav-button" id="prevBtn">&lt;</button>
+        <button class="nav-button" id="nextBtn">&gt;</button>
+      </div>
+      <a href="blogs.html" class="view-all-blogs">View All Blogs</a>
+
+    </div>
+  </section>
+
+
+  <div class="contact-container">
+    <h2 class="contact-heading">We're always here to help. Contact us today.</h2>
+    <div class="button-container">
+      <a href="../get-care/care.html">
+      <button class="btn btn-primary">Get Care</button>
+    </a>
+    <a href="../get-care/message.html">
+      <button class="btn btn-secondary">Send a Message</button>
+      </a>
+    </div>
+  </div>
+
+
+
+        <!-- Footer -->
+        <footer class="footer">
+          <div class="footer-container">
+              <div class="footer-column">
+                  <h3>Syokimau Hospital</h3>
+                  <p class="address">
+                      123 Syokimau Road<br>
+                      Machakos County, Kenya<br><br>
+                      <strong>Phone:</strong> +254 113 566 500<br>
+                      <strong>Email:</strong> info@syokimauhospital.com
+                  </p>
+                  <div class="social-footer">
+                      <a href="#"><i class="fab fa-facebook-f"></i></a>
+                      <a href="#"><i class="fab fa-twitter"></i></a>
+                      <a href="#"><i class="fab fa-instagram"></i></a>
+                      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                  </div>
+              </div>
+              <div class="footer-column">
+                  <h3>Our Services</h3>
+                  <ul class="footer-links">
+                      <li><a href="../services/departments/emergency.html">Emergency Care</a></li>
+                      <li><a href="../services/departments/cardiology.html">Cardiology</a></li>
+                      <li><a href="#">Pediatrics</a></li>
+                      <li><a href="#">Orthopedics</a></li>
+                      <li><a href="../services/departments/all-services.html">All Services</a></li>
+                  </ul>
+              </div>
+              <div class="footer-column">
+                  <h3>Quick Links</h3>
+                  <ul class="footer-links">
+                      <li><a href="home.html">Home</a></li>
+                      <li><a href="../learn-more/about/about.html">About Us</a></li>
+                      <li><a href="../finddoc/finddoc.html">Find a Doctor</a></li>
+                      <li><a href="../get-care/callback.html">Contact</a></li>
+                  </ul>
+              </div>
+              <div class="footer-column">
+                  <h3>Opening Hours</h3>
+                  <ul class="footer-links">
+                      <li>Monday - Friday: 24 hours</li>
+                      <li>Saturday: 24 hours</li>
+                      <li>Sunday: 24 hours</li>
+                      <li>Emergency: Always Open</li>
+                  </ul>
+              </div>
+          </div>
+          <div class="copyright">
+              <p>&copy; 2025 Syokimau Hospital. All rights reserved.</p>
+          </div>
+      </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <script type="text/javascript">
+            function googleTranslateElementInit() {
+                // Desktop Translator
+                new google.translate.TranslateElement({
+                    pageLanguage: 'en',
+                    includedLanguages: 'ar,en,es,fr,sw,zh-CN',
+                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                    autoDisplay: false
+                }, 'google_translate_element');
+
+                // Mobile Translator
+                new google.translate.TranslateElement({
+                    pageLanguage: 'en',
+                    includedLanguages: 'ar,en,es,fr,sw,zh-CN',
+                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                    autoDisplay: false
+                }, 'google_translate_element_mobile');
+
+                function triggerLanguageChange(langCode) {
+                    const iframe = document.querySelector('.goog-te-banner-frame');
+                    if (iframe) {
+                        const innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+                        const langSelect = innerDoc.querySelector('.goog-te-combo');
+                        if (langSelect) {
+                            langSelect.value = langCode;
+                            langSelect.dispatchEvent(new Event('change'));
+                        }
+                    } else {
+                        const desktopSelect = document.querySelector('#google_translate_element select');
+                        const mobileSelect = document.querySelector('#google_translate_element_mobile select');
+                        if (desktopSelect) {
+                            desktopSelect.value = langCode;
+                            desktopSelect.dispatchEvent(new Event('change'));
+                        } else if (mobileSelect) {
+                            mobileSelect.value = langCode;
+                            mobileSelect.dispatchEvent(new Event('change'));
+                        }
+                    }
+                }
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                const menuToggle = document.querySelector('.menu-toggle');
+                const mobileMenu = document.querySelector('.mobile-menu');
+                const headerContainer = document.querySelector('.header-container');
+                const dropdownToggles = mobileMenu.querySelectorAll('.dropdown-toggle');
+                const sectionToggles = document.querySelectorAll('.section-toggle');
+                const contentSections = document.querySelectorAll('.content-section');
+                const desktopDropdowns = document.querySelectorAll('.nav-menu-desktop .dropdown');
+
+                // Mobile menu toggle
+                menuToggle.addEventListener('click', function () {
+                    mobileMenu.classList.toggle('active');
+                    menuToggle.setAttribute('aria-expanded', mobileMenu.classList.contains('active'));
+                });
+
+                // Mobile menu dropdown toggles
+                dropdownToggles.forEach(toggle => {
+                    toggle.addEventListener('click', function (e) {
+                        e.preventDefault();
+
+                        const submenuId = this.getAttribute('data-submenu');
+                        const submenu = document.getElementById(submenuId);
+
+                        dropdownToggles.forEach(otherToggle => {
+                            if (otherToggle !== this) {
+                                const otherSubmenuId = otherToggle.getAttribute('data-submenu');
+                                const otherSubmenu = document.getElementById(otherSubmenuId);
+                                if (otherSubmenu && otherSubmenu.classList.contains('active')) {
+                                    otherSubmenu.classList.remove('active');
+                                    otherToggle.classList.remove('expanded');
+                                }
+                            }
+                        });
+
+                        this.classList.toggle('expanded');
+                        if (submenu) {
+                            submenu.classList.toggle('active');
+                        }
+                    });
+                });
+
+                // Section toggles
+                function setActiveSection(sectionName) {
+                    contentSections.forEach(section => section.classList.remove('active'));
+                    sectionToggles.forEach(t => t.classList.remove('active'));
+
+                    const targetSection = document.getElementById(sectionName);
+                    if (targetSection) {
+                        targetSection.classList.add('active');
+                    }
+
+                    document.querySelectorAll(`.section-toggle[data-section="${sectionName}"]`).forEach(el => {
+                        el.classList.add('active');
+                    });
+                }
+
+                sectionToggles.forEach(toggle => {
+                    toggle.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const sectionName = this.getAttribute('data-section');
+                        setActiveSection(sectionName);
+
+                        if (mobileMenu.classList.contains('active')) {
+                            mobileMenu.classList.remove('active');
+                            menuToggle.setAttribute('aria-expanded', 'false');
+                        }
+                    });
+                });
+
+                setActiveSection('patients');
+
+                // Desktop dropdowns
+                desktopDropdowns.forEach(dropdown => {
+                    const trigger = dropdown.querySelector('.dropdown-arrow');
+
+                    trigger.addEventListener('click', function (e) {
+                        if (e.target === trigger || trigger.contains(e.target)) {
+                            e.preventDefault();
+
+                            desktopDropdowns.forEach(otherDropdown => {
+                                if (otherDropdown !== dropdown) {
+                                    otherDropdown.classList.remove('active');
+                                }
+                            });
+
+                            dropdown.classList.toggle('active');
+                        }
+                    });
+
+                    const links = dropdown.querySelectorAll('.dropdown-content a');
+                    links.forEach(link => {
+                        link.addEventListener('click', () => {
+                            dropdown.classList.remove('active');
+                        });
+                    });
+                });
+
+                // Close desktop dropdowns when clicking outside
+                document.addEventListener('click', function (e) {
+                    desktopDropdowns.forEach(dropdown => {
+                        if (!dropdown.contains(e.target)) {
+                            dropdown.classList.remove('active');
+                        }
+                    });
+
+                    if (!headerContainer.contains(e.target) && !mobileMenu.contains(e.target) && mobileMenu.classList.contains('active')) {
+                        mobileMenu.classList.remove('active');
+                        menuToggle.setAttribute('aria-expanded', 'false');
+                    }
+                });
+
+                // Search icon functionality
+                const searchIcons = document.querySelectorAll('.search-icon');
+                searchIcons.forEach(icon => {
+                    icon.addEventListener('click', function () {
+                        alert('Search functionality to be implemented!');
+                    });
+                });
+
+                const heroSearchButton = document.querySelector('.hero-section .search-button');
+                if (heroSearchButton) {
+                    heroSearchButton.addEventListener('click', function () {
+                        const query = document.querySelector('.hero-section .search-input').value;
+                        alert(`Searching for: "${query}" (Implementation needed)`);
+                    });
+                }
+
+                // Dynamically load Google Translate script
+                const translateScript = document.createElement('script');
+                translateScript.type = 'text/javascript';
+                translateScript.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+                translateScript.onerror = () => console.error("Google Translate script failed to load.");
+                document.body.appendChild(translateScript);
+            });
+            const blogCards = document.getElementById('blogCards');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    
+    let scrollAmount = 0;
+    let cardWidth = document.querySelector('.blog-card').offsetWidth + 32; // Card width + gap
+    
+    // Update card width on window resize
+    window.addEventListener('resize', () => {
+      cardWidth = document.querySelector('.blog-card').offsetWidth + 32;
+    });
+    
+    nextBtn.addEventListener('click', () => {
+      // Calculate how many cards to scroll based on screen width
+      let cardsToScroll = 1;
+      if (window.innerWidth > 768) {
+        cardsToScroll = window.innerWidth > 992 ? 3 : 2;
+      }
+      
+      scrollAmount += cardWidth * cardsToScroll;
+      
+      // Prevent scrolling beyond the last card
+      const maxScroll = blogCards.scrollWidth - blogCards.clientWidth;
+      if (scrollAmount > maxScroll) {
+        scrollAmount = maxScroll;
+      }
+      
+      blogCards.scrollTo({
+        left: scrollAmount,
+        behavior: 'smooth'
+      });
+    });
+    
+    prevBtn.addEventListener('click', () => {
+      // Calculate how many cards to scroll based on screen width
+      let cardsToScroll = 1;
+      if (window.innerWidth > 768) {
+        cardsToScroll = window.innerWidth > 992 ? 3 : 2;
+      }
+      
+      scrollAmount -= cardWidth * cardsToScroll;
+      
+      // Prevent scrolling beyond the first card
+      if (scrollAmount < 0) {
+        scrollAmount = 0;
+      }
+      
+      blogCards.scrollTo({
+        left: scrollAmount,
+        behavior: 'smooth'
+      });
+    });
+
+            
+        </script>
+</body>
+
+</html>

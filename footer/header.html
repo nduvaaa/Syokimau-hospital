@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syokimau Hospital</title>
+    <style>
+                * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        
+        body {
+            width: 100vw;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .content-section {
+    padding: 3rem 0; /* Remove left/right padding, keep top/bottom */
+    width: 100vw; /* Ensure full width */
+    margin-left: 0; /* No offset */
+}
+
+        /* Sticky Header Container */
+        .header-container {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            z-index: 1000;
+        }
+
+        .topnavbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 3rem;
+            background-color: #ffffff;
+            height: 60px;
+        }
+
+        .left-section {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            height: 40px;
+            margin-right: 1rem;
+        }
+
+        .primary-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .right-section {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            cursor: pointer;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link:hover {
+            color: #007bff;
+        }
+
+        .nav-link.active {
+            color: #007bff;
+            border-bottom: 2px solid #007bff;
+        }
+
+        .phone-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #28a745;
+            font-weight: bold;
+            border-bottom: none;
+        }
+
+        .phone-link:hover {
+            color: #218838;
+        }
+
+        .phone-link.active {
+            border-bottom: none;
+            color: #28a745;
+        }
+
+        .translate-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .translate-btn:hover {
+            background-color: #e9ecef;
+        }
+
+        .translate-btn img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .goog-te-gadget {
+            font-family: inherit !important;
+            color: transparent !important;
+            line-height: normal !important;
+        }
+
+        .goog-te-gadget .goog-te-combo {
+            margin: 0 !important;
+            padding: 2px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+            vertical-align: middle;
+        }
+
+        .goog-te-gadget span {
+            display: none !important;
+        }
+
+        .goog-te-gadget>div {
+            display: inline-block !important;
+            background: none !important;
+        }
+
+        .goog-te-gadget-simple {
+            background-color: transparent !important;
+            border: none !important;
+            padding: 0 !important;
+            font-size: inherit !important;
+            display: inline-block !important;
+        }
+
+        /* Bottom Navbar */
+        .bottomnavbar {
+            background-color: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+            padding: 0 3rem;
+            height: 105px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-menu-desktop {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        /* Search Icon */
+        .search-icon {
+            cursor: pointer;
+            color: #333;
+            transition: color 0.3s ease;
+            padding: 0.5rem;
+        }
+
+        .search-icon:hover {
+            color: #007bff;
+        }
+
+
+
+                /* Mobile Menu */
+                .mobile-controls {
+            display: none;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 0.5rem;
+            color: #333;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: #f8f9fa;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+            max-height: calc(100vh - 60px);
+            overflow-y: auto;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu .nav-link {
+            display: block;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #e9ecef;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .mobile-menu .nav-link:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-menu .nav-link:hover {
+            background-color: #e9ecef;
+            color: #0056b3;
+        }
+
+        .mobile-menu .section-heading {
+            background-color: #e9ecef;
+            padding: 0.8rem 1.5rem;
+            font-weight: bold;
+            color: #555;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .mobile-menu .submenu {
+            padding-left: 1.5rem;
+            background-color: #ffffff;
+            display: none;
+        }
+
+        .mobile-menu .submenu .nav-link {
+            padding-left: 2.5rem;
+            font-weight: 400;
+            border-color: #f1f1f1;
+        }
+
+        .mobile-menu .submenu.active {
+            display: block;
+        }
+
+        .mobile-menu .dropdown-toggle {
+            position: relative;
+        }
+
+        .mobile-menu .dropdown-toggle::after {
+            content: "+";
+            position: absolute;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.4rem;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+            color: #888;
+        }
+
+        .mobile-menu .dropdown-toggle.expanded::after {
+            content: "−";
+            color: #555;
+        }
+
+        /* Desktop Dropdown Styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #ffffff;
+            min-width: 220px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.15);
+            z-index: 1001;
+            border-radius: 4px;
+            margin-top: 0.5rem;
+            border: 1px solid #e9ecef;
+            overflow: hidden;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.2s ease, color 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #007bff;
+            color: #ffffff;
+        }
+
+        .dropdown.active .dropdown-content {
+            display: block;
+        }
+
+        /* Dropdown Arrow Style */
+        .dropdown-arrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding-bottom: 0.5rem;
+        }
+
+        .dropdown-arrow::after {
+            content: "";
+            display: inline-block;
+            width: 0.4rem;
+            height: 0.4rem;
+            margin-left: 0.3rem;
+            margin-top: -0.1rem;
+            border-right: 2px solid currentColor;
+            border-bottom: 2px solid currentColor;
+            transform: rotate(45deg);
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown.active .dropdown-arrow::after {
+            transform: rotate(-135deg);
+            margin-top: 0.1rem;
+        }
+
+        /* Google Translate Fixes */
+        html {
+            scroll-padding-top: 165px;
+        }
+
+        body.translated-ltr {
+            top: 0 !important;
+        }
+
+        body.translated-rtl {
+            top: 0 !important;
+        }
+
+        .skiptranslate {
+            display: none !important;
+            visibility: hidden !important;
+        }
+
+        iframe.goog-te-banner-frame {
+            display: none !important;
+            visibility: hidden !important;
+        }
+
+        body>.skiptranslate {
+            display: none !important;
+            visibility: hidden !important;
+        }
+        @media (max-width: 1024px) {
+
+            .topnavbar,
+            .bottomnavbar {
+                padding: 0 2rem;
+            }
+            
+            .bottomnavbar {
+                height: 55px;
+            }
+            
+            html {
+                scroll-padding-top: 115px;
+            }
+        }
+        @media (max-width: 768px) {
+            html {
+                scroll-padding-top: 60px;
+            }
+
+            .topnavbar {
+                justify-content: space-between;
+                padding: 0 1rem;
+                height: 60px;
+            }
+
+            /* Hide desktop elements */
+            .left-section .primary-links,
+            .right-section,
+            .bottomnavbar {
+                display: none;
+            }
+
+            /* Show mobile controls */
+            .mobile-controls,
+            .menu-toggle {
+                display: flex;
+            }
+
+            .mobile-controls {
+                margin-left: auto;
+            }
+        }
+        @media (max-width: 480px) {
+            .logo {
+                height: 35px;
+                margin-right: 0.5rem;
+            }
+
+            .mobile-menu .nav-link {
+                font-size: 1rem;
+                padding: 0.9rem 1rem;
+            }
+
+            .mobile-menu .section-heading {
+                padding: 0.7rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .mobile-menu .submenu .nav-link {
+                padding-left: 1.5rem;
+            }
+
+            
+
+           
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header-container">
+        <nav class="topnavbar">
+            <div class="left-section">
+                <div class="logo-container">
+                    <a href="home.html">
+                        <img src="logo.png" alt="Hospital Logo" class="logo">
+                    </a>
+                </div>
+                <div class="primary-links">
+                    <a class="nav-link section-toggle active" data-section="patients">For Patients</a>
+                    <a class="nav-link " href="providers.html">For Providers</a>
+                </div>
+            </div>
+
+            <div class="right-section">
+                <a href="tel:+2547113566500" class="nav-link phone-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                    </svg>
+                    +254 113 566 500
+                </a>
+                <div class="translate-btn">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Google_Translate_logo.svg"
+                        alt="Translate">
+                    <div id="google_translate_element"></div>
+                </div>
+            </div>
+
+            <div class="mobile-controls">
+                <div class="search-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                        class="bi bi-search" viewBox="0 0 16 16">
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                    </svg>
+                </div>
+                <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+            </div>
+        </nav>
+
+        <nav class="bottomnavbar">
+            <div class="nav-menu-desktop">
+                <div class="dropdown" >
+                <a href="#Care" class="nav-link dropdown-arrow">Get Care</a>
+                <div class="dropdown-content">
+                    <a href="virtual.html">Virtual Care</a>
+                    <a href="urgent.html">Urgent Care</a>
+                    <a href="primarycare.html">Primary Care</a>
+                    <a href="maternal.html">Maternal</a>
+                    <a href="Care.html">Browse All</a>
+                </div>
+            </div>
+                    <a href="finddoc.html" class="nav-link">Find a Doctor</a>
+
+                <div class="dropdown">
+                    <a href="#Services" class="nav-link dropdown-arrow">Our Services</a>
+                    <div class="dropdown-content">
+                        <a href="emergency.html">Emergency Care</a>
+                        <a href="cardiology.html">Cardiology</a>
+                        <a href="orthopedics.html">Orthopedics</a>
+                        <a href="pediatrics.html">Pediatrics</a>
+                        <a href="allservices.html">All Services</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#More" class="nav-link dropdown-arrow">Learn More</a>
+                    <div class="dropdown-content">
+                        <a href="About.html">About Us</a>
+                        <a href="InsuranceInfo.html">Insurance Information</a>
+                        <a href="Locations.html">Our Locations</a>
+                        <a href="Events.html">Events & Classes</a>
+                        <a href="FAQ.html">FAQs</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#Records" class="nav-link dropdown-arrow">Records & Billing</a>
+                    <div class="dropdown-content">
+                        <a href="MedicalRecords.html">Medical Records</a>
+                        <a href="BillingInfo.html">Billing Information</a>
+                        <a href="InsuranceVerify.html">Insurance Verification</a>
+                        <a href="PayBill.html">Pay Your Bill</a>
+                        <a href="FinancialAssistance.html">Financial Assistance</a>
+                    </div>
+                </div>
+
+                <div class="search-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                        class="bi bi-search" viewBox="0 0 16 16">
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                    </svg>
+                </div>
+            </div>
+        </nav>
+
+        <div class="mobile-menu">
+            <a class="nav-link section-toggle active" data-section="patients">For Patients</a>
+            <a class="nav-link section-toggle" data-section="providers">For Providers</a>
+            <hr style="border: none; border-top: 1px solid #dee2e6; margin: 0;">
+
+            <div class="section-heading">Patient Menu</div>
+            <a class="nav-link dropdown-toggle" data-submenu="care-menu-mobile">Get Care</a>
+            <div id="care-menu-mobile" class="submenu">
+                <a href="VirtualCare.html" class="nav-link">Virtual Care</a>
+                <a href="UrgentCare.html" class="nav-link">Urgent Care</a>
+                <a href="PrimaryCare.html" class="nav-link">Primary Care</a>
+                <a href="Maternal.html" class="nav-link">Maternal</a>
+            </div>
+                <a href="Doctor.html" class="nav-link">Find a Doctor</a>
+
+            <a class="nav-link dropdown-toggle" data-submenu="services-menu-mobile">Our Services</a>
+            <div id="services-menu-mobile" class="submenu">
+                <a href="Emergency.html" class="nav-link">Emergency Care</a>
+                <a href="Cardiology.html" class="nav-link">Cardiology</a>
+                <a href="Orthopedics.html" class="nav-link">Orthopedics</a>
+                <a href="Pediatrics.html" class="nav-link">Pediatrics</a>
+                <a href="AllServices.html" class="nav-link">All Services</a>
+            </div>
+
+            <a class="nav-link dropdown-toggle" data-submenu="learn-menu-mobile">Learn More</a>
+            <div id="learn-menu-mobile" class="submenu">
+                <a href="About.html" class="nav-link">About Us</a>
+                <a href="InsuranceInfo.html" class="nav-link">Insurance Information</a>
+                <a href="Locations.html" class="nav-link">Our Locations</a>
+                <a href="Events.html" class="nav-link">Events & Classes</a>
+                <a href="FAQ.html" class="nav-link">FAQs</a>
+            </div>
+
+            <a class="nav-link dropdown-toggle" data-submenu="records-menu-mobile">Records & Billing</a>
+            <div id="records-menu-mobile" class="submenu">
+                <a href="MedicalRecords.html" class="nav-link">Medical Records</a>
+                <a href="BillingInfo.html" class="nav-link">Billing Information</a>
+                <a href="InsuranceVerify.html" class="nav-link">Insurance Verification</a>
+                <a href="PayBill.html" class="nav-link">Pay Your Bill</a>
+                <a href="FinancialAssistance.html" class="nav-link">Financial Assistance</a>
+            </div>
+
+            <div class="section-heading">Contact</div>
+            <a href="tel:+2547113566500" class="nav-link phone-link"
+                style="padding-left: 1.5rem; border-bottom: 1px solid #e9ecef;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                </svg>
+                +254 113 566 500
+            </a>
+
+            <div style="padding: 1rem 1.5rem;">
+                <div class="translate-btn">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Google_Translate_logo.svg"
+                        alt="Translate">
+                    <div id="google_translate_element_mobile"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+
+    <script type="text/javascript">
+    function googleTranslateElementInit() {
+        // Desktop Translator
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'ar,en,es,fr,sw,zh-CN',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false
+        }, 'google_translate_element');
+
+        // Mobile Translator
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'ar,en,es,fr,sw,zh-CN',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false
+        }, 'google_translate_element_mobile');
+
+        function triggerLanguageChange(langCode) {
+            const iframe = document.querySelector('.goog-te-banner-frame');
+            if (iframe) {
+                const innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+                const langSelect = innerDoc.querySelector('.goog-te-combo');
+                if (langSelect) {
+                    langSelect.value = langCode;
+                    langSelect.dispatchEvent(new Event('change'));
+                }
+            } else {
+                const desktopSelect = document.querySelector('#google_translate_element select');
+                const mobileSelect = document.querySelector('#google_translate_element_mobile select');
+                if (desktopSelect) {
+                    desktopSelect.value = langCode;
+                    desktopSelect.dispatchEvent(new Event('change'));
+                } else if (mobileSelect) {
+                    mobileSelect.value = langCode;
+                    mobileSelect.dispatchEvent(new Event('change'));
+                }
+            }
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const headerContainer = document.querySelector('.header-container');
+        const dropdownToggles = mobileMenu.querySelectorAll('.dropdown-toggle');
+        const sectionToggles = document.querySelectorAll('.section-toggle');
+        const contentSections = document.querySelectorAll('.content-section');
+        const desktopDropdowns = document.querySelectorAll('.nav-menu-desktop .dropdown');
+
+        // Mobile menu toggle
+        menuToggle.addEventListener('click', function () {
+            mobileMenu.classList.toggle('active');
+            menuToggle.setAttribute('aria-expanded', mobileMenu.classList.contains('active'));
+        });
+
+        // Mobile menu dropdown toggles
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const submenuId = this.getAttribute('data-submenu');
+                const submenu = document.getElementById(submenuId);
+
+                dropdownToggles.forEach(otherToggle => {
+                    if (otherToggle !== this) {
+                        const otherSubmenuId = otherToggle.getAttribute('data-submenu');
+                        const otherSubmenu = document.getElementById(otherSubmenuId);
+                        if (otherSubmenu && otherSubmenu.classList.contains('active')) {
+                            otherSubmenu.classList.remove('active');
+                            otherToggle.classList.remove('expanded');
+                        }
+                    }
+                });
+
+                this.classList.toggle('expanded');
+                if (submenu) {
+                    submenu.classList.toggle('active');
+                }
+            });
+        });
+
+        // Section toggles
+        function setActiveSection(sectionName) {
+            contentSections.forEach(section => section.classList.remove('active'));
+            sectionToggles.forEach(t => t.classList.remove('active'));
+
+            const targetSection = document.getElementById(sectionName);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+
+            document.querySelectorAll(`.section-toggle[data-section="${sectionName}"]`).forEach(el => {
+                el.classList.add('active');
+            });
+        }
+
+        sectionToggles.forEach(toggle => {
+            toggle.addEventListener('click', function (e) {
+                e.preventDefault();
+                const sectionName = this.getAttribute('data-section');
+                setActiveSection(sectionName);
+
+                if (mobileMenu.classList.contains('active')) {
+                    mobileMenu.classList.remove('active');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+
+        setActiveSection('patients');
+
+        // Desktop dropdowns
+        desktopDropdowns.forEach(dropdown => {
+            const trigger = dropdown.querySelector('.dropdown-arrow');
+
+            trigger.addEventListener('click', function (e) {
+                if (e.target === trigger || trigger.contains(e.target)) {
+                    e.preventDefault();
+
+                    desktopDropdowns.forEach(otherDropdown => {
+                        if (otherDropdown !== dropdown) {
+                            otherDropdown.classList.remove('active');
+                        }
+                    });
+
+                    dropdown.classList.toggle('active');
+                }
+            });
+
+            const links = dropdown.querySelectorAll('.dropdown-content a');
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    dropdown.classList.remove('active');
+                });
+            });
+        });
+
+        // Close desktop dropdowns when clicking outside
+        document.addEventListener('click', function (e) {
+            desktopDropdowns.forEach(dropdown => {
+                if (!dropdown.contains(e.target)) {
+                    dropdown.classList.remove('active');
+                }
+            });
+
+            if (!headerContainer.contains(e.target) && !mobileMenu.contains(e.target) && mobileMenu.classList.contains('active')) {
+                mobileMenu.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Search icon functionality
+        const searchIcons = document.querySelectorAll('.search-icon');
+        searchIcons.forEach(icon => {
+            icon.addEventListener('click', function () {
+                alert('Search functionality to be implemented!');
+            });
+        });
+
+        const heroSearchButton = document.querySelector('.hero-section .search-button');
+        if (heroSearchButton) {
+            heroSearchButton.addEventListener('click', function () {
+                const query = document.querySelector('.hero-section .search-input').value;
+                alert(`Searching for: "${query}" (Implementation needed)`);
+            });
+        }
+
+        // Dynamically load Google Translate script
+        const translateScript = document.createElement('script');
+        translateScript.type = 'text/javascript';
+        translateScript.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+        translateScript.onerror = () => console.error("Google Translate script failed to load.");
+        document.body.appendChild(translateScript);
+    });
+</script>
+</body> 
+</html

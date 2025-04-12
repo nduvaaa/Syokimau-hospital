@@ -1,0 +1,492 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Services - Syokimau Hospital</title>
+    <meta name="description" content="Explore the complete range of medical services and departments available at Med Oasis Hospital. From emergency care to specialized treatments.">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/department.css">
+    <link rel="stylesheet" href="../styles/all-services.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+        <!-- Header and Navigation -->
+        <div class="header-container">
+            <nav class="topnavbar">
+                <div class="left-section">
+                    <div class="logo-container">
+                        <a href="../../home/home.html">
+                            <img src="../../home/logo.png" alt="Hospital Logo" class="logo">
+                        </a>
+                    </div>
+                    <div class="primary-links">
+                        <a class="nav-link section-toggle active" data-section="patients">For Patients</a>
+                        <a class="nav-link" href="providers.html">For Providers</a>
+                    </div>
+                </div>
+    
+                <div class="right-section">
+                    <a href="tel:+2547113566500" class="nav-link phone-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                        </svg>
+                        +254 113 566 500
+                    </a>
+                    <div class="translate-btn">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Google_Translate_logo.svg"
+                            alt="Translate">
+                        <div id="google_translate_element"></div>
+                    </div>
+                </div>
+    
+                <div class="mobile-controls">
+                    <div class="search-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                            class="bi bi-search" viewBox="0 0 16 16">
+                            <path
+                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a.007.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                        </svg>
+                    </div>
+                    <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+                </div>
+            </nav>
+    
+            <nav class="bottomnavbar">
+                <div class="nav-menu-desktop">
+                    <div class="dropdown">
+                        <a href="#Care" class="nav-link dropdown-arrow">Get Care</a>
+                        <div class="dropdown-content">
+                            <a href="../../get-care/virtual.html">Virtual Care</a>
+                            <a href="../../get-care/urgent.html">Urgent Care</a>
+                            <a href="../departments/all-services.html">Primary Care</a>
+                            <a href="maternal.html">Maternal</a>
+                            <a href="../../get-care/care.html">Browse All</a>
+                        </div>
+                    </div>
+                    <a href="../../finddoc/finddoc.html" class="nav-link">Find a Doctor</a>
+    
+                    <div class="dropdown">
+                        <a href="#Services" class="nav-link dropdown-arrow">Our Services</a>
+                        <div class="dropdown-content">
+                            <a href="../departments/emergency.html">Emergency Care</a>
+                            <a href="../departments/cardiology.html">Cardiology</a>
+                            <a href="orthopedics.html">Orthopedics</a>
+                            <a href="pediatrics.html">Pediatrics</a>
+                            <a href="../departments/all-services.html">All Services</a>
+                        </div>
+                    </div>
+    
+                    <div class="dropdown">
+                        <a href="#More" class="nav-link dropdown-arrow">Learn More</a>
+                        <div class="dropdown-content">
+                            <a href="../../learn-more/about/about.html">About Us</a>
+                            <a href="../../learn-more/insurance/insurance.html">Insurance Information</a>
+                            <a href="../../learn-more/location/location.html">Our Locations</a>
+                            <a href="../../learn-more/events/events.html">Events & Classes</a>
+                            <a href="../../learn-more/faq/faq.html">FAQs</a>
+                        </div>
+                    </div>
+    
+                    <div class="dropdown">
+                        <a href="#Records" class="nav-link dropdown-arrow">Records & Billing</a>
+                        <div class="dropdown-content">
+                            <a href="../../billing/medical-records.html">Medical Records</a>
+                            <a href="../../billing/billing-info.html">Billing Information</a>
+                            <a href="../../billing/insurance-verification.html">Insurance Verification</a>
+                            <a href="../../get-care/message.html">Financial Assistance</a>
+                        </div>
+                    </div>
+    
+                    <div class="search-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                            class="bi bi-search" viewBox="0 0 16 16">
+                            <path
+                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a.007.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                        </svg>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+    <!-- Department Hero Section -->
+    <section class="department-hero all-services-hero">
+        <div class="container">
+            <div class="department-hero-content">
+                <h1>Our Medical Services</h1>
+                <p>Comprehensive healthcare services delivered with expertise and compassion.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <ul>
+                <li><a href="../../home/home.html">Home</a></li>
+                <li>All Services</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Services Overview -->
+    <section class="services-overview">
+        <div class="container">
+            <div class="section-header">
+                <h2>Complete Medical Care</h2>
+                <p>Explore our wide range of healthcare services and departments</p>
+            </div>
+            
+            <!-- Services Filter -->
+            <div class="services-filter">
+                <button class="filter-btn active" data-filter="all">All Services</button>
+                <button class="filter-btn" data-filter="emergency">Emergency</button>
+                <button class="filter-btn" data-filter="specialty">Specialty Care</button>
+                <button class="filter-btn" data-filter="diagnostic">Diagnostics</button>
+                <button class="filter-btn" data-filter="preventive">Preventive Care</button>
+            </div>
+            
+            <!-- Services Grid -->
+            <div class="services-grid">
+                <!-- Emergency Department -->
+                <div class="service-item" data-category="emergency">
+                    <img src="../images/emergency-thumb.jpg" alt="Emergency Department" class="service-image">
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-ambulance"></i>
+                        </div>
+                        <h3>Emergency Care</h3>
+                        <p>24/7 emergency services with rapid response times and state-of-the-art emergency equipment.</p>
+                        <div class="service-actions">
+                            <a href="emergency.html" class="btn btn-primary">Learn More</a>
+                            <a href="#appointment" class="btn btn-outline">Book Appointment</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Cardiology Department -->
+                <div class="service-item" data-category="specialty">
+                    <img src="../images/cardiology-thumb.jpg" alt="Cardiology Department" class="service-image">
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h3>Cardiology</h3>
+                        <p>Comprehensive cardiac care including diagnosis, treatment, and rehabilitation services.</p>
+                        <div class="service-actions">
+                            <a href="cardiology.html" class="btn btn-primary">Learn More</a>
+                            <a href="#appointment" class="btn btn-outline">Book Appointment</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Orthopedics Department -->
+                <div class="service-item" data-category="specialty">
+                    <img src="../images/orthopedics-thumb.jpg" alt="Orthopedics Department" class="service-image">
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-bone"></i>
+                        </div>
+                        <h3>Orthopedics</h3>
+                        <p>Specialized care for bones, joints, ligaments, tendons, muscles, and nerves.</p>
+                        <div class="service-actions">
+                            <a href="orthopedics.html" class="btn btn-primary">Learn More</a>
+                            <a href="#appointment" class="btn btn-outline">Book Appointment</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pediatrics Department -->
+                <div class="service-item" data-category="specialty">
+                    <img src="../images/pediatrics-thumb.jpg" alt="Pediatrics Department" class="service-image">
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-child"></i>
+                        </div>
+                        <h3>Pediatrics</h3>
+                        <p>Child-friendly healthcare services from infancy through adolescence.</p>
+                        <div class="service-actions">
+                            <a href="pediatrics.html" class="btn btn-primary">Learn More</a>
+                            <a href="#appointment" class="btn btn-outline">Book Appointment</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Neurology Department -->
+                <div class="service-item" data-category="specialty">
+                    <img src="../images/neurology-thumb.jpg" alt="Neurology Department" class="service-image">
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>Neurology</h3>
+                        <p>Diagnosis and treatment of disorders of the nervous system, including the brain and spinal cord.</p>
+                        <div class="service-actions">
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                            <a href="#appointment" class="btn btn-outline">Book Appointment</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Obstetrics & Gynecology Department -->
+                <div class="service-item" data-category="specialty">
+                    <img src="../images/obgyn-thumb.jpg" alt="OB/GYN Department" class="service-image">
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-baby"></i>
+                        </div>
+                        <h3>Obstetrics & Gynecology</h3>
+                        <p>Comprehensive women's health services, including pregnancy care, childbirth, and gynecological treatment.</p>
+                        <div class="service-actions">
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                            <a href="#appointment" class="btn btn-outline">Book Appointment</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Oncology Department -->
+                <div class="service-item" data-category="specialty">
+                    <img src="../images/oncology-thumb.jpg" alt="Oncology Department" class="service-image">
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-ribbon"></i>
+                        </div>
+                        <h3>Oncology</h3>
+                        <p>Cancer diagnosis, treatment, and supportive care with a multidisciplinary approach.</p>
+                        <div class="service-actions">
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                            <a href="#appointment" class="btn btn-outline">Book Appointment</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Radiology Services -->
+                <div class="service-item" data-category="diagnostic">
+                    <img src="../images/radiology-thumb.jpg" alt="Radiology Services" class="service-image">
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-x-ray"></i>
+                        </div>
+                        <h3>Radiology & Imaging</h3>
+                        <p>Advanced diagnostic imaging including X-ray, CT, MRI, ultrasound, and nuclear medicine.</p>
+                        <div class="service-actions">
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                            <a href="#appointment" class="btn btn-outline">Book Appointment</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Laboratory Services -->
+                <div class="service-item" data-category="diagnostic">
+                    <img src="../images/lab-thumb.jpg" alt="Laboratory Services" class="service-image">
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h3>Laboratory Services</h3>
+                        <p>Comprehensive clinical laboratory testing for diagnosis and monitoring of medical conditions.</p>
+                        <div class="service-actions">
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                            <a href="#appointment" class="btn btn-outline">Book Appointment</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Preventive Care -->
+                <div class="service-item" data-category="preventive">
+                    <img src="../images/preventive-thumb.jpg" alt="Preventive Care" class="service-image">
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Preventive Medicine</h3>
+                        <p>Health screenings, vaccinations, lifestyle counseling, and disease prevention services.</p>
+                        <div class="service-actions">
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                            <a href="#appointment" class="btn btn-outline">Book Appointment</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Rehabilitation Services -->
+                <div class="service-item" data-category="specialty">
+                    <img src="../images/rehab-thumb.jpg" alt="Rehabilitation Services" class="service-image">
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-walking"></i>
+                        </div>
+                        <h3>Rehabilitation</h3>
+                        <p>Physical, occupational, and speech therapy services to help patients recover function and mobility.</p>
+                        <div class="service-actions">
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                            <a href="#appointment" class="btn btn-outline">Book Appointment</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mental Health Services -->
+                <div class="service-item" data-category="specialty">
+                    <img src="../images/mental-health-thumb.jpg" alt="Mental Health Services" class="service-image">
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>Mental Health</h3>
+                        <p>Counseling, therapy, and psychiatric services for mental health conditions and emotional well-being.</p>
+                        <div class="service-actions">
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                            <a href="#appointment" class="btn btn-outline">Book Appointment</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- No Results Message -->
+            <div class="no-results" style="display: none;">
+                <i class="fas fa-search"></i>
+                <h3>No services found</h3>
+                <p>Please try another category or contact us for more information.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointment Section -->
+    <section class="appointment-section" id="appointment">
+        <div class="container">
+            <div class="appointment-container">
+                <div class="appointment-content">
+                    <h2>Make an Appointment</h2>
+                    <p>Schedule a consultation with our specialists for personalized care and treatment plans.</p>
+                    <ul class="appointment-info">
+                        <li><i class="fas fa-clock"></i> Same-day appointments available</li>
+                        <li><i class="fas fa-phone-alt"></i> Call us: (800) 555-1234</li>
+                        <li><i class="fas fa-calendar-check"></i> Online scheduling 24/7</li>
+                    </ul>
+                </div>
+                
+                <div class="appointment-form">
+                    <form id="appointmentForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="department">Department</label>
+                            <select id="department" name="department" required>
+                                <option value="">Select Department</option>
+                                <option value="emergency">Emergency Care</option>
+                                <option value="cardiology">Cardiology</option>
+                                <option value="orthopedics">Orthopedics</option>
+                                <option value="pediatrics">Pediatrics</option>
+                                <option value="neurology">Neurology</option>
+                                <option value="obgyn">Obstetrics & Gynecology</option>
+                                <option value="oncology">Oncology</option>
+                                <option value="radiology">Radiology</option>
+                                <option value="rehabilitation">Rehabilitation</option>
+                                <option value="mental-health">Mental Health</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="date">Preferred Date</label>
+                            <input type="date" id="date" name="date" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Additional Information</label>
+                            <textarea id="message" name="message" rows="3"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block">Request Appointment</button>
+                    </form>
+                    <div id="formSuccess" class="form-success">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>Thank You!</h3>
+                        <p>Your appointment request has been received. We will contact you shortly to confirm your appointment.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>Syokimau Hospital</h3>
+                    <p class="address">
+                        123 Syokimau Road<br>
+                        Machakos County, Kenya<br><br>
+                        <strong>Phone:</strong> +254 113 566 500<br>
+                        <strong>Email:</strong> info@syokimauhospital.com
+                    </p>
+                    <div class="social-footer">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="../departments/emergency.html">Emergency Care</a></li>
+                        <li><a href="../departments/cardiology.html">Cardiology</a></li>
+                        <li><a href="#">Pediatrics</a></li>
+                        <li><a href="#">Orthopedics</a></li>
+                        <li><a href="../departments/all-services.html">All Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="../../home/home.html">Home</a></li>
+                        <li><a href="../../learn-more/about/about.html">About Us</a></li>
+                        <li><a href="../../finddoc/finddoc.html">Find a Doctor</a></li>
+                        <li><a href="../../get-care/message.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Opening Hours</h3>
+                    <ul class="footer-links">
+                        <li>Monday - Friday: 24 hours</li>
+                        <li>Saturday: 24 hours</li>
+                        <li>Sunday: 24 hours</li>
+                        <li>Emergency: Always Open</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Syokimau Hospital. All rights reserved.</p>
+            </div>
+        </footer>
+
+    <div class="scroll-top">
+        <button id="scrollTopBtn" aria-label="Scroll to top">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/all-services.js"></script>
+</body>
+</html>

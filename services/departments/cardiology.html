@@ -1,0 +1,477 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardiology Department - Med Oasis Hospital</title>
+    <meta name="description" content="Med Oasis Hospital's Cardiology Department provides comprehensive cardiac care including diagnosis, treatment, and rehabilitation services.">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/department.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+        <!-- Header and Navigation -->
+        <div class="header-container">
+            <nav class="topnavbar">
+                <div class="left-section">
+                    <div class="logo-container">
+                        <a href="../../home/home.html">
+                            <img src="../../home/logo.png" alt="Hospital Logo" class="logo">
+                        </a>
+                    </div>
+                    <div class="primary-links">
+                        <a class="nav-link section-toggle active" data-section="patients">For Patients</a>
+                        <a class="nav-link" href="providers.html">For Providers</a>
+                    </div>
+                </div>
+    
+                <div class="right-section">
+                    <a href="tel:+2547113566500" class="nav-link phone-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                        </svg>
+                        +254 113 566 500
+                    </a>
+                    <div class="translate-btn">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Google_Translate_logo.svg"
+                            alt="Translate">
+                        <div id="google_translate_element"></div>
+                    </div>
+                </div>
+    
+                <div class="mobile-controls">
+                    <div class="search-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                            class="bi bi-search" viewBox="0 0 16 16">
+                            <path
+                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a.007.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                        </svg>
+                    </div>
+                    <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+                </div>
+            </nav>
+    
+            <nav class="bottomnavbar">
+                <div class="nav-menu-desktop">
+                    <div class="dropdown">
+                        <a href="#Care" class="nav-link dropdown-arrow">Get Care</a>
+                        <div class="dropdown-content">
+                            <a href="../../get-care/virtual.html">Virtual Care</a>
+                            <a href="../../get-care/urgent.html">Urgent Care</a>
+                            <a href="../../services/departments/all-services.html">Primary Care</a>
+                            <a href="maternal.html">Maternal</a>
+                            <a href="../../get-care/care.html">Browse All</a>
+                        </div>
+                    </div>
+                    <a href="../../finddoc/finddoc.html" class="nav-link">Find a Doctor</a>
+    
+                    <div class="dropdown">
+                        <a href="#Services" class="nav-link dropdown-arrow">Our Services</a>
+                        <div class="dropdown-content">
+                            <a href="emergency.html">Emergency Care</a>
+                            <a href="cardiology.html">Cardiology</a>
+                            <a href="orthopedics.html">Orthopedics</a>
+                            <a href="pediatrics.html">Pediatrics</a>
+                            <a href="../departments/all-services.html">All Services</a>
+                        </div>
+                    </div>
+    
+                    <div class="dropdown">
+                        <a href="#More" class="nav-link dropdown-arrow">Learn More</a>
+                        <div class="dropdown-content">
+                            <a href="../../learn-more/about/about.html">About Us</a>
+                            <a href="../../learn-more/insurance/insurance.html">Insurance Information</a>
+                            <a href="../../learn-more/location/">Our Locations</a>
+                            <a href="../../learn-more/events/events.html">Events & Classes</a>
+                            <a href="../../learn-more/faq/faq.html">FAQs</a>
+                        </div>
+                    </div>
+    
+                    <div class="dropdown">
+                        <a href="#Records" class="nav-link dropdown-arrow">Records & Billing</a>
+                        <div class="dropdown-content">
+                            <a href="../../billing/medical-records.html">Medical Records</a>
+                            <a href="../../billing/billing-info.html">Billing Information</a>
+                            <a href="../../billing/insurance-verification.html">Insurance Verification</a>
+                            <a href="../../get-care/message.html">Financial Assistance</a>
+                        </div>
+                    </div>
+    
+                    <div class="search-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                            class="bi bi-search" viewBox="0 0 16 16">
+                            <path
+                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a.007.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                        </svg>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+
+    <!-- Department Hero Section -->
+    <section class="department-hero cardiology-hero">
+        <div class="container">
+            <div class="department-hero-content">
+                <h1>Cardiology Department</h1>
+                <p>Comprehensive cardiac care including diagnosis, treatment, and rehabilitation services.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <ul>
+                <li><a href="../../home/home.html">Home</a></li>
+                <li><a href="all-services.html">Departments</a></li>
+                <li>Cardiology</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Department Overview -->
+    <section class="department-overview">
+        <div class="container">
+            <div class="overview-grid">
+                <div class="overview-content">
+                    <h2>Excellence in Cardiac Care</h2>
+                    <p>At Med Oasis Hospital's Cardiology Department, we are committed to providing comprehensive heart care using the most advanced diagnostic and treatment methods available. Our team of cardiologists, cardiac surgeons, and specialized healthcare professionals work together to deliver personalized care for all types of heart conditions.</p>
+                    <p>From prevention and early detection to advanced treatment and rehabilitation, we offer a complete continuum of cardiac care to help our patients lead healthier lives with stronger hearts.</p>
+                    
+                    <div class="emergency-stats">
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-user-md"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>25+</h3>
+                                <p>Cardiac Specialists</p>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>5,000+</h3>
+                                <p>Procedures Annually</p>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>98%</h3>
+                                <p>Patient Satisfaction</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="overview-image">
+                    <img src="../images/cardiology-overview.jpg" alt="Cardiology department at Med Oasis Hospital">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Offered -->
+    <section class="services-offered">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Cardiac Services</h2>
+                <p>Comprehensive heart care for all your needs</p>
+            </div>
+            
+            <div class="services-list">
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-stethoscope"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Diagnostic Services</h3>
+                        <p>Advanced cardiac diagnostics including echocardiography, stress testing, Holter monitoring, cardiac CT, and cardiac MRI.</p>
+                    </div>
+                </div>
+                
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Interventional Cardiology</h3>
+                        <p>Minimally invasive procedures including angioplasty, stent placement, and other catheter-based treatments.</p>
+                    </div>
+                </div>
+                
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Cardiac Surgery</h3>
+                        <p>Surgical procedures including coronary bypass, valve repair and replacement, and treatment of congenital heart defects.</p>
+                    </div>
+                </div>
+                
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-running"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Cardiac Rehabilitation</h3>
+                        <p>Personalized rehab programs to help patients recover from heart attacks, surgery, and other cardiac events.</p>
+                    </div>
+                </div>
+                
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Electrophysiology</h3>
+                        <p>Diagnosis and treatment of heart rhythm disorders, including pacemaker and defibrillator implantation.</p>
+                    </div>
+                </div>
+                
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-apple-alt"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Preventive Cardiology</h3>
+                        <p>Risk assessment, lifestyle modifications, and medical interventions to prevent heart disease.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointment Section -->
+    <section class="appointment-section" id="appointment">
+        <div class="container">
+            <div class="appointment-container">
+                <div class="appointment-content">
+                    <h2>Schedule a Cardiac Consultation</h2>
+                    <p>Don't delay your heart health. Schedule an appointment with one of our cardiac specialists today.</p>
+                    <ul class="appointment-info">
+                        <li><i class="fas fa-clock"></i> Same-week appointments available</li>
+                        <li><i class="fas fa-phone-alt"></i> Call us: (800) 555-6789</li>
+                        <li><i class="fas fa-calendar-check"></i> Online scheduling 24/7</li>
+                    </ul>
+                </div>
+                
+                <div class="appointment-form">
+                    <form id="appointmentForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Service Needed</label>
+                            <select id="service" name="service" required>
+                                <option value="">Select Service</option>
+                                <option value="general-cardiology">General Cardiology Consultation</option>
+                                <option value="heart-failure">Heart Failure Clinic</option>
+                                <option value="arrhythmia">Arrhythmia Evaluation</option>
+                                <option value="cardiac-rehab">Cardiac Rehabilitation</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="date">Preferred Date</label>
+                            <input type="date" id="date" name="date" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Additional Information</label>
+                            <textarea id="message" name="message" rows="3"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block">Request Appointment</button>
+                    </form>
+                    <div id="formSuccess" class="form-success">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>Thank You!</h3>
+                        <p>Your appointment request has been received. We will contact you shortly to confirm your appointment.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Department Team -->
+    <section class="department-team">
+        <div class="container">
+            <div class="section-header">
+                <h2>Meet Our Cardiology Team</h2>
+                <p>Highly skilled cardiac specialists dedicated to your heart health</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <img src="../images/doctor-cardiology-1.jpg" alt="Dr. Robert Johnson">
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Dr. Robert Jumbo</h3>
+                        <p class="doctor-position">Chief of Cardiology</p>
+                        <p class="doctor-bio">Dr. Johnson is a board-certified cardiologist with over 20 years of experience in treating complex cardiac conditions.</p>
+                        <div class="doctor-contact">
+                            <a href="#" class="btn btn-outline">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <img src="../images/doctor-cardiology-2.jpg" alt="Dr. Emily Lee">
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Dr. Emily njuguna</h3>
+                        <p class="doctor-position">Interventional Cardiologist</p>
+                        <p class="doctor-bio">Dr. Lee specializes in minimally invasive cardiac procedures and has performed over 3,000 catheterizations.</p>
+                        <div class="doctor-contact">
+                            <a href="#" class="btn btn-outline">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <img src="../images/doctor-cardiology-3.jpg" alt="Dr. Marcus Allen">
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Dr. Marcus mbuvi</h3>
+                        <p class="doctor-position">Cardiac Electrophysiologist</p>
+                        <p class="doctor-bio">Dr. Allen is an expert in heart rhythm disorders and leads our advanced electrophysiology lab.</p>
+                        <div class="doctor-contact">
+                            <a href="#" class="btn btn-outline">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-cta">
+                <a href="../../finddoc/finddoc.html" class="btn btn-secondary">Meet All Cardiology Staff</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Departments -->
+    <section class="related-departments">
+        <div class="container">
+            <div class="section-header">
+                <h2>Related Departments</h2>
+                <p>Other medical services that work closely with Cardiology</p>
+            </div>
+            
+            <div class="related-grid">
+                <a href="emergency.html" class="related-card">
+                    <div class="related-icon">
+                        <i class="fas fa-ambulance"></i>
+                    </div>
+                    <h3>Emergency Care</h3>
+                    <p>For cardiac emergencies and acute care</p>
+                </a>
+                
+                <a href="orthopedics.html" class="related-card">
+                    <div class="related-icon">
+                        <i class="fas fa-bone"></i>
+                    </div>
+                    <h3>Orthopedics</h3>
+                    <p>For patients with combined cardiac and orthopedic needs</p>
+                </a>
+                
+                <a href="all-services.html" class="related-card">
+                    <div class="related-icon">
+                        <i class="fas fa-th-large"></i>
+                    </div>
+                    <h3>All Services</h3>
+                    <p>Explore our complete range of medical services</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>Syokimau Hospital</h3>
+                    <p class="address">
+                        123 Syokimau Road<br>
+                        Machakos County, Kenya<br><br>
+                        <strong>Phone:</strong> +254 113 566 500<br>
+                        <strong>Email:</strong> info@syokimauhospital.com
+                    </p>
+                    <div class="social-footer">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="../departments/emergency.html">Emergency Care</a></li>
+                        <li><a href="../departments/cardiology.html">Cardiology</a></li>
+                        <li><a href="#">Pediatrics</a></li>
+                        <li><a href="#">Orthopedics</a></li>
+                        <li><a href="../departments/all-services.html">All Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="../../home/home.html">Home</a></li>
+                        <li><a href="../../learn-more/about/about.html">About Us</a></li>
+                        <li><a href="../../finddoc/finddoc.html">Find a Doctor</a></li>
+                        <li><a href="../../get-care/message.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Opening Hours</h3>
+                    <ul class="footer-links">
+                        <li>Monday - Friday: 24 hours</li>
+                        <li>Saturday: 24 hours</li>
+                        <li>Sunday: 24 hours</li>
+                        <li>Emergency: Always Open</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Syokimau Hospital. All rights reserved.</p>
+            </div>
+        </footer>
+
+    <div class="scroll-top">
+        <button id="scrollTopBtn" aria-label="Scroll to top">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/department.js"></script>
+</body>
+</html>

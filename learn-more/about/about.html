@@ -1,0 +1,2117 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syokimau Hospital - About Us</title>
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        
+        body {
+            width: 100vw;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .content-section {
+            padding: 3rem 0; /* Remove left/right padding, keep top/bottom */
+            width: 100vw; /* Ensure full width */
+            margin-left: 0; /* No offset */
+        }
+
+        /* Sticky Header Container */
+        .header-container {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            z-index: 1000;
+        }
+
+        .topnavbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 3rem;
+            background-color: #ffffff;
+            height: 60px;
+        }
+
+        .left-section {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            height: 40px;
+            margin-right: 1rem;
+        }
+
+        .primary-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .right-section {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            cursor: pointer;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link:hover {
+            color: #007bff;
+        }
+
+        .nav-link.active {
+            color: #007bff;
+            border-bottom: 2px solid #007bff;
+        }
+
+        .phone-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #28a745;
+            font-weight: bold;
+            border-bottom: none;
+        }
+
+        .phone-link:hover {
+            color: #218838;
+        }
+
+        .phone-link.active {
+            border-bottom: none;
+            color: #28a745;
+        }
+
+        .translate-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .translate-btn:hover {
+            background-color: #e9ecef;
+        }
+
+        .translate-btn img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .goog-te-gadget {
+            font-family: inherit !important;
+            color: transparent !important;
+            line-height: normal !important;
+        }
+
+        .goog-te-gadget .goog-te-combo {
+            margin: 0 !important;
+            padding: 2px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+            vertical-align: middle;
+        }
+
+        .goog-te-gadget span {
+            display: none !important;
+            visibility: hidden !important;
+        }
+
+        .goog-te-gadget>div {
+            display: inline-block !important;
+            background: none !important;
+        }
+
+        .goog-te-gadget-simple {
+            background-color: transparent !important;
+            border: none !important;
+            padding: 0 !important;
+            font-size: inherit !important;
+            display: inline-block !important;
+        }
+
+        /* Bottom Navbar */
+        .bottomnavbar {
+            background-color: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+            padding: 0 3rem;
+            height: 105px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-menu-desktop {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        /* Search Icon */
+        .search-icon {
+            cursor: pointer;
+            color: #333;
+            transition: color 0.3s ease;
+            padding: 0.5rem;
+        }
+
+        .search-icon:hover {
+            color: #007bff;
+        }
+
+        /* Mobile Menu */
+        .mobile-controls {
+            display: none;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 0.5rem;
+            color: #333;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: #f8f9fa;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+            max-height: calc(100vh - 60px);
+            overflow-y: auto;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu .nav-link {
+            display: block;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #e9ecef;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .mobile-menu .nav-link:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-menu .nav-link:hover {
+            background-color: #e9ecef;
+            color: #0056b3;
+        }
+
+        .mobile-menu .section-heading {
+            background-color: #e9ecef;
+            padding: 0.8rem 1.5rem;
+            font-weight: bold;
+            color: #555;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .mobile-menu .submenu {
+            padding-left: 1.5rem;
+            background-color: #ffffff;
+            display: none;
+        }
+
+        .mobile-menu .submenu .nav-link {
+            padding-left: 2.5rem;
+            font-weight: 400;
+            border-color: #f1f1f1;
+        }
+
+        .mobile-menu .submenu.active {
+            display: block;
+        }
+
+        .mobile-menu .dropdown-toggle {
+            position: relative;
+        }
+
+        .mobile-menu .dropdown-toggle::after {
+            content: "+";
+            position: absolute;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.4rem;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+            color: #888;
+        }
+
+        .mobile-menu .dropdown-toggle.expanded::after {
+            content: "−";
+            color: #555;
+        }
+
+        /* Desktop Dropdown Styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #ffffff;
+            min-width: 220px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.15);
+            z-index: 1001;
+            border-radius: 4px;
+            margin-top: 0.5rem;
+            border: 1px solid #e9ecef;
+            overflow: hidden;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.2s ease, color 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #007bff;
+            color: #ffffff;
+        }
+
+        .dropdown.active .dropdown-content {
+            display: block;
+        }
+
+        /* Dropdown Arrow Style */
+        .dropdown-arrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding-bottom: 0.5rem;
+        }
+
+        .dropdown-arrow::after {
+            content: "";
+            display: inline-block;
+            width: 0.4rem;
+            height: 0.4rem;
+            margin-left: 0.3rem;
+            margin-top: -0.1rem;
+            border-right: 2px solid currentColor;
+            border-bottom: 2px solid currentColor;
+            transform: rotate(45deg);
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown.active .dropdown-arrow::after {
+            transform: rotate(-135deg);
+            margin-top: 0.1rem;
+        }
+
+        /* Google Translate Fixes */
+        html {
+            scroll-padding-top: 165px;
+        }
+
+        body.translated-ltr {
+            top: 0 !important;
+        }
+
+        body.translated-rtl {
+            top: 0 !important;
+        }
+
+        .skiptranslate {
+            display: none !important;
+            visibility: hidden !important;
+        }
+
+        iframe.goog-te-banner-frame {
+            display: none !important;
+            visibility: hidden !important;
+        }
+
+        body>.skiptranslate {
+            display: none !important;
+            visibility: hidden !important;
+        }
+        @media (max-width: 1024px) {
+
+            .topnavbar,
+            .bottomnavbar {
+                padding: 0 2rem;
+            }
+            
+            .bottomnavbar {
+                height: 55px;
+            }
+            
+            html {
+                scroll-padding-top: 115px;
+            }
+        }
+        @media (max-width: 768px) {
+            html {
+                scroll-padding-top: 60px;
+            }
+
+            .topnavbar {
+                justify-content: space-between;
+                padding: 0 1rem;
+                height: 60px;
+            }
+
+            /* Hide desktop elements */
+            .left-section .primary-links,
+            .right-section,
+            .bottomnavbar {
+                display: none;
+            }
+
+            /* Show mobile controls */
+            .mobile-controls,
+            .menu-toggle {
+                display: flex;
+            }
+
+            .mobile-controls {
+                margin-left: auto;
+            }
+
+            .blog-cards {
+        flex-direction: column;
+        overflow-x: hidden;
+    }
+    
+    .blog-card {
+        min-width: 100%;
+        max-width: 100%;
+    }
+    
+    .button-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    /* Ensure buttons are mobile-friendly */
+    .button-container button {
+        width: 80%;
+        min-height: 44px; /* Better touch target */
+        margin-bottom: 10px;
+        padding: 12px 16px;
+    }
+    
+    .contact-heading {
+        font-size: 24px;
+    }
+        }
+        @media (max-width: 480px) {
+            .logo {
+                height: 35px;
+                margin-right: 0.5rem;
+            }
+
+            .mobile-menu .nav-link {
+                font-size: 1rem;
+                padding: 0.9rem 1rem;
+            }
+
+            .mobile-menu .section-heading {
+                padding: 0.7rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .mobile-menu .submenu .nav-link {
+                padding-left: 1.5rem;
+            }
+        }
+
+        /* About Us Hero Section */
+        .about-hero {
+            margin-top: 165px;
+            padding: 60px 5%;
+            background-color: #f6f6f6;
+        }
+
+        .hero-card {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero-card-content {
+            flex: 1;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .hero-card-image {
+            flex: 1;
+            min-height: 400px;
+            background-image: url('https://images.unsplash.com/photo-1666214280557-f1b5022eb634?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .hero-card h1 {
+            font-size: 3.5rem;
+            margin-bottom: 30px;
+            color: #000;
+        }
+        
+        .hero-card p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* About Cards Section */
+        .about-cards {
+            padding: 80px 5%;
+            background-color: #fff;
+        }
+
+        .cards-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .about-card {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .about-card i {
+            font-size: 2rem;
+            color: #007BFF;
+            margin-bottom: 20px;
+        }
+
+        .about-card h3 {
+            font-size: 1.75rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .about-card p {
+            color: #555;
+            line-height: 1.5;
+        }
+
+        /* History Timeline Section */
+        .timeline-section {
+            padding: 80px 5%;
+            background-color: #f6f6f6;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: #333;
+        }
+
+        .timeline-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #007BFF;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 10px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: white;
+            border: 4px solid #007BFF;
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+
+        .timeline-left {
+            left: 0;
+        }
+
+        .timeline-right {
+            left: 50%;
+        }
+
+        .timeline-left::after {
+            right: -12.5px;
+        }
+
+        .timeline-right::after {
+            left: -12.5px;
+        }
+
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .timeline-content h3 {
+            margin-bottom: 10px;
+            color: #007BFF;
+        }
+
+        .timeline-date {
+            display: inline-block;
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding: 5px 10px;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 4px;
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 80px 5%;
+            background-color: #fff;
+        }
+
+        .team-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .team-card {
+            text-align: center;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .team-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .team-info {
+            padding: 20px;
+        }
+
+        .team-name {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .team-role {
+            color: #007BFF;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .team-bio {
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: #007BFF;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: #0056b3;
+        }
+
+        /* Mission and Vision Section */
+        .mission-vision {
+            padding: 80px 5%;
+            background-color: #f6f6f6;
+        }
+
+        .mission-vision-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 40px;
+        }
+
+        .mission-card, .vision-card {
+            padding: 50px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .mission-card {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        .vision-card {
+            background-color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vision-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background-color: #007BFF;
+        }
+
+        .mission-card h2, .vision-card h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .mission-card p, .vision-card p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .vision-card h2 {
+            color: #007BFF;
+        }
+
+        .vision-card p {
+            color: #333;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 80px 5%;
+            background-color: #fff;
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial-slider {
+            display: flex;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
+            padding: 20px 0;
+        }
+
+        .testimonial-card {
+            flex: 0 0 100%;
+            scroll-snap-align: start;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: scale(1.02);
+        }
+
+        .testimonial-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 3px solid #007BFF;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .testimonial-role {
+            color: #007BFF;
+        }
+
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ccc;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .slider-dot.active {
+            background-color: #007BFF;
+        }
+
+        .blog-section {
+    min-height: 100vh;
+    width: 100%;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #f8f9fa;
+  }
+
+  .section-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    color: #333;
+  }
+
+  .blog-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .blog-cards {
+    display: flex;
+    gap: 2rem;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    padding: 1rem 0;
+  }
+
+  .blog-card {
+    min-width: calc(33.333% - 1.33rem);
+    background-color: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 450px;
+  }
+
+  .blog-card:hover {
+    transform: translateY(-10px);
+  }
+
+  .card-image {
+    width: 100%;
+    height: 65%;
+    overflow: hidden;
+  }
+
+  .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .blog-card:hover .card-image img {
+    transform: scale(1.05);
+  }
+
+  .card-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+  }
+
+  .card-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+    font-weight: 700;
+  }
+
+  .read-more {
+    display: flex;
+    align-items: center;
+    color: #4a6cf7;
+    font-weight: 600;
+    text-decoration: none;
+    margin-top: auto;
+  }
+
+  .arrow-icon {
+    margin-left: 0.5rem;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+  }
+
+  .read-more:hover .arrow-icon {
+    transform: translateX(5px);
+  }
+
+  .navigation-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .nav-button {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: white;
+    border: 2px solid #4a6cf7;
+    color: #4a6cf7;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .nav-button:hover {
+    background-color: #4a6cf7;
+    color: white;
+  }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 60px 5%;
+            background-color: #007BFF;
+            color: white;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Values Section */
+        .values-section {
+            padding: 80px 5%;
+            background-color: #fff;
+        }
+
+        .values-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .value-card {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .value-icon {
+            width: 70px;
+            height: 70px;
+            background-color: #007BFF;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+        }
+
+        .value-title {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .value-description {
+            color: #555;
+            line-height: 1.5;
+        }
+
+        /* Contact CTA Section */
+        .contact-container {
+    background-color: #d9edf7;
+    padding: 60px 20px;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .contact-heading {
+    font-size: 28px;
+    margin-bottom: 30px;
+    font-weight: normal;
+    color: #333;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .btn {
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-primary {
+    background-color: #222;
+    color: white;
+  }
+  
+  .btn-secondary {
+    background-color: transparent;
+    color: #222;
+    border: 1px solid #222;
+  }
+  
+  .btn:hover {
+    opacity: 0.85;
+  }
+
+        /* Footer */
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 60px 5% 30px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #007BFF;
+        }
+
+        .address {
+            margin-bottom: 20px;
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        .social-footer {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-footer a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-footer a:hover {
+            background-color: #007BFF;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ccc;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 1024px) {
+            .hero-card {
+                flex-direction: column-reverse;
+            }
+            
+            .hero-card-image {
+                min-height: 300px;
+            }
+            
+            .hero-card-content {
+                padding: 40px;
+            }
+            
+            .hero-card h1 {
+                font-size: 2.8rem;
+            }
+            
+            .mission-vision-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline-container::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 18px;
+            }
+            
+            .timeline-right {
+                left: 0;
+            }
+            
+            .blog-cards {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-hero {
+                margin-top: 60px;
+                padding: 40px 20px;
+            }
+            
+            .hero-card-content {
+                padding: 30px;
+            }
+            
+            .hero-card h1 {
+                font-size: 2.2rem;
+                margin-bottom: 20px;
+            }
+            
+            .blog-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .team-container {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-card-content {
+                padding: 25px;
+            }
+            
+            .hero-card h1 {
+                font-size: 1.8rem;
+                margin-bottom: 15px;
+            }
+            
+            .hero-card-image {
+                min-height: 200px;
+            }
+            
+            .about-cards {
+                padding: 60px 5%;
+            }
+
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+
+            .about-card {
+                padding: 20px;
+            }
+
+            .about-card i {
+                font-size: 1.5rem;
+                margin-bottom: 10px;
+            }
+
+            .about-card h3 {
+                font-size: 1.4rem;
+                margin-bottom: 10px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 40px;
+            }
+
+            .timeline-content {
+                padding: 15px;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .mission-card, .vision-card {
+                padding: 30px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="header-container">
+        <nav class="topnavbar">
+            <div class="left-section">
+                <div class="logo-container">
+                    <a href="../../home/home.html">
+                        <img src="../../home/logo.png" alt="Hospital Logo" class="logo">
+                    </a>
+                </div>
+                <div class="primary-links">
+                    <a class="nav-link section-toggle active" data-section="patients">For Patients</a>
+                    <a class="nav-link " href="providers.html">For Providers</a>
+                </div>
+            </div>
+
+            <div class="right-section">
+                <a href="tel:+2547113566500" class="nav-link phone-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                    </svg>
+                    +254 113 566 500
+                </a>
+                <div class="translate-btn">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Google_Translate_logo.svg"
+                        alt="Translate">
+                    <div id="google_translate_element"></div>
+                </div>
+            </div>
+
+            <div class="mobile-controls">
+                <div class="search-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                        class="bi bi-search" viewBox="0 0 16 16">
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                    </svg>
+                </div>
+                <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+            </div>
+        </nav>
+
+        <nav class="bottomnavbar">
+            <div class="nav-menu-desktop">
+                <div class="dropdown" >
+                <a href="#Care" class="nav-link dropdown-arrow">Get Care</a>
+                <div class="dropdown-content">
+                    <a href="../../get-care/virtual.html">Virtual Care</a>
+                    <a href="../../get-care/urgent.html">Urgent Care</a>
+                    <a href="../../services/departments/all-services.html">Primary Care</a>
+                    <a href="maternal.html">Maternal</a>
+                    <a href="../../get-care/care.html">Browse All</a>
+                </div>
+            </div>
+                    <a href="../../finddoc/finddoc.html" class="nav-link">Find a Doctor</a>
+
+                <div class="dropdown">
+                    <a href="#Services" class="nav-link dropdown-arrow">Our Services</a>
+                    <div class="dropdown-content">
+                        <a href="../../services/departments/emergency.html">Emergency Care</a>
+                        <a href="../../services/cardiology.html">Cardiology</a>
+                        <a href="orthopedics.html">Orthopedics</a>
+                        <a href="pediatrics.html">Pediatrics</a>
+                        <a href="../../services/departments/all-services.html">All Services</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#More" class="nav-link dropdown-arrow">Learn More</a>
+                    <div class="dropdown-content">
+                        <a href="../about/about.html">About Us</a>
+                        <a href="../insurance/insurance.html">Insurance Information</a>
+                        <a href="../location/location.html">Our Locations</a>
+                        <a href="../events/events.html">Events & Classes</a>
+                        <a href="../faq/faq.html">FAQs</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#Records" class="nav-link dropdown-arrow">Records & Billing</a>
+                    <div class="dropdown-content">
+                        <a href="../../billing/medical-records.html">Medical Records</a>
+                        <a href="../../billing/billing-info.html">Billing Information</a>
+                        <a href="../../billing/insurance-verification.html">Insurance Verification</a>
+                        <a href="../../get-care/message.html">Financial Assistance</a>
+                    </div>
+                </div>
+
+                <div class="search-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                        class="bi bi-search" viewBox="0 0 16 16">
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                    </svg>
+                </div>
+            </div>
+        </nav>
+
+        <div class="mobile-menu">
+            <a class="nav-link section-toggle active" data-section="patients">For Patients</a>
+            <a class="nav-link section-toggle" data-section="providers">For Providers</a>
+            <hr style="border: none; border-top: 1px solid #dee2e6; margin: 0;">
+
+            <div class="section-heading">Patient Menu</div>
+            <a class="nav-link dropdown-toggle" data-submenu="care-menu-mobile">Get Care</a>
+            <div id="care-menu-mobile" class="submenu">
+                <a href="../../get-care/virtual.html" class="nav-link">Virtual Care</a>
+                <a href="../../get-care/urgent.html" class="nav-link">Urgent Care</a>
+                <a href="../../services/departments/all-services.html" class="nav-link">Primary Care</a>
+                <a href="Maternal.html" class="nav-link">Maternal</a>
+            </div>
+                <a href="../../finddoc/finddoc.html" class="nav-link">Find a Doctor</a>
+
+            <a class="nav-link dropdown-toggle" data-submenu="services-menu-mobile">Our Services</a>
+            <div id="services-menu-mobile" class="submenu">
+                <a href="../../services/departments/emergency.html" class="nav-link">Emergency Care</a>
+                <a href="../../services/departments/cardiology.html" class="nav-link">Cardiology</a>
+                <a href="Orthopedics.html" class="nav-link">Orthopedics</a>
+                <a href="Pediatrics.html" class="nav-link">Pediatrics</a>
+                <a href="../../services/departments/all-services.html" class="nav-link">All Services</a>
+            </div>
+
+            <a class="nav-link dropdown-toggle" data-submenu="learn-menu-mobile">Learn More</a>
+            <div id="learn-menu-mobile" class="submenu">
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="../insurance/insurance.html" class="nav-link">Insurance Information</a>
+                <a href="../location/location.html" class="nav-link">Our Locations</a>
+                <a href="../events/events.html" class="nav-link">Events & Classes</a>
+                <a href="../faq/faq.html" class="nav-link">FAQs</a>
+            </div>
+
+            <a class="nav-link dropdown-toggle" data-submenu="records-menu-mobile">Records & Billing</a>
+            <div id="records-menu-mobile" class="submenu">
+                <a href="../../billing/medical-records.html" class="nav-link">Medical Records</a>
+                <a href="../../billing/billing-info.html" class="nav-link">Billing Information</a>
+                <a href="../../billing/insurance-verification.html" class="nav-link">Insurance Verification</a>
+                <a href="../../get-care/message.html" class="nav-link">Financial Assistance</a>
+            </div>
+
+            <div class="section-heading">Contact</div>
+            <a href="tel:+2547113566500" class="nav-link phone-link"
+                style="padding-left: 1.5rem; border-bottom: 1px solid #e9ecef;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                </svg>
+                +254 113 566 500
+            </a>
+
+            <div style="padding: 1rem 1.5rem;">
+                <div class="translate-btn">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Google_Translate_logo.svg"
+                        alt="Translate">
+                    <div id="google_translate_element_mobile"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section - Card Design -->
+    <section class="about-hero">
+        <div class="hero-card">
+            <div class="hero-card-content">
+                <h1>About Us</h1>
+                <p>Syokimau Hospital is a nonprofit academic healthcare organization serving the community with excellence in patient care, research, and medical education. Founded in 1995, we've grown from a small community clinic to a comprehensive medical center with state-of-the-art technology and expert healthcare professionals. Our commitment to compassionate care, innovation, and community health has made us one of the most trusted healthcare institutions in Kenya.</p>
+            </div>
+            <div class="hero-card-image"></div>
+        </div>
+    </section>
+
+    <!-- About Cards Section -->
+    <section class="about-cards">
+        <div class="cards-container">
+            <div class="about-card">
+                <i class="fas fa-heartbeat"></i>
+                <h3>Quality Care</h3>
+                <p>We are committed to providing the highest standard of medical care to all our patients, combining advanced technology with compassionate service to meet your healthcare needs.</p>
+            </div>
+            <div class="about-card">
+                <i class="fas fa-users"></i>
+                <h3>Experienced Team</h3>
+                <p>Our team consists of highly skilled doctors, nurses, and support staff dedicated to your health and well-being, with specialized training in various medical disciplines.</p>
+            </div>
+            <div class="about-card">
+                <i class="fas fa-hospital"></i>
+                <h3>Modern Facilities</h3>
+                <p>We offer state-of-the-art medical facilities and equipment to ensure accurate diagnoses and effective treatments, maintaining the highest standards of safety and hygiene.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission and Vision Section -->
+    <section class="mission-vision">
+        <div class="mission-vision-container">
+            <div class="mission-card">
+                <h2>Our Mission</h2>
+                <p>At Syokimau Hospital, our mission is to provide exceptional healthcare services with compassion and integrity. We are dedicated to improving the health and wellbeing of the communities we serve through excellence in patient care, education, research, and community engagement.</p>
+                <p style="margin-top: 15px;">We strive to be accessible to all members of our community, regardless of background or socioeconomic status, and to address the unique healthcare challenges facing our region.</p>
+            </div>
+            <div class="vision-card">
+                <h2>Our Vision</h2>
+                <p>To be the premier healthcare provider in Kenya, recognized for our clinical excellence, patient-centered approach, and innovative medical practices. We aim to lead in medical advancement while maintaining our core values of compassion, integrity, and service.</p>
+                <p style="margin-top: 15px;">By 2030, we envision Syokimau Hospital as a center of healthcare excellence in East Africa, setting the standard for patient care, medical research, and healthcare education across the region.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">1+</div>
+                <div class="stat-label">Years of Service</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Healthcare Professionals</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">200+</div>
+                <div class="stat-label">Hospital Beds</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">50,000+</div>
+                <div class="stat-label">Patients Annually</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- History Timeline Section -->
+    <section class="timeline-section">
+        <h2 class="section-title">Our History</h2>
+        <div class="timeline-container">
+            <div class="timeline-item timeline-left">
+                <div class="timeline-content">
+                    <span class="timeline-date">2025</span>
+                    <h3>Specialized Departments</h3>
+                    <p>We opened our first specialized departments, including cardiology, pediatrics, and obstetrics, enhancing our service offering.</p>
+                </div>
+            </div>
+            <div class="timeline-item timeline-right">
+                <div class="timeline-content">
+                    <span class="timeline-date">2025</span>
+                    <h3>Major Upgrade</h3>
+                    <p>Syokimau Hospital grew into a full-service medical facility with over 150 beds and state-of-the-art medical equipment.</p>
+                </div>
+            </div>
+            <div class="timeline-item timeline-left">
+                <div class="timeline-content">
+                    <span class="timeline-date">2025</span>
+                    <h3>Research Center</h3>
+                    <p>Launched our medical research center focusing on tropical diseases and public health challenges in Kenya.</p>
+                </div>
+            </div>
+            <div class="timeline-item timeline-right">
+                <div class="timeline-content">
+                    <span class="timeline-date">2025</span>
+                    <h3>Today</h3>
+                    <p>Today, we stand as a beacon of healthcare excellence, serving thousands of patients annually with a team of over 500 healthcare professionals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values Section -->
+    <section class="values-section">
+        <div class="values-container">
+            <h2 class="section-title">Our Core Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="value-title">Excellence</h3>
+                    <p class="value-description">We strive for excellence in all aspects of patient care and service delivery, constantly seeking to improve our standards and outcomes.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="value-title">Compassion</h3>
+                    <p class="value-description">We provide care with kindness, empathy, and respect for the dignity of each person, recognizing the human aspect of healthcare.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="value-title">Integrity</h3>
+                    <p class="value-description">We adhere to high ethical standards and demonstrate honesty in all actions, building trust with our patients and community.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="value-title">Teamwork</h3>
+                    <p class="value-description">We value collaboration among our staff, with our patients, and with the community, recognizing that the best outcomes come from working together.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="value-title">Innovation</h3>
+                    <p class="value-description">We embrace new ideas, technologies, and approaches to improve healthcare delivery and patient outcomes.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3 class="value-title">Community</h3>
+                    <p class="value-description">We are committed to serving and improving the health of our community through outreach, education, and accessible care.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Team Section -->
+    <section class="team-section">
+        <h2 class="section-title">Our Leadership Team</h2>
+        <div class="team-container">
+            <div class="team-card">
+                <img src="https://source.unsplash.com/random/300x300/?doctor&man=1" alt="Dr. James Mwangi" class="team-img">
+                <div class="team-info">
+                    <h3 class="team-name">Dr. James Mwangi</h3>
+                    <p class="team-role">Chief Executive Officer</p>
+                    <p class="team-bio">With over 25 years of experience in healthcare management and as a practicing cardiologist, Dr. Mwangi has led Syokimau Hospital since its foundation.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="team-card">
+                <img src="https://source.unsplash.com/random/300x300/?doctor&woman=1" alt="Dr. Sarah Kamau" class="team-img">
+                <div class="team-info">
+                    <h3 class="team-name">Dr. Sarah Kamau</h3>
+                    <p class="team-role">Chief Medical Officer</p>
+                    <p class="team-bio">Dr. Kamau oversees all medical operations and ensures the highest standards of patient care across all departments.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="team-card">
+                <img src="https://source.unsplash.com/random/300x300/?nurse&woman=1" alt="Jane Wambui" class="team-img">
+                <div class="team-info">
+                    <h3 class="team-name">Jane Wambui</h3>
+                    <p class="team-role">Chief Nursing Officer</p>
+                    <p class="team-bio">With a focus on patient-centered care, Jane leads our nursing staff to provide compassionate and skilled nursing services.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="team-card">
+                <img src="https://source.unsplash.com/random/300x300/?businessman" alt="David Ochieng" class="team-img">
+                <div class="team-info">
+                    <h3 class="team-name">David Ochieng</h3>
+                    <p class="team-role">Chief Financial Officer</p>
+                    <p class="team-bio">David ensures the financial health of Syokimau Hospital while maintaining our commitment to accessible healthcare for all.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2 class="section-title">Patient Testimonials</h2>
+        <div class="testimonials-container">
+            <div class="testimonial-slider" id="testimonialSlider">
+                <div class="testimonial-card">
+                    <img src="https://source.unsplash.com/random/100x100/?person&seed=1" alt="Patient" class="testimonial-img">
+                    <p class="testimonial-text">"The care I received at Syokimau Hospital was exceptional. From the moment I walked in, I felt respected and well-cared for. The doctors took the time to explain everything in detail, and the nurses were incredibly attentive."</p>
+                    <p class="testimonial-author">Mary Njeri</p>
+                    <p class="testimonial-role">Patient</p>
+                </div>
+                <div class="testimonial-card">
+                    <img src="https://source.unsplash.com/random/100x100/?person&seed=2" alt="Patient" class="testimonial-img">
+                    <p class="testimonial-text">"After struggling with health issues for years, the team at Syokimau Hospital finally gave me answers and a treatment plan that worked. I'm grateful for their expertise and dedication to finding solutions for complex cases."</p>
+                    <p class="testimonial-author">John Kimani</p>
+                    <p class="testimonial-role">Patient</p>
+                </div>
+                <div class="testimonial-card">
+                    <img src="https://source.unsplash.com/random/100x100/?person&seed=3" alt="Patient" class="testimonial-img">
+                    <p class="testimonial-text">"The pediatric department at Syokimau Hospital is amazing. When my son was admitted with pneumonia, the staff not only provided excellent medical care but also emotional support for both him and me during a scary time."</p>
+                    <p class="testimonial-author">Grace Akinyi</p>
+                    <p class="testimonial-role">Parent</p>
+                </div>
+            </div>
+            <div class="slider-nav" id="sliderNav">
+                <div class="slider-dot active" data-slide="0"></div>
+                <div class="slider-dot" data-slide="1"></div>
+                <div class="slider-dot" data-slide="2"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="blog-section">
+        <h2 class="section-title">Our Latest Blogs</h2>
+        <div class="blog-container">
+          <div class="blog-cards" id="blogCards">
+            <div class="blog-card">
+              <div class="card-image">
+                <img src="/api/placeholder/800/600" alt="Blog post image">
+              </div>
+              <div class="card-content">
+                <h3 class="card-title">Cancer Treatment</h3>
+                <a href="#" class="read-more">
+                  Read More <span class="arrow-icon">→</span>
+                </a>
+              </div>
+            </div>
+            <div class="blog-card">
+              <div class="card-image">
+                <img src="/api/placeholder/800/600" alt="Blog post image">
+              </div>
+              <div class="card-content">
+                <h3 class="card-title">The Future of Medicine in 2025</h3>
+                <a href="#" class="read-more">
+                  Read More <span class="arrow-icon">→</span>
+                </a>
+              </div>
+            </div>
+            <div class="blog-card">
+              <div class="card-image">
+                <img src="/api/placeholder/800/600" alt="Blog post image">
+              </div>
+              <div class="card-content">
+                <h3 class="card-title">How to Treat a Flu</h3>
+                <a href="#" class="read-more">
+                  Read More <span class="arrow-icon">→</span>
+                </a>
+              </div>
+            </div>
+            <div class="blog-card">
+              <div class="card-image">
+                <img src="/api/placeholder/800/600" alt="Blog post image">
+              </div>
+              <div class="card-content">
+                <h3 class="card-title">The Benefits of Vitamins</h3>
+                <a href="#" class="read-more">
+                  Read More <span class="arrow-icon">→</span>
+                </a>
+              </div>
+            </div>
+            <div class="blog-card">
+              <div class="card-image">
+                <img src="/api/placeholder/800/600" alt="Blog post image">
+              </div>
+              <div class="card-content">
+                <h3 class="card-title">Best Practices for Modern Health</h3>
+                <a href="#" class="read-more">
+                  Read More <span class="arrow-icon">→</span>
+                </a>
+              </div>
+            </div>
+            <div class="blog-card">
+              <div class="card-image">
+                <img src="/api/placeholder/800/600" alt="Blog post image">
+              </div>
+              <div class="card-content">
+                <h3 class="card-title">Building Networks in the medicine sector</h3>
+                <a href="#" class="read-more">
+                  Read More <span class="arrow-icon">→</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="navigation-buttons">
+            <button class="nav-button" id="prevBtn">&lt;</button>
+            <button class="nav-button" id="nextBtn">&gt;</button>
+          </div>
+        </div>
+      </section>
+        
+    <!-- Contact CTA Section -->
+  <div class="contact-container">
+    <h2 class="contact-heading">We're always here to help. Contact us today.</h2>
+    <div class="button-container">
+        <a href="../../get-care/care.html">
+      <button class="btn btn-primary">Get Care</button>
+        </a>
+        <a href="../../get-care/message.html">
+      <button class="btn btn-secondary">Send a Message</button>
+        </a>
+    </div>
+  </div>
+    <!--  -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Syokimau Hospital</h3>
+                <p class="address">
+                    123 Syokimau Road<br>
+                    Machakos County, Kenya<br><br>
+                    <strong>Phone:</strong> +254 113 566 500<br>
+                    <strong>Email:</strong> info@syokimauhospital.com
+                </p>
+                <div class="social-footer">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Our Services</h3>
+                <ul class="footer-links">
+                    <li><a href="../../services/departments/emergency.html">Emergency Care</a></li>
+                    <li><a href="../../services/departments/cardiology.html">Cardiology</a></li>
+                    <li><a href="#">Pediatrics</a></li>
+                    <li><a href="#">Orthopedics</a></li>
+                    <li><a href="../../services/departments/all-services.html">All Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="../../home/home.html">Home</a></li>
+                    <li><a href="../about/about.html">About Us</a></li>
+                    <li><a href="../../finddoc/finddoc.html">Find a Doctor</a></li>
+                    <li><a href="../../get-care/message.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Opening Hours</h3>
+                <ul class="footer-links">
+                    <li>Monday - Friday: 24 hours</li>
+                    <li>Saturday: 24 hours</li>
+                    <li>Sunday: 24 hours</li>
+                    <li>Emergency: Always Open</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Syokimau Hospital. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script type="text/javascript">
+    function googleTranslateElementInit() {
+        // Desktop Translator
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'ar,en,es,fr,sw,zh-CN',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false
+        }, 'google_translate_element');
+
+        // Mobile Translator
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'ar,en,es,fr,sw,zh-CN',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false
+        }, 'google_translate_element_mobile');
+
+        function triggerLanguageChange(langCode) {
+            const iframe = document.querySelector('.goog-te-banner-frame');
+            if (iframe) {
+                const innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+                const langSelect = innerDoc.querySelector('.goog-te-combo');
+                if (langSelect) {
+                    langSelect.value = langCode;
+                    langSelect.dispatchEvent(new Event('change'));
+                }
+            } else {
+                const desktopSelect = document.querySelector('#google_translate_element select');
+                const mobileSelect = document.querySelector('#google_translate_element_mobile select');
+                if (desktopSelect) {
+                    desktopSelect.value = langCode;
+                    desktopSelect.dispatchEvent(new Event('change'));
+                } else if (mobileSelect) {
+                    mobileSelect.value = langCode;
+                    mobileSelect.dispatchEvent(new Event('change'));
+                }
+            }
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const headerContainer = document.querySelector('.header-container');
+        const dropdownToggles = mobileMenu.querySelectorAll('.dropdown-toggle');
+        const sectionToggles = document.querySelectorAll('.section-toggle');
+        const contentSections = document.querySelectorAll('.content-section');
+        const desktopDropdowns = document.querySelectorAll('.nav-menu-desktop .dropdown');
+
+        // Mobile menu toggle
+        menuToggle.addEventListener('click', function () {
+            mobileMenu.classList.toggle('active');
+            menuToggle.setAttribute('aria-expanded', mobileMenu.classList.contains('active'));
+        });
+
+        // Mobile menu dropdown toggles
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const submenuId = this.getAttribute('data-submenu');
+                const submenu = document.getElementById(submenuId);
+
+                dropdownToggles.forEach(otherToggle => {
+                    if (otherToggle !== this) {
+                        const otherSubmenuId = otherToggle.getAttribute('data-submenu');
+                        const otherSubmenu = document.getElementById(otherSubmenuId);
+                        if (otherSubmenu && otherSubmenu.classList.contains('active')) {
+                            otherSubmenu.classList.remove('active');
+                            otherToggle.classList.remove('expanded');
+                        }
+                    }
+                });
+
+                this.classList.toggle('expanded');
+                if (submenu) {
+                    submenu.classList.toggle('active');
+                }
+            });
+        });
+
+        // Section toggles
+        function setActiveSection(sectionName) {
+            contentSections.forEach(section => section.classList.remove('active'));
+            sectionToggles.forEach(t => t.classList.remove('active'));
+
+            const targetSection = document.getElementById(sectionName);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+
+            document.querySelectorAll(`.section-toggle[data-section="${sectionName}"]`).forEach(el => {
+                el.classList.add('active');
+            });
+        }
+
+        sectionToggles.forEach(toggle => {
+            toggle.addEventListener('click', function (e) {
+                e.preventDefault();
+                const sectionName = this.getAttribute('data-section');
+                setActiveSection(sectionName);
+
+                if (mobileMenu.classList.contains('active')) {
+                    mobileMenu.classList.remove('active');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+
+        setActiveSection('patients');
+
+        // Desktop dropdowns
+        desktopDropdowns.forEach(dropdown => {
+            const trigger = dropdown.querySelector('.dropdown-arrow');
+
+            trigger.addEventListener('click', function (e) {
+                if (e.target === trigger || trigger.contains(e.target)) {
+                    e.preventDefault();
+
+                    desktopDropdowns.forEach(otherDropdown => {
+                        if (otherDropdown !== dropdown) {
+                            otherDropdown.classList.remove('active');
+                        }
+                    });
+
+                    dropdown.classList.toggle('active');
+                }
+            });
+
+            const links = dropdown.querySelectorAll('.dropdown-content a');
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    dropdown.classList.remove('active');
+                });
+            });
+        });
+
+        // Close desktop dropdowns when clicking outside
+        document.addEventListener('click', function (e) {
+            desktopDropdowns.forEach(dropdown => {
+                if (!dropdown.contains(e.target)) {
+                    dropdown.classList.remove('active');
+                }
+            });
+
+            if (!headerContainer.contains(e.target) && !mobileMenu.contains(e.target) && mobileMenu.classList.contains('active')) {
+                mobileMenu.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Testimonial Slider
+        const testimonialSlider = document.getElementById('testimonialSlider');
+        const sliderDots = document.querySelectorAll('#sliderNav .slider-dot');
+
+        sliderDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const slideIndex = parseInt(dot.getAttribute('data-slide'));
+                
+                // Update slider position
+                testimonialSlider.style.transform = `translateX(-${slideIndex * 100}%)`;
+                
+                // Update active dot
+                sliderDots.forEach((d, i) => {
+                    if (i === slideIndex) {
+                        d.classList.add('active');
+                    } else {
+                        d.classList.remove('active');
+                    }
+                });
+            });
+        });
+
+        // Search icon functionality
+        const searchIcons = document.querySelectorAll('.search-icon');
+        searchIcons.forEach(icon => {
+            icon.addEventListener('click', function () {
+                alert('Search functionality to be implemented!');
+            });
+        });
+
+        // Dynamically load Google Translate script
+        const translateScript = document.createElement('script');
+        translateScript.type = 'text/javascript';
+        translateScript.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+        translateScript.onerror = () => console.error("Google Translate script failed to load.");
+        document.body.appendChild(translateScript);
+    });
+
+    const blogCards = document.getElementById('blogCards');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    
+    let scrollAmount = 0;
+    let cardWidth = document.querySelector('.blog-card').offsetWidth + 32; // Card width + gap
+    
+    // Update card width on window resize
+    window.addEventListener('resize', () => {
+      cardWidth = document.querySelector('.blog-card').offsetWidth + 32;
+    });
+    
+    nextBtn.addEventListener('click', () => {
+      // Calculate how many cards to scroll based on screen width
+      let cardsToScroll = 1;
+      if (window.innerWidth > 768) {
+        cardsToScroll = window.innerWidth > 992 ? 3 : 2;
+      }
+      
+      scrollAmount += cardWidth * cardsToScroll;
+      
+      // Prevent scrolling beyond the last card
+      const maxScroll = blogCards.scrollWidth - blogCards.clientWidth;
+      if (scrollAmount > maxScroll) {
+        scrollAmount = maxScroll;
+      }
+      
+      blogCards.scrollTo({
+        left: scrollAmount,
+        behavior: 'smooth'
+      });
+    });
+    
+    prevBtn.addEventListener('click', () => {
+      // Calculate how many cards to scroll based on screen width
+      let cardsToScroll = 1;
+      if (window.innerWidth > 768) {
+        cardsToScroll = window.innerWidth > 992 ? 3 : 2;
+      }
+      
+      scrollAmount -= cardWidth * cardsToScroll;
+      
+      // Prevent scrolling beyond the first card
+      if (scrollAmount < 0) {
+        scrollAmount = 0;
+      }
+      
+      blogCards.scrollTo({
+        left: scrollAmount,
+        behavior: 'smooth'
+      });
+    });
+
+</script>
+</body>
+</html>

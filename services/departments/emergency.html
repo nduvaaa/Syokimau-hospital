@@ -1,0 +1,596 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Care - Med Oasis Hospital</title>
+    <meta name="description" content="Med Oasis Hospital's Emergency Care department provides 24/7 emergency services with rapid response times and state-of-the-art equipment.">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/department.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header and Navigation -->
+        <!-- Header and Navigation -->
+        <div class="header-container">
+            <nav class="topnavbar">
+                <div class="left-section">
+                    <div class="logo-container">
+                        <a href="../../home/home.html">
+                            <img src="../../home/logo.png" alt="Hospital Logo" class="logo">
+                        </a>
+                    </div>
+                    <div class="primary-links">
+                        <a class="nav-link section-toggle active" data-section="patients">For Patients</a>
+                        <a class="nav-link" href="providers.html">For Providers</a>
+                    </div>
+                </div>
+    
+                <div class="right-section">
+                    <a href="tel:+2547113566500" class="nav-link phone-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                        </svg>
+                        +254 113 566 500
+                    </a>
+                    <div class="translate-btn">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Google_Translate_logo.svg"
+                            alt="Translate">
+                        <div id="google_translate_element"></div>
+                    </div>
+                </div>
+    
+                <div class="mobile-controls">
+                    <div class="search-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                            class="bi bi-search" viewBox="0 0 16 16">
+                            <path
+                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a.007.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                        </svg>
+                    </div>
+                    <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+                </div>
+            </nav>
+    
+            <nav class="bottomnavbar">
+                <div class="nav-menu-desktop">
+                    <div class="dropdown">
+                        <a href="#Care" class="nav-link dropdown-arrow">Get Care</a>
+                        <div class="dropdown-content">
+                            <a href="../../get-care/virtual.html">Virtual Care</a>
+                            <a href="../../get-care/urgent.html">Urgent Care</a>
+                            <a href="../../services/departments/all-services.html">Primary Care</a>
+                            <a href="maternal.html">Maternal</a>
+                            <a href="../../get-care/care.html">Browse All</a>
+                        </div>
+                    </div>
+                    <a href="../../finddoc/finddoc.html" class="nav-link">Find a Doctor</a>
+    
+                    <div class="dropdown">
+                        <a href="#Services" class="nav-link dropdown-arrow">Our Services</a>
+                        <div class="dropdown-content">
+                            <a href="../departments/emergency.html">Emergency Care</a>
+                            <a href="../departments/cardiology.html">Cardiology</a>
+                            <a href="orthopedics.html">Orthopedics</a>
+                            <a href="pediatrics.html">Pediatrics</a>
+                            <a href="../departments/all-services.html">All Services</a>
+                        </div>
+                    </div>
+    
+                    <div class="dropdown">
+                        <a href="#More" class="nav-link dropdown-arrow">Learn More</a>
+                        <div class="dropdown-content">
+                            <a href="../../learn-more/about/about.html">About Us</a>
+                            <a href="../../learn-more/insurance/insurance.html">Insurance Information</a>
+                            <a href="../../learn-more/location/location.html">Our Locations</a>
+                            <a href="../../learn-more/events/events.html">Events & Classes</a>
+                            <a href="../../learn-more/faq/faq.html">FAQs</a>
+                        </div>
+                    </div>
+    
+                    <div class="dropdown">
+                        <a href="#Records" class="nav-link dropdown-arrow">Records & Billing</a>
+                        <div class="dropdown-content">
+                            <a href="../../billing/medical-records.html">Medical Records</a>
+                            <a href="../../billing/billing-info.html">Billing Information</a>
+                            <a href="../../billing/insurance-verification.html">Insurance Verification</a>
+                            <a href="../../get-care/message.html">Financial Assistance</a>
+                        </div>
+                    </div>
+    
+                    <div class="search-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                            class="bi bi-search" viewBox="0 0 16 16">
+                            <path
+                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a.007.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                        </svg>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+
+    <!-- Department Hero Section -->
+    <section class="department-hero emergency-hero">
+        <div class="container">
+            <div class="department-hero-content">
+                <h1>Emergency Care</h1>
+                <p>24/7 emergency medical services with rapid response times and state-of-the-art equipment.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <ul>
+                <li><a href="../../home.html">Home</a></li>
+                <li><a href="all-services.html">All Services</a></li>
+                <li>Emergency Care</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Department Overview -->
+    <section class="department-overview">
+        <div class="container">
+            <div class="overview-grid">
+                <div class="overview-content">
+                    <h2>When Every Minute Counts</h2>
+                    <p>Our Emergency Department at Med Oasis Hospital is equipped to handle all types of emergencies, from minor injuries to life-threatening conditions. Our team of highly skilled emergency physicians, nurses, and support staff are available 24 hours a day, 7 days a week to provide immediate care.</p>
+                    <p>With state-of-the-art diagnostic equipment and a comprehensive trauma center, we ensure that every patient receives the fastest and most appropriate care during critical moments.</p>
+                    
+                    <div class="emergency-stats">
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>10 min</h3>
+                                <p>Average Wait Time</p>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-user-md"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>30+</h3>
+                                <p>Emergency Specialists</p>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-ambulance"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>24/7</h3>
+                                <p>Emergency Services</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="overview-image">
+                    <img src="../images/emergency-overview.jpg" alt="Emergency department at Med Oasis Hospital">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Offered -->
+    <section class="services-offered">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Emergency Services</h2>
+                <p>Comprehensive care when you need it most</p>
+            </div>
+            
+            <div class="services-list">
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Critical Care</h3>
+                        <p>Advanced life support for patients with life-threatening conditions, including heart attacks, strokes, severe trauma, and respiratory distress.</p>
+                    </div>
+                </div>
+                
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-x-ray"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Diagnostic Imaging</h3>
+                        <p>Immediate access to X-rays, CT scans, ultrasound, and MRI to quickly identify injuries and medical conditions.</p>
+                    </div>
+                </div>
+                
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-first-aid"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Trauma Care</h3>
+                        <p>Specialized treatment for severe injuries from accidents, falls, or violence, with a dedicated trauma team ready 24/7.</p>
+                    </div>
+                </div>
+                
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-procedures"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Emergency Surgery</h3>
+                        <p>Immediate surgical intervention when needed, with operating rooms always on standby for emergency procedures.</p>
+                    </div>
+                </div>
+                
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-pills"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Medication Management</h3>
+                        <p>Rapid administration of medications for pain relief, infection control, and stabilization of critical conditions.</p>
+                    </div>
+                </div>
+                
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-ambulance"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Emergency Transport</h3>
+                        <p>Advanced life support ambulances and emergency medical services for rapid transportation to our facility.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- When to Visit -->
+    <section class="when-to-visit">
+        <div class="container">
+            <div class="section-header">
+                <h2>When to Visit the Emergency Department</h2>
+                <p>Recognizing medical emergencies that require immediate attention</p>
+            </div>
+            
+            <div class="visit-grid">
+                <div class="visit-col emergency-cases">
+                    <h3>Emergency Cases</h3>
+                    <ul class="emergency-list">
+                        <li><i class="fas fa-exclamation-circle"></i> Chest pain or difficulty breathing</li>
+                        <li><i class="fas fa-exclamation-circle"></i> Severe bleeding or deep wounds</li>
+                        <li><i class="fas fa-exclamation-circle"></i> Sudden numbness or weakness</li>
+                        <li><i class="fas fa-exclamation-circle"></i> Severe head or eye injuries</li>
+                        <li><i class="fas fa-exclamation-circle"></i> Broken bones or dislocated joints</li>
+                        <li><i class="fas fa-exclamation-circle"></i> High fever with headache and stiff neck</li>
+                        <li><i class="fas fa-exclamation-circle"></i> Poisoning or drug overdose</li>
+                        <li><i class="fas fa-exclamation-circle"></i> Severe burns or electrical injuries</li>
+                        <li><i class="fas fa-exclamation-circle"></i> Seizures or loss of consciousness</li>
+                    </ul>
+                </div>
+                
+                <div class="visit-col urgent-care">
+                    <h3>Urgent Care Cases</h3>
+                    <p>For non-life-threatening conditions, our Urgent Care Center might be appropriate:</p>
+                    <ul class="urgent-list">
+                        <li><i class="fas fa-check-circle"></i> Minor cuts requiring stitches</li>
+                        <li><i class="fas fa-check-circle"></i> Sprains and minor fractures</li>
+                        <li><i class="fas fa-check-circle"></i> Fever without severe symptoms</li>
+                        <li><i class="fas fa-check-circle"></i> Mild to moderate asthma</li>
+                        <li><i class="fas fa-check-circle"></i> Rashes and minor allergic reactions</li>
+                        <li><i class="fas fa-check-circle"></i> Earaches and eye infections</li>
+                        <li><i class="fas fa-check-circle"></i> Urinary tract infections</li>
+                        <li><i class="fas fa-check-circle"></i> Mild dehydration</li>
+                    </ul>
+                    <p class="urgent-note">If you're unsure whether your condition requires emergency or urgent care, call our nurse advice line at (800) 555-9876.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Team -->
+    <section class="department-team">
+        <div class="container">
+            <div class="section-header">
+                <h2>Meet Our Emergency Care Team</h2>
+                <p>Highly skilled professionals dedicated to providing immediate care</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <img src="../images/doctor-emergency-1.jpg" alt="Dr. Michael Reynolds">
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Dr. Michael Reynolds</h3>
+                        <p class="doctor-position">Emergency Department Director</p>
+                        <p class="doctor-bio">Dr. Reynolds has over 15 years of experience in emergency medicine and is board certified in both Emergency Medicine and Critical Care.</p>
+                        <div class="doctor-contact">
+                            <a href="../../finddoc/finddoc.html" class="btn btn-outline">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <img src="../images/doctor-emergency-2.jpg" alt="Dr. Sarah Chen">
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Dr. Sarah Chen</h3>
+                        <p class="doctor-position">Trauma Specialist</p>
+                        <p class="doctor-bio">Specializing in trauma care, Dr. Chen has extensive experience treating critical injuries and coordinating emergency surgical procedures.</p>
+                        <div class="doctor-contact">
+                            <a href="../../finddoc/finddoc.html" class="btn btn-outline">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <img src="../images/doctor-emergency-3.jpg" alt="Dr. James Wilson">
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Dr. James Wilson</h3>
+                        <p class="doctor-position">Emergency Physician</p>
+                        <p class="doctor-bio">Dr. Wilson specializes in emergency cardiac care and is certified in advanced cardiac life support and emergency ultrasound.</p>
+                        <div class="doctor-contact">
+                            <a href="../../finddoc/finddoc.html" class="btn btn-outline">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-cta">
+                <a href="../../finddoc/finddoc.html" class="btn btn-secondary">Meet All Emergency Staff</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency FAQs -->
+    <section class="department-faqs">
+        <div class="container">
+            <div class="section-header">
+                <h2>Emergency Care FAQs</h2>
+                <p>Common questions about our emergency services</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What should I bring to the Emergency Department?</h3>
+                        <button class="faq-toggle"><i class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="faq-answer">
+                        <p>If possible, bring a list of your current medications, allergies, medical history, and your insurance information. However, in true emergencies, don't delay seeking care – we can gather this information later.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How does the triage system work?</h3>
+                        <button class="faq-toggle"><i class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="faq-answer">
+                        <p>When you arrive at our Emergency Department, a triage nurse will assess your condition based on the severity of your symptoms. Patients with life-threatening conditions are seen first, regardless of arrival time. We strive to provide the most urgent care to those who need it most immediately.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What if I need to be admitted to the hospital?</h3>
+                        <button class="faq-toggle"><i class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="faq-answer">
+                        <p>If your condition requires admission, our emergency team will coordinate with the appropriate department for your continued care. We'll handle all the necessary arrangements for your transfer to an inpatient unit.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Does insurance cover emergency visits?</h3>
+                        <button class="faq-toggle"><i class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Most insurance plans cover emergency services. However, coverage varies by plan. We provide care regardless of your ability to pay, especially in emergency situations. Our financial counselors can assist you with questions about coverage and payment options.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What follow-up care is provided after an emergency visit?</h3>
+                        <button class="faq-toggle"><i class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Upon discharge, you'll receive detailed instructions for your recovery and any necessary follow-up care. We can help schedule appointments with specialists if needed and provide prescriptions for medications. Our care coordinator may contact you to ensure you're recovering well.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="department-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>In Case of Emergency</h2>
+                <p>For life-threatening emergencies, call 911 immediately. For all other emergencies, our team is ready to provide prompt and effective care 24/7.</p>
+                <div class="cta-actions">
+                    <a href="tel:8005551234" class="btn btn-primary"><i class="fas fa-phone-alt"></i> (800) 555-1234</a>
+                    <a href="#" class="btn btn-secondary">Emergency Department Location</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointment Section -->
+    <section class="appointment-section" id="appointment">
+        <div class="container">
+            <div class="appointment-container">
+                <div class="appointment-content">
+                    <h2>Schedule a Follow-Up</h2>
+                    <p>After your emergency visit, schedule a follow-up appointment with one of our specialists for continued care.</p>
+                    <ul class="appointment-info">
+                        <li><i class="fas fa-clock"></i> Quick appointment scheduling</li>
+                        <li><i class="fas fa-phone-alt"></i> Call us: (800) 555-1234</li>
+                        <li><i class="fas fa-calendar-check"></i> Online scheduling 24/7</li>
+                    </ul>
+                </div>
+                
+                <div class="appointment-form">
+                    <form id="appointmentForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Service Needed</label>
+                            <select id="service" name="service" required>
+                                <option value="">Select Service</option>
+                                <option value="follow-up">Post-Emergency Follow-up</option>
+                                <option value="imaging">Diagnostic Imaging</option>
+                                <option value="specialist">Specialist Consultation</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="date">Preferred Date</label>
+                            <input type="date" id="date" name="date" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Additional Information</label>
+                            <textarea id="message" name="message" rows="3"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block">Request Appointment</button>
+                    </form>
+                    <div id="formSuccess" class="form-success">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>Thank You!</h3>
+                        <p>Your appointment request has been received. We will contact you shortly to confirm your appointment.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Departments -->
+    <section class="related-departments">
+        <div class="container">
+            <div class="section-header">
+                <h2>Related Departments</h2>
+                <p>Other medical services that work closely with Emergency Care</p>
+            </div>
+            
+            <div class="related-grid">
+                <a href="cardiology.html" class="related-card">
+                    <div class="related-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Cardiology</h3>
+                    <p>For heart-related emergencies and follow-up care</p>
+                </a>
+                
+                <a href="orthopedics.html" class="related-card">
+                    <div class="related-icon">
+                        <i class="fas fa-bone"></i>
+                    </div>
+                    <h3>Orthopedics</h3>
+                    <p>For fractures, dislocations, and trauma care</p>
+                </a>
+                
+                <a href="pediatrics.html" class="related-card">
+                    <div class="related-icon">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <h3>Pediatrics</h3>
+                    <p>Specialized emergency care for children</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>Syokimau Hospital</h3>
+                    <p class="address">
+                        123 Syokimau Road<br>
+                        Machakos County, Kenya<br><br>
+                        <strong>Phone:</strong> +254 113 566 500<br>
+                        <strong>Email:</strong> info@syokimauhospital.com
+                    </p>
+                    <div class="social-footer">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="../departments/emergency.html">Emergency Care</a></li>
+                        <li><a href="../departments/cardiology.html">Cardiology</a></li>
+                        <li><a href="#">Pediatrics</a></li>
+                        <li><a href="#">Orthopedics</a></li>
+                        <li><a href="../departments/all-services.html">All Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="../../home/home.html">Home</a></li>
+                        <li><a href="../../learn-more/about/about.html">About Us</a></li>
+                        <li><a href="../../finddoc/finddoc.html">Find a Doctor</a></li>
+                        <li><a href="../../get-care/message.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Opening Hours</h3>
+                    <ul class="footer-links">
+                        <li>Monday - Friday: 24 hours</li>
+                        <li>Saturday: 24 hours</li>
+                        <li>Sunday: 24 hours</li>
+                        <li>Emergency: Always Open</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Syokimau Hospital. All rights reserved.</p>
+            </div>
+        </footer>
+
+    <div class="scroll-top">
+        <button id="scrollTopBtn" aria-label="Scroll to top">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/department.js"></script>
+</body>
+</html>

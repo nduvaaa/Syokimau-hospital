@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syokimau Hospital</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100vw;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .content-section {
+            padding: 3rem 0;
+            width: 100vw;
+            margin-left: 0;
+        }
+
+        .header-container {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            z-index: 1000;
+        }
+
+        .topnavbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 3rem;
+            background-color: #ffffff;
+            height: 60px;
+        }
+
+        .left-section {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            height: 40px;
+            margin-right: 1rem;
+        }
+
+        .primary-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .right-section {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            cursor: pointer;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link:hover {
+            color: #007bff;
+        }
+
+        .nav-link.active {
+            color: #007bff;
+            border-bottom: 2px solid #007bff;
+        }
+
+        .phone-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #28a745;
+            font-weight: bold;
+            border-bottom: none;
+        }
+
+        .phone-link:hover {
+            color: #218838;
+        }
+
+        .phone-link.active {
+            border-bottom: none;
+            color: #28a745;
+        }
+
+        .translate-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .translate-btn:hover {
+            background-color: #e9ecef;
+        }
+
+        .translate-btn img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .goog-te-gadget {
+            font-family: inherit !important;
+            color: transparent !important;
+            line-height: normal !important;
+        }
+
+        .goog-te-gadget .goog-te-combo {
+            margin: 0 !important;
+            padding: 2px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+            vertical-align: middle;
+        }
+
+        .goog-te-gadget span {
+            display: none !important;
+        }
+
+        .goog-te-gadget>div {
+            display: inline-block !important;
+            background: none !important;
+        }
+
+        .goog-te-gadget-simple {
+            background-color: transparent !important;
+            border: none !important;
+            padding: 0 !important;
+            font-size: inherit !important;
+            display: inline-block !important;
+        }
+
+        .bottomnavbar {
+            background-color: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+            padding: 0 3rem;
+            height: 105px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-menu-desktop {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .search-icon {
+            cursor: pointer;
+            color: #333;
+            transition: color 0.3s ease;
+            padding: 0.5rem;
+        }
+
+        .search-icon:hover {
+            color: #007bff;
+        }
+
+        .mobile-controls {
+            display: none;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 0.5rem;
+            color: #333;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: #f8f9fa;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+            max-height: calc(100vh - 60px);
+            overflow-y: auto;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu .nav-link {
+            display: block;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #e9ecef;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .mobile-menu .nav-link:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-menu .nav-link:hover {
+            background-color: #e9ecef;
+            color: #0056b3;
+        }
+
+        .mobile-menu .section-heading {
+            background-color: #e9ecef;
+            padding: 0.8rem 1.5rem;
+            font-weight: bold;
+            color: #555;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .mobile-menu .submenu {
+            padding-left: 1.5rem;
+            background-color: #ffffff;
+            display: none;
+        }
+
+        .mobile-menu .submenu .nav-link {
+            padding-left: 2.5rem;
+            font-weight: 400;
+            border-color: #f1f1f1;
+        }
+
+        .mobile-menu .submenu.active {
+            display: block;
+        }
+
+        .mobile-menu .dropdown-toggle {
+            position: relative;
+        }
+
+        .mobile-menu .dropdown-toggle::after {
+            content: "+";
+            position: absolute;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.4rem;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+            color: #888;
+        }
+
+        .mobile-menu .dropdown-toggle.expanded::after {
+            content: "−";
+            color: #555;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #ffffff;
+            min-width: 220px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.15);
+            z-index: 1001;
+            border-radius: 4px;
+            margin-top: 0.5rem;
+            border: 1px solid #e9ecef;
+            overflow: hidden;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.2s ease, color 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #007bff;
+            color: #ffffff;
+        }
+
+        .dropdown.active .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-arrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding-bottom: 0.5rem;
+            cursor: pointer;
+        }
+
+        .dropdown-arrow::after {
+            content: "";
+            display: inline-block;
+            width: 0.4rem;
+            height: 0.4rem;
+            margin-left: 0.3rem;
+            margin-top: -0.1rem;
+            border-right: 2px solid currentColor;
+            border-bottom: 2px solid currentColor;
+            transform: rotate(45deg);
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown.active .dropdown-arrow::after {
+            transform: rotate(-135deg);
+            margin-top: 0.1rem;
+        }
+
+        html {
+            scroll-padding-top: 165px;
+        }
+
+        body.translated-ltr,
+        body.translated-rtl {
+            top: 0 !important;
+        }
+
+        .skiptranslate,
+        iframe.goog-te-banner-frame,
+        body>.skiptranslate {
+            display: none !important;
+            visibility: hidden !important;
+        }
+
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        .header {
+            background: linear-gradient(to right, #f0f4ff, #efffef);
+            padding: 40px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Main Content Layout */
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .sidebar {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .map-container {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        /* Card Styles */
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .card h2 {
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .card h2 svg {
+            margin-right: 10px;
+            color: #4a90e2;
+        }
+        
+        .card h2 .green-icon {
+            color: #34a853;
+        }
+        
+        .card h2 .yellow-icon {
+            color: #fbbc05;
+        }
+        
+        .info-item {
+            display: flex;
+            margin-bottom: 12px;
+        }
+        
+        .info-item svg {
+            flex-shrink: 0;
+            margin-top: 4px;
+            margin-right: 10px;
+            color: #666;
+        }
+        
+        .hours-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        
+        .hours-row span:last-child {
+            font-weight: 500;
+        }
+        
+        /* Map Styles */
+        .map-wrapper {
+            height: 500px;
+            border-radius: 8px;
+            overflow: hidden;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Directions Section */
+        .directions {
+            margin: 50px 0;
+        }
+        
+        .directions h2 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: #333;
+        }
+        
+        .directions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .direction-card h3 {
+            display: flex;
+            align-items: center;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .direction-card h3 svg {
+            margin-right: 10px;
+        }
+        
+        .direction-card .blue-icon {
+            color: #4285f4;
+        }
+        
+        .direction-card .red-icon {
+            color: #ea4335;
+        }
+        
+        .direction-card ul {
+            padding-left: 15px;
+        }
+        
+        .direction-card li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .direction-card li svg {
+            position: absolute;
+            left: 0;
+            top: 4px;
+            color: #666;
+        }
+        
+        /* Other Locations Section */
+        .other-locations {
+            margin: 50px 0;
+        }
+        
+        .other-locations h2 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: #333;
+        }
+        
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .location-card {
+            transition: transform 0.2s;
+        }
+        
+        .location-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .location-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .location-link {
+            display: inline-flex;
+            align-items: center;
+            color: #4285f4;
+            text-decoration: none;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+        
+        .location-link:hover {
+            text-decoration: underline;
+            color: #2b579a;
+        }
+        
+        .location-link svg {
+            margin-left: 5px;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(to right, #e6f0ff, #e6fff0);
+            padding: 50px 0;
+            text-align: center;
+            margin: 50px 0;
+            border-radius: 8px;
+        }
+        
+        .cta-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 25px;
+            color: #555;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 25px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+        
+        .cta-btn svg {
+            margin-right: 10px;
+        }
+        
+        .btn-green {
+            background-color: #34a853;
+            color: white;
+        }
+        
+        .btn-green:hover {
+            background-color: #2d9348;
+        }
+        
+        .btn-blue {
+            background-color: #4285f4;
+            color: white;
+        }
+        
+        .btn-blue:hover {
+            background-color: #3367d6;
+        }
+
+
+                /* Footer */
+                .footer {
+            background-color: #333;
+            color: white;
+            padding: 60px 5% 30px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #007BFF;
+        }
+
+        .address {
+            margin-bottom: 20px;
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        .social-footer {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-footer a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-footer a:hover {
+            background-color: #007BFF;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ccc;
+        }
+
+        @media (max-width: 1024px) {
+            .topnavbar,
+            .bottomnavbar {
+                padding: 0 2rem;
+            }
+
+            .bottomnavbar {
+                height: 55px;
+            }
+
+            html {
+                scroll-padding-top: 115px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            html {
+                scroll-padding-top: 60px;
+            }
+
+            .topnavbar {
+                justify-content: space-between;
+                padding: 0 1rem;
+                height: 60px;
+            }
+
+            .left-section .primary-links,
+            .right-section,
+            .bottomnavbar {
+                display: none;
+            }
+
+            .mobile-controls,
+            .menu-toggle {
+                display: flex;
+            }
+
+            .mobile-controls {
+                margin-left: auto;
+            }
+            .header {
+                padding: 30px 0;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content {
+                flex-direction: column;
+            }
+            
+            .directions-grid, .locations-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                height: 35px;
+                margin-right: 0.5rem;
+            }
+
+            .mobile-menu .nav-link {
+                font-size: 1rem;
+                padding: 0.9rem 1rem;
+            }
+
+            .mobile-menu .section-heading {
+                padding: 0.7rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .mobile-menu .submenu .nav-link {
+                padding-left: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header-container">
+        <nav class="topnavbar">
+            <div class="left-section">
+                <div class="logo-container">
+                    <a href="../../home/home.html">
+                        <img src="../../home/logo.png" alt="Hospital Logo" class="logo">
+                    </a>
+                </div>
+                <div class="primary-links">
+                    <a class="nav-link section-toggle active" data-section="patients">For Patients</a>
+                    <a class="nav-link section-toggle" data-section="providers">For Providers</a>
+                </div>
+            </div>
+
+            <div class="right-section">
+                <a href="tel:+2547113566500" class="nav-link phone-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                    </svg>
+                    +254 113 566 500
+                </a>
+                <div class="translate-btn">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Google_Translate_logo.svg"
+                        alt="Translate">
+                    <div id="google_translate_element"></div>
+                </div>
+            </div>
+
+            <div class="mobile-controls">
+                <div class="search-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                        class="bi bi-search" viewBox="0 0 16 16">
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                    </svg>
+                </div>
+                <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+            </div>
+        </nav>
+
+        <nav class="bottomnavbar">
+            <div class="nav-menu-desktop">
+                <div class="dropdown">
+                    <a href="#Care" class="nav-link dropdown-arrow">Get Care</a>
+                    <div class="dropdown-content">
+                        <a href="../../get-care/virtual.html">Virtual Care</a>
+                        <a href="../../get-care/urgent.html">Urgent Care</a>
+                        <a href="../../services/departments/all-services.html">Primary Care</a>
+                        <a href="maternal.html">Maternal</a>
+                        <a href="../../get-care/care.html">Browse All</a>
+                    </div>
+                </div>
+                <a href="../../finddoc/finddoc.html" class="nav-link">Find a Doctor</a>
+                <div class="dropdown">
+                    <a href="#Services" class="nav-link dropdown-arrow">Our Services</a>
+                    <div class="dropdown-content">
+                        <a href="../../services/departments/emergency.html">Emergency Care</a>
+                        <a href="../../services/departments/cardiology.html">Cardiology</a>
+                        <a href="orthopedics.html">Orthopedics</a>
+                        <a href="pediatrics.html">Pediatrics</a>
+                        <a href="../../services/departments/all-services.html">All Services</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="#More" class="nav-link dropdown-arrow">Learn More</a>
+                    <div class="dropdown-content">
+                        <a href="../about/about.html">About Us</a>
+                        <a href="../insurance/insurance.html">Insurance Information</a>
+                        <a href="location.html">Our Locations</a>
+                        <a href="../events/events.html">Events & Classes</a>
+                        <a href="../faq/faq.html">FAQs</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="#Records" class="nav-link dropdown-arrow">Records & Billing</a>
+                    <div class="dropdown-content">
+                        <a href="../../billing/medical-records.html">Medical Records</a>
+                        <a href="../../billing/billing-info.html">Billing Information</a>
+                        <a href="../../billing/insurance-verification.html">Insurance Verification</a>
+                        <a href="../../get-care/message.html">Financial Assistance</a>
+                    </div>
+                </div>
+                <div class="search-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                        class="bi bi-search" viewBox="0 0 16 16">
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                    </svg>
+                </div>
+            </div>
+        </nav>
+
+        <div class="mobile-menu">
+            <a class="nav-link section-toggle active" data-section="patients">For Patients</a>
+            <a class="nav-link section-toggle" data-section="providers">For Providers</a>
+            <hr style="border: none; border-top: 1px solid #dee2e6; margin: 0;">
+            <div class="section-heading">Patient Menu</div>
+            <a class="nav-link dropdown-toggle" data-submenu="care-menu-mobile">Get Care</a>
+            <div id="care-menu-mobile" class="submenu">
+                <a href="../../get-care/virtual.html" class="nav-link">Virtual Care</a>
+                <a href="../../get-care/urgent.html" class="nav-link">Urgent Care</a>
+                <a href="../../services/departments/all-services.html" class="nav-link">Primary Care</a>
+                <a href="Maternal.html" class="nav-link">Maternal</a>
+            </div>
+            <a href="../../finddoc/finddoc.html" class="nav-link">Find a Doctor</a>
+
+            <a class="nav-link dropdown-toggle" data-submenu="services-menu-mobile">Our Services</a>
+            <div id="services-menu-mobile" class="submenu">
+                <a href="../../services/departments/emergency.html" class="nav-link">Emergency Care</a>
+                <a href="../../services/departments/cardiology.html" class="nav-link">Cardiology</a>
+                <a href="Orthopedics.html" class="nav-link">Orthopedics</a>
+                <a href="Pediatrics.html" class="nav-link">Pediatrics</a>
+                <a href="../../services/departments/all-services.html" class="nav-link">All Services</a>
+            </div>
+            <a class="nav-link dropdown-toggle" data-submenu="learn-menu-mobile">Learn More</a>
+            <div id="learn-menu-mobile" class="submenu">
+                <a href="../about/about.html" class="nav-link">About Us</a>
+                <a href="../insurance/insurance.html" class="nav-link">Insurance Information</a>
+                <a href="location.html" class="nav-link">Our Locations</a>
+                <a href="../events/events.html" class="nav-link">Events & Classes</a>
+                <a href="../faq/faq.html" class="nav-link">FAQs</a>
+            </div>
+            <a class="nav-link dropdown-toggle" data-submenu="records-menu-mobile">Records & Billing</a>
+            <div id="records-menu-mobile" class="submenu">
+                <a href="../../billing/medical-records.html" class="nav-link">Medical Records</a>
+                <a href="../../billing/billing-info.html" class="nav-link">Billing Information</a>
+                <a href="../../billing/insurance-verification.html" class="nav-link">Insurance Verification</a>
+                <a href="../../get-care/message.html" class="nav-link">Financial Assistance</a>
+            </div>
+            <div class="section-heading">Contact</div>
+            <a href="tel:+2547113566500" class="nav-link phone-link"
+                style="padding-left: 1.5rem; border-bottom: 1px solid #e9ecef;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                </svg>
+                +254 113 566 500
+            </a>
+            <div style="padding: 1rem 1.5rem;">
+                <div class="translate-btn">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Google_Translate_logo.svg"
+                        alt="Translate">
+                    <div id="google_translate_element_mobile"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="header">
+        <div class="container">
+            <h1>Our Locations</h1>
+            <p>Find and visit Syokimau Hospital facilities across the region. Our state-of-the-art medical centers are designed for your comfort and care.</p>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="content">
+            <!-- Sidebar Information -->
+            <div class="sidebar">
+                <!-- Main Hospital Info -->
+                <div class="card">
+                    <h2>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="green-icon" viewBox="0 0 16 16">
+                            <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                        </svg>
+                        Main Hospital
+                    </h2>
+                    <div class="info-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                        </svg>
+                        <div>
+                            123 Hospital Road, Syokimau<br>
+                            Nairobi, Kenya 00100
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                        </svg>
+                        +254 113 566 500
+                    </div>
+                    <div class="info-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
+                        </svg>
+                        info@syokimauhospital.co.ke
+                    </div>
+                </div>
+                
+                <!-- Hours of Operation -->
+                <div class="card">
+                    <h2>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="blue-icon" viewBox="0 0 16 16">
+                            <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                        </svg>
+                        Hours of Operation
+                    </h2>
+                    <div class="hours-row">
+                        <span>Emergency Care:</span>
+                        <span>24/7</span>
+                    </div>
+                    <div class="hours-row">
+                        <span>Main Hospital:</span>
+                        <span>24/7</span>
+                    </div>
+                    <div class="hours-row">
+                        <span>Outpatient Clinics:</span>
+                        <span>Mon-Fri: 8am-5pm</span>
+                    </div>
+                    <div class="hours-row">
+                        <span>Specialty Clinics:</span>
+                        <span>Mon-Sat: 9am-4pm</span>
+                    </div>
+                    <div class="hours-row">
+                        <span>Pharmacy:</span>
+                        <span>Mon-Sun: 8am-8pm</span>
+                    </div>
+                    <div class="hours-row">
+                        <span>Visiting Hours:</span>
+                        <span>11am-1pm, 4pm-7pm</span>
+                    </div>
+                </div>
+                
+                <!-- Parking Information -->
+                <div class="card">
+                    <h2>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="yellow-icon" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                        </svg>
+                        Parking Information
+                    </h2>
+                    <p><strong>Patient & Visitor Parking:</strong> Free parking is available in lots A, B, and C.</p>
+                    <p><strong>Handicap Parking:</strong> Designated spaces available in all lots closest to main entrances.</p>
+                </div>
+            </div>
+            
+            <!-- Map Container -->
+            <div class="map-container">
+                <div class="map-wrapper">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7742840792573!2d36.9305!3d-1.3605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMcKwMjEnMzcuOCJTIDM2wrA1NSc0OS44IkU!5e0!3m2!1sen!2sus!4v1618329801382!5m2!1sen!2sus" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Directions Section -->
+        <div class="directions">
+            <h2>Getting to Syokimau Hospital</h2>
+            
+            <div class="directions-grid">
+                <!-- Public Transportation -->
+                <div class="card direction-card">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="blue-icon" viewBox="0 0 16 16">
+                            <path d="M3.9 5.5h.8v1.7h1.3V5.5h.8v4.6h-.8V8h-1.3v2.1h-.8V5.5zm3.5 0H9v3.9h1.2v.7H7.4v-.7h1.2V6.2H7.4v-.7z"/>
+                            <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
+                        </svg>
+                        Public Transportation
+                    </h3>
+                    <ul>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                            </svg>
+                            <strong>Bus:</strong> Routes 103, 107, and 110 stop directly in front of the hospital.
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                            </svg>
+                            <strong>Matatu:</strong> Routes 35 and 45 pass within a 5-minute walk to the hospital.
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Driving Directions -->
+                <div class="card direction-card">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="red-icon" viewBox="0 0 16 16">
+                            <path d="M4 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm10 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM6 8a1 1 0 0 0 0 2h4a1 1 0 1 0 0-2H6ZM4.862 4.276 3.906 6.19a.51.51 0 0 0 .497.731c.91-.073.995-.499 1.348-.8 1.255-1.075 3.59-1.01 5.219-.63l1.062-.307a.5.5 0 0 0 .277-.843l-.97-1.243a.5.5 0 0 0-.373-.193H5.12a.5.5 0 0 0-.374.193Z"/>
+                            <path d="M2.52 3.515A2.5 2.5 0 0 1 4.82 2h6.362c1 0 1.904.596 2.298 1.515l.792 1.848c.075.175.21.319.38.404.5.25.855.715.965 1.262l.335 1.679c.033.161.049.325.049.49v.413c0 .814-.39 1.543-1 1.997V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.338c-1.292.048-2.745.088-4 .088s-2.708-.04-4-.088V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.892c-.61-.454-1-1.183-1-1.997v-.413a2.5 2.5 0 0 1 .049-.49l.335-1.68c.11-.546.465-1.012.964-1.261a.807.807 0 0 0 .381-.404l.792-1.848ZM4.82 3a1.5 1.5 0 0 0-1.379.91l-.792 1.847a1.8 1.8 0 0 1-.853.904.807.807 0 0 0-.43.564L1.03 8.904a1.5 1.5 0 0 0-.03.294v.413c0 .796.62 1.448 1.408 1.484 1.555.07 3.786.155 5.592.155 1.806 0 4.037-.084 5.592-.155A1.479 1.479 0 0 0 15 9.611v-.413c0-.099-.01-.197-.03-.294l-.335-1.68a.807.807 0 0 0-.43-.563 1.807 1.807 0 0 1-.853-.904l-.792-1.848A1.5 1.5 0 0 0 11.18 3H4.82Z"/>
+                        </svg>
+                        Driving Directions
+                    </h3>
+                    <ul>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                            </svg>
+                            <strong>From Nairobi CBD:</strong> Take Mombasa Road south for 15 km. Exit at Syokimau and follow signs to the hospital.
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                            </svg>
+                            <strong>From JKIA:</strong> Head south on Airport North Road, then west on Eastern Bypass. Turn south on Mombasa Road and follow signs to Syokimau.
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                            </svg>
+                            <strong>From Machakos:</strong> Take Mombasa Road north toward Nairobi. Exit at Syokimau junction.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        
+        <!-- Contact CTA Section -->
+        <div class="cta-section">
+            <h2>Need Help Finding Us?</h2>
+            <p>Our patient concierge team is available to help with directions or any other questions you may have.</p>
+            <div class="cta-buttons">
+                <a href="tel:+2547113566500" class="cta-btn btn-green">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                    </svg>
+                    Call Us
+                </a>
+                <a href="mailto:info@syokimauhospital.co.ke" class="cta-btn btn-blue">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
+                    </svg>
+                    Email Us
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="footer-container">
+                    <div class="footer-column">
+                        <h3>Syokimau Hospital</h3>
+                        <p class="address">
+                            123 Syokimau Road<br>
+                            Machakos County, Kenya<br><br>
+                            <strong>Phone:</strong> +254 113 566 500<br>
+                            <strong>Email:</strong> info@syokimauhospital.com
+                        </p>
+                        <div class="social-footer">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Our Services</h3>
+                        <ul class="footer-links">
+                            <li><a href="../../services/departments/emergency.html">Emergency Care</a></li>
+                            <li><a href="../../services/departments/cardiology.html">Cardiology</a></li>
+                            <li><a href="#">Pediatrics</a></li>
+                            <li><a href="#">Orthopedics</a></li>
+                            <li><a href="../../services/departments/all-services.html">All Services</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Quick Links</h3>
+                        <ul class="footer-links">
+                            <li><a href="../../home/home.html">Home</a></li>
+                            <li><a href="../about/about.html">About Us</a></li>
+                            <li><a href="../../finddoc/finddoc.html">Find a Doctor</a></li>
+                            <li><a href="../../get-care/message.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Opening Hours</h3>
+                        <ul class="footer-links">
+                            <li>Monday - Friday: 24 hours</li>
+                            <li>Saturday: 24 hours</li>
+                            <li>Sunday: 24 hours</li>
+                            <li>Emergency: Always Open</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2025 Syokimau Hospital. All rights reserved.</p>
+                </div>
+            </footer>
+    
+
+    <script type="text/javascript">
+        // Google Translate Initialization
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'ar,en,es,fr,sw,zh-CN',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
+
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'ar,en,es,fr,sw,zh-CN',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element_mobile');
+        }
+
+        // Trigger language change for Google Translate
+        function triggerLanguageChange(langCode) {
+            const iframe = document.querySelector('.goog-te-banner-frame');
+            if (iframe) {
+                const innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+                const langSelect = innerDoc.querySelector('.goog-te-combo');
+                if (langSelect) {
+                    langSelect.value = langCode;
+                    langSelect.dispatchEvent(new Event('change'));
+                }
+            } else {
+                const desktopSelect = document.querySelector('#google_translate_element select');
+                const mobileSelect = document.querySelector('#google_translate_element_mobile select');
+                if (desktopSelect) {
+                    desktopSelect.value = langCode;
+                    desktopSelect.dispatchEvent(new Event('change'));
+                } else if (mobileSelect) {
+                    mobileSelect.value = langCode;
+                    mobileSelect.dispatchEvent(new Event('change'));
+                }
+            }
+        }
+
+        // Google Maps Initialization (placeholder)
+        function initMap() {
+            console.log("Google Maps initialized");
+        }
+
+        // Main DOM Content Loaded Event Listener
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const headerContainer = document.querySelector('.header-container');
+            const dropdownToggles = mobileMenu?.querySelectorAll('.dropdown-toggle');
+            const sectionToggles = document.querySelectorAll('.section-toggle');
+            const contentSections = document.querySelectorAll('.content-section');
+            const desktopDropdowns = document.querySelectorAll('.nav-menu-desktop .dropdown');
+
+            // Mobile menu toggle
+            menuToggle?.addEventListener('click', function () {
+                mobileMenu.classList.toggle('active');
+                menuToggle.setAttribute('aria-expanded', mobileMenu.classList.contains('active'));
+            });
+
+            // Mobile menu dropdown toggles
+            dropdownToggles?.forEach(toggle => {
+                toggle.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation(); // Prevent click from bubbling up to document
+                    const submenuId = this.getAttribute('data-submenu');
+                    const submenu = document.getElementById(submenuId);
+
+                    dropdownToggles.forEach(otherToggle => {
+                        if (otherToggle !== this) {
+                            const otherSubmenuId = otherToggle.getAttribute('data-submenu');
+                            const otherSubmenu = document.getElementById(otherSubmenuId);
+                            if (otherSubmenu?.classList.contains('active')) {
+                                otherSubmenu.classList.remove('active');
+                                otherToggle.classList.remove('expanded');
+                            }
+                        }
+                    });
+
+                    this.classList.toggle('expanded');
+                    submenu?.classList.toggle('active');
+                });
+            });
+
+            // Section toggles
+            function setActiveSection(sectionName) {
+                contentSections.forEach(section => section.classList.remove('active'));
+                sectionToggles.forEach(t => t.classList.remove('active'));
+
+                const targetSection = document.getElementById(sectionName);
+                targetSection?.classList.add('active');
+
+                document.querySelectorAll(`.section-toggle[data-section="${sectionName}"]`).forEach(el => {
+                    el.classList.add('active');
+                });
+            }
+
+            sectionToggles.forEach(toggle => {
+                toggle.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const sectionName = this.getAttribute('data-section');
+                    setActiveSection(sectionName);
+
+                    if (mobileMenu.classList.contains('active')) {
+                        mobileMenu.classList.remove('active');
+                        menuToggle.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            });
+
+            setActiveSection('patients');
+
+            // Desktop dropdowns - Simplified to toggle on click of the entire dropdown
+            desktopDropdowns.forEach(dropdown => {
+                const trigger = dropdown.querySelector('.dropdown-arrow');
+                trigger?.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation(); // Prevent click from bubbling up to document
+
+                    // Close other dropdowns
+                    desktopDropdowns.forEach(otherDropdown => {
+                        if (otherDropdown !== dropdown && otherDropdown.classList.contains('active')) {
+                            otherDropdown.classList.remove('active');
+                        }
+                    });
+
+                    // Toggle this dropdown
+                    dropdown.classList.toggle('active');
+                });
+
+                // Close dropdown when clicking a link inside
+                const links = dropdown.querySelectorAll('.dropdown-content a');
+                links.forEach(link => {
+                    link.addEventListener('click', () => {
+                        dropdown.classList.remove('active');
+                    });
+                });
+            });
+
+            // Close desktop dropdowns and mobile menu when clicking outside
+            document.addEventListener('click', function (e) {
+                let clickedInsideDropdown = false;
+                desktopDropdowns.forEach(dropdown => {
+                    if (dropdown.contains(e.target)) {
+                        clickedInsideDropdown = true;
+                    } else if (dropdown.classList.contains('active')) {
+                        dropdown.classList.remove('active');
+                    }
+                });
+
+                if (!clickedInsideDropdown && !headerContainer.contains(e.target) && !mobileMenu.contains(e.target) && mobileMenu.classList.contains('active')) {
+                    mobileMenu.classList.remove('active');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            // Search functionality
+            const searchIcons = document.querySelectorAll('.search-icon');
+            searchIcons.forEach(icon => {
+                icon.addEventListener('click', function () {
+                    alert('Search functionality to be implemented!');
+                });
+            });
+
+            const heroSearchButton = document.querySelector('.hero-section .search-button');
+            heroSearchButton?.addEventListener('click', function () {
+                const query = document.querySelector('.hero-section .search-input').value;
+                alert(`Searching for: "${query}" (Implementation needed)`);
+            });
+
+            // Load Google Translate script
+            const translateScript = document.createElement('script');
+            translateScript.type = 'text/javascript';
+            translateScript.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+            translateScript.onerror = () => console.error("Google Translate script failed to load.");
+            document.body.appendChild(translateScript);
+
+            // Load Google Maps API script (optional for this page)
+            const googleMapsScript = document.createElement('script');
+            googleMapsScript.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&libraries=places&callback=initMap";
+            googleMapsScript.async = true;
+            googleMapsScript.defer = true;
+            googleMapsScript.onerror = () => console.error("Google Maps API script failed to load.");
+            document.body.appendChild(googleMapsScript);
+        });
+          // Google Maps API script  
+          function initMap() {
+            // Initialize map if needed
+            console.log("Map initialized");
+        }
+        
+        // Add Google Maps API script
+        document.addEventListener('DOMContentLoaded', function() {
+            const googleMapsScript = document.createElement('script');
+            googleMapsScript.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&libraries=places&callback=initMap";
+            googleMapsScript.async = true;
+            googleMapsScript.defer = true;
+            document.body.appendChild(googleMapsScript);
+        });
+    </script>
+</body>
+
+</html>
